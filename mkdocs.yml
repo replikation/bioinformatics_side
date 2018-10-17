@@ -1,2 +1,12 @@
-site_name: My Docs
+site_name: Bioinformatics
 theme: flatly
+nav:
+- Home: index.md
+- Databases:
+        - General: databases.md
+        - EMBOSS: emboss.md
+- Shell:
+        - Basics: shell.md
+        - Fasta_Manipulation: fasta.md
+- Python:
+        - Basics: python.md
