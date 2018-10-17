@@ -12,3 +12,4 @@ nav:
         - Basics: python.md
 - Tools:
         - Atom Editor: atom.md
+        - mkdocs: mkdocs.md

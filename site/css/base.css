@@ -62,9 +62,9 @@ ul.nav .main {
 
 code {
     padding: 1px 3px;
-    background: #ecf0f1;
+    background: #f5f5f5;
     border: solid 1px #ccc;
-    color: #7b8a8b;
+    color: #333;
 }
 
 pre code {
@@ -73,7 +73,11 @@ pre code {
 }
 
 a code {
-    color: #18bc9c;
+    color: #008cba;
+}
+
+a:hover code, a:focus code {
+    color: #00526e;
 }
 
 kbd {
@@ -94,15 +98,14 @@ footer {
 }
 
 .modal-dialog {
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 /* Style the admonitions. */
 
 .admonition {
     margin-bottom: 21px;
-    border: 1px solid #ecf0f1;
-    border-radius: 4px;
+    border: 1px solid #ddd;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -110,13 +113,11 @@ footer {
 .admonition > .admonition-title {
     margin: 0;
     padding: 10px 15px;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    border-bottom: 1px solid #ecf0f1;
-    color: #2c3e50;
-    background-color: #ecf0f1;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    background-color: #f5f5f5;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.1;
 }
 
@@ -137,30 +138,30 @@ footer {
 /* Style each kind of admonition. */
 
 .admonition.note, .admonition.note > .admonition-title {
-    border-color: #3498db;
+    border-color: #3db5d8;
 }
 
 .admonition.note > .admonition-title {
     color: #fff;
-    background-color: #3498db;
+    background-color: #5bc0de;
 }
 
 .admonition.warning, .admonition.warning > .admonition-title {
-    border-color: #f39c12;
+    border-color: #d08002;
 }
 
 .admonition.warning > .admonition-title {
     color: #fff;
-    background-color: #f39c12;
+    background-color: #e99002;
 }
 
 .admonition.danger, .admonition.danger > .admonition-title {
-    border-color: #e74c3c;
+    border-color: #ea2f10;
 }
 
 .admonition.danger > .admonition-title {
     color: #fff;
-    background-color: #e74c3c;
+    background-color: #f04124;
 }
 
 /*
@@ -270,9 +271,6 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
     left: 100%;
     margin-top: 0px;
     margin-left: -1px;
-    -webkit-border-radius: 0 4px 4px 4px;
-    -moz-border-radius: 0 4px 4px;
-    border-radius: 0 4px 4px 4px;
 }
 
 /* display sub menu on hover*/
@@ -297,5 +295,5 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
 
 /* little arrow of parent menu */
 .dropdown-submenu:hover>a:after {
-    border-left-color: #404040;
+    border-left-color: #fff;
 }
