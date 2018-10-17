@@ -1,5 +1,5 @@
 site_name: Bioinformatics
-theme: flatly
+theme: yeti
 nav:
 - Home: index.md
 - Databases:
@@ -10,3 +10,5 @@ nav:
         - Fasta_Manipulation: fasta.md
 - Python:
         - Basics: python.md
+- Tools:
+        - Atom Editor: atom.md

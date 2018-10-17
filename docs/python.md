@@ -1,9 +1,19 @@
-Python
-===
-____
 # Basics
 * in shell do `python3` to open the command line
 * `python3 skript.py` to execute a `.py` skript
+
+## Installing pip
+* due to the version chaos that is pip pip3 python and python3, here an explanation
+* stick with python 3
+* so if a site tells you to do `pip install` do `pip3 install`
+
+```bash
+# installing the pip3 from python3.X (not pip from python 2.7)
+sudo apt-get install python3-pip ## use the apt-get for now
+# example of a pip install, DONT use sudo here
+pip3 install pylama pylama-pylint
+```
+
 
 ## Special rules
 * you can split a single line like this into multiple lines using `\`

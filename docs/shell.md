@@ -1,6 +1,3 @@
-Unix
-===
-____
 # Unix Commands
 ## Short cuts
 ctrl + C terminates a process

@@ -1,7 +1,3 @@
-Emboss
-===
-____
-
 # EMBOSS Open Software Suite
 + `wossname` is your first to go command to search for all the tools
 ```bash

@@ -1,6 +1,3 @@
-Unix
-===
-____
 # Fastq/Fasta awk/sed cheats
 
 * here you can find a few awk sed shortcuts for fasta manipulation

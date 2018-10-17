@@ -1,7 +1,3 @@
-Biological Databases
-===
-____
-
 # Major Databases
 **Nucleic ([ENA](https://www.ebi.ac.uk/ena), [Genbank](https://www.ncbi.nlm.nih.gov/genbank/),
 [DDBJ](http://www.ddbj.nig.ac.jp/))**
