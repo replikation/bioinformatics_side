@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Bioinformatics</title>
-        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Fasta_Manipulation - Bioinformatics</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,13 +19,13 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -39,39 +39,39 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=".">Bioinformatics</a>
+                    <a class="navbar-brand" href="..">Bioinformatics</a>
                 </div>
 
                 <!-- Expanded navigation -->
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href=".">Home</a>
+                            <li >
+                                <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="databases/">General</a>
+    <a href="../databases/">General</a>
 </li>
                                     
 <li >
-    <a href="emboss/">EMBOSS</a>
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="shell/">Basics</a>
+    <a href="../shell/">Basics</a>
 </li>
                                     
-<li >
-    <a href="fasta/">Fasta_Manipulation</a>
+<li class="active">
+    <a href="./">Fasta_Manipulation</a>
 </li>
                                 </ul>
                             </li>
@@ -80,7 +80,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="python/">Basics</a>
+    <a href="../python/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -92,13 +92,13 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="disabled">
-                                <a rel="next" >
+                            <li >
+                                <a rel="next" href="../shell/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="databases/">
+                                <a rel="prev" href="../python/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -110,26 +110,36 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#home">Home</a></li>
-        <li class="main "><a href="#bioinformatics-collection">Bioinformatics Collection</a></li>
-            <li><a href="#table-of-content">Table of Content</a></li>
-            <li><a href="#license">License</a></li>
+        <li class="main active"><a href="#unix">Unix</a></li>
+        <li class="main "><a href="#fastqfasta-awksed-cheats">Fastq/Fasta awk/sed cheats</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="home">Home</h1>
+<h1 id="unix">Unix</h1>
 <hr />
-<h1 id="bioinformatics-collection">Bioinformatics Collection</h1>
-<p>This website is a collection of lectures and tutorials for me.</p>
-<p>Created/Collected by Christian Brandt.</p>
-<p>Using this tutorial for side creation:
-https://mkdocs.readthedocs.io/en/stable/</p>
-<h2 id="table-of-content">Table of Content</h2>
-<p>see navigation above</p>
-<h2 id="license">License</h2>
-<p>Unless stated otherwise, all is licensed under the Creative Commons Attribution 4.0 International License.
-To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a> or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p></div>
+<h1 id="fastqfasta-awksed-cheats">Fastq/Fasta awk/sed cheats</h1>
+<ul>
+<li>here you can find a few awk sed shortcuts for fasta manipulation</li>
+</ul>
+<pre><code class="bash"># converting fastq to fasta
+sed -n '1~4s/^@/&gt;/p;2~4p' INFILE.fastq &gt; OUTFILE.fasta
+# maka fastafiles one liner (good for shell stuff)
+sed ':a;N;/^&gt;/M!s/\n//;ta;P;D' Input.fasta &gt; oneliner.fasta
+# filter multifasta by a certain length - in this case 1000 bp
+awk '/^&gt;/ { getline seq } length(seq) &gt;1000 { print $0 &quot;\n&quot; seq }' oneliner.fasta &gt; online_grt1000.fasta
+</code></pre>
+
+<ul>
+<li>as loops</li>
+</ul>
+<pre><code class="bash">#lazy way
+    for x in *.fastq; do sed -n '1~4s/^@/&gt;/p;2~4p' $x &gt; ${x%.fastq}.fasta ; done
+    for x in *.fasta; do sed ':a;N;/^&gt;/M!s/\n//;ta;P;D' $x &gt; ${x%.fasta}_oneliner.fasta ; done
+    for x in *_oneliner.fasta; do awk '/^&gt;/ { getline seq } length(seq) &gt;1000 { print $0 &quot;\n&quot; seq }' $x &gt; ${x%._onliner.fasta}_clean.fasta ; done
+# check all reads
+for x in *.fasta ; do echo  grep -c &quot;&gt;&quot; $x
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
@@ -137,11 +147,11 @@ To view a copy of this license, visit <a href="http://creativecommons.org/licens
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -209,8 +219,3 @@ To view a copy of this license, visit <a href="http://creativecommons.org/licens
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2018-10-17 14:46:30
--->
