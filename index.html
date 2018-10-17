@@ -12,7 +12,7 @@
         <link href="css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -84,6 +84,15 @@
 </li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="atom/">Atom Editor</a>
+</li>
+                                </ul>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -113,6 +122,7 @@
         <li class="main active"><a href="#home">Home</a></li>
         <li class="main "><a href="#bioinformatics-collection">Bioinformatics Collection</a></li>
             <li><a href="#table-of-content">Table of Content</a></li>
+            <li><a href="#mkdocs">mkdocs</a></li>
             <li><a href="#license">License</a></li>
     </ul>
 </div></div>
@@ -123,10 +133,46 @@
 <h1 id="bioinformatics-collection">Bioinformatics Collection</h1>
 <p>This website is a collection of lectures and tutorials for me.</p>
 <p>Created/Collected by Christian Brandt.</p>
-<p>Using this tutorial for side creation:
-https://mkdocs.readthedocs.io/en/stable/</p>
 <h2 id="table-of-content">Table of Content</h2>
 <p>see navigation above</p>
+<h2 id="mkdocs">mkdocs</h2>
+<p>Using this tutorial for side creation:
+https://mkdocs.readthedocs.io/en/stable/</p>
+<p>Using this style:
+https://github.com/mkdocs/mkdocs-bootswatch</p>
+<ul>
+<li>don't change anything on the git repository for the side creation !!</li>
+</ul>
+<h3 id="first-deployment">First deployment</h3>
+<pre><code class="bash"># create rep on github
+# git clone it and do on the repository:
+mkdocs new &lt;repositoryname&gt;
+cd &lt;repositoryname&gt;
+# change a few things in the mkdocs.yml
+# create markdowns
+
+# now build the side with:
+mkdocs build
+
+# push all changes to your master
+git add &amp; git commit &amp; git push ....
+
+# push the side
+mkdocs gh-deploy
+</code></pre>
+
+<h3 id="change-things">change things</h3>
+<pre><code class="bash">#change stuff
+# now build the side with:
+mkdocs build
+
+# push all changes to your master
+git add &amp; git commit &amp; git push ....
+
+# push the side
+mkdocs gh-deploy
+</code></pre>
+
 <h2 id="license">License</h2>
 <p>Unless stated otherwise, all is licensed under the Creative Commons Attribution 4.0 International License.
 To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a> or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p></div>
@@ -212,5 +258,5 @@ To view a copy of this license, visit <a href="http://creativecommons.org/licens
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-10-17 14:48:17
+Build Date UTC : 2018-10-17 15:26:08
 -->
