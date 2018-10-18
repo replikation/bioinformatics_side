@@ -7,9 +7,21 @@ nav:
         - EMBOSS: emboss.md
 - Shell:
         - Basics: shell.md
-        - Fasta_Manipulation: fasta.md
+        - Fasta Manipulation: fasta.md
+        - Advanced Commands & Installation: shell_adv.md
+        - Git: git.md
 - Python:
         - Basics: python.md
+- R:
+        - R: R.md
 - Tools:
         - Atom Editor: atom.md
         - mkdocs: mkdocs.md
+- Sequencing:
+        - Programms: programs.md
+        - HTS (Illumina): illumina.md
+        - Longreads (Nanopore): nanopore.md
+        - Hybridassembly: hybrid.md
+- Other Topics:
+        - GWAS: gwas.md
+        - GS: gs.md

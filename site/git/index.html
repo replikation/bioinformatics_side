@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Fasta Manipulation - Bioinformatics</title>
+        <title>Git - Bioinformatics</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -70,16 +70,16 @@
     <a href="../shell/">Basics</a>
 </li>
                                     
-<li class="active">
-    <a href="./">Fasta Manipulation</a>
+<li >
+    <a href="../fasta/">Fasta Manipulation</a>
 </li>
                                     
 <li >
     <a href="../shell_adv/">Advanced Commands & Installation</a>
 </li>
                                     
-<li >
-    <a href="../git/">Git</a>
+<li class="active">
+    <a href="./">Git</a>
 </li>
                                 </ul>
                             </li>
@@ -157,12 +157,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../shell/">
+                                <a rel="next" href="../shell_adv/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../shell_adv/">
+                                <a rel="prev" href="../python/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -174,41 +174,31 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#manipulating-fastq-files-to-fasta">Manipulating fastq files to fasta</a></li>
-        <li class="main "><a href="#convert-gfa-to-fasta">Convert gfa to fasta</a></li>
+        <li class="main active"><a href="#git-hub">Git Hub</a></li>
+            <li><a href="#githubcom-step-by-step">Github.com - step by step</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="manipulating-fastq-files-to-fasta">Manipulating fastq files to fasta</h1>
+<h2 id="git-hub">Git Hub</h2>
 <ul>
-<li>here you can find a few awk, sed shortcuts for fasta manipulation</li>
+<li>to create a git repository follow the  introductions at <a href="https://github.com/">github</a></li>
+<li>to get a new git repository (not yours) for the first time use:
+<code>git clone &lt;git_URL&gt;</code></li>
 </ul>
-<pre><code class="bash"># converting fastq to fasta
-sed -n '1~4s/^@/&gt;/p;2~4p' INFILE.fastq &gt; OUTFILE.fasta
-
-# maka fastafiles one liner (good for shell stuff)
-sed ':a;N;/^&gt;/M!s/\n//;ta;P;D' Input.fasta &gt; oneliner.fasta
-
-# filter multifasta by a certain length - in this case 1000 bp
-awk '/^&gt;/ { getline seq } length(seq) &gt;1000 { print $0 &quot;\n&quot; seq }' oneliner.fasta &gt; online_grt1000.fasta
-</code></pre>
-
+<h3 id="githubcom-step-by-step">Github.com - step by step</h3>
 <ul>
-<li>as loops:</li>
-</ul>
-<pre><code class="bash"># lazy way
-    for x in *.fastq; do sed -n '1~4s/^@/&gt;/p;2~4p' $x &gt; ${x%.fastq}.fasta ; done
-    for x in *.fasta; do sed ':a;N;/^&gt;/M!s/\n//;ta;P;D' $x &gt; ${x%.fasta}_oneliner.fasta ; done
-    for x in *_oneliner.fasta; do awk '/^&gt;/ { getline seq } length(seq) &gt;1000 { print $0 &quot;\n&quot; seq }' $x &gt; ${x%._onliner.fasta}_clean.fasta ; done
-
-# check all reads
-for x in *.fasta ; do echo  grep -c &quot;&gt;&quot; $x
-</code></pre>
-
-<h1 id="convert-gfa-to-fasta">Convert gfa to fasta</h1>
-<pre><code class="bash">awk '/^S/{print &quot;&gt;&quot;$2&quot;\n&quot;$3}' file_in.gfa | fold &gt; file_out.fasta
-</code></pre></div>
+<li>create git repository at <a href="https://github.com/">github</a></li>
+<li>follow the description to link it to your local folder</li>
+<li>use <code>git init</code> to create a git directory in any directory you want</li>
+<li>this is the master directory, so every sub directory is included</li>
+<li><code>gitstatus</code> always tells you what to do</li>
+<li>you add things you want to commit using <code>git add &lt;file&gt;</code></li>
+<li><code>git commit -m "message"</code> to commit your changes</li>
+<li><code>git push origin master</code> pushes commited file to internet git repository</li>
+<li><code>git pull</code> to get a update from github</li>
+<li><code>nano .gitignore</code> write filenames in .gitignore that you don't want to be added or pushed</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

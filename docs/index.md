@@ -6,6 +6,9 @@ ____
 
 This website is a collection of lectures and tutorials for me.
 
+Commands are usually one liner, so use "triple" click to copy the whole line, even if its on 2 lines due to website formatting.
+
+
 Created/Collected by Christian Brandt.
 
 
@@ -17,5 +20,9 @@ see navigation above
 
 ## License
 
-Unless stated otherwise, all is licensed under the Creative Commons Attribution 4.0 International License.
-To view a copy of this license, visit <http://creativecommons.org/licenses/by/4.0/> or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+GNU GENERAL PUBLIC LICENSE
+   Version 3, 29 June 2007
+
+Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.

@@ -1,5 +1,5 @@
 # Atom
-* steps here are escribed using win10 and a WSL with ubuntu
+* steps here are described using win10 and a WSL with ubuntu
 
 ## Important Packages
 
@@ -19,7 +19,8 @@
 
 ## Installing shellcheck (corrects shell scripts)
 
-* basically you install shellcheck via scoop into windows directly via powershell
+* you need the linter package and the linter-shellcheck package  in atom
+* then you install shellcheck via scoop into windows directly via powershell
 * check the scoop site for scoop installation
 
 ```bash
@@ -39,7 +40,7 @@ C:\Users\<USERNAME>\scoop\apps\shellcheck\0.5.0\shellcheck.exe
 
 ## Installing pylama (corrects python scripts)
 
-* to install it, you need to install the linter-python package in atom
+* you need to install the linter and linter-python package in atom
 * also you need to install pylama in python3
 
 ```bash

@@ -1,12 +1,13 @@
 ## mkdocs
-Using this tutorial for side creation/installation:
+Used `mkdocs` tutorial for site creation:
 https://mkdocs.readthedocs.io/en/stable/
 
 Using this style:
 https://github.com/mkdocs/mkdocs-bootswatch
-(do a pip3 installation)
+(do a `pip3` installation)
 
-* don't change anything on the git repository for the side creation !!
+* don't change anything on the git repository, it should automatically do every thing after the push !!
+* it uses the branch pushed via mkdocs for the website
 
 ### First deployment
 ```bash
@@ -28,7 +29,7 @@ mkdocs gh-deploy
 ```
 ### change things
 ```bash
-#change stuff
+# change files
 # now build the side with:
 mkdocs build --clean  # clean is important if a style change was done
 

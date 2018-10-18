@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Fasta Manipulation - Bioinformatics</title>
+        <title>HTS (Illumina) - Bioinformatics</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -70,8 +70,8 @@
     <a href="../shell/">Basics</a>
 </li>
                                     
-<li class="active">
-    <a href="./">Fasta Manipulation</a>
+<li >
+    <a href="../fasta/">Fasta Manipulation</a>
 </li>
                                     
 <li >
@@ -114,7 +114,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sequencing <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -122,8 +122,8 @@
     <a href="../programs/">Programms</a>
 </li>
                                     
-<li >
-    <a href="../illumina/">HTS (Illumina)</a>
+<li class="active">
+    <a href="./">HTS (Illumina)</a>
 </li>
                                     
 <li >
@@ -157,12 +157,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../shell/">
+                                <a rel="next" href="../programs/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../shell_adv/">
+                                <a rel="prev" href="../nanopore/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -174,41 +174,84 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#manipulating-fastq-files-to-fasta">Manipulating fastq files to fasta</a></li>
-        <li class="main "><a href="#convert-gfa-to-fasta">Convert gfa to fasta</a></li>
+        <li class="main active"><a href="#illumina-practical">Illumina - practical</a></li>
+            <li><a href="#1-cleaning-up-reads-illumina">1. Cleaning up Reads (Illumina)</a></li>
+            <li><a href="#2a-megahit-assembly">2.a megahit assembly</a></li>
+            <li><a href="#2b-or-spades-assembly">2.b or spades assembly</a></li>
+            <li><a href="#3-index-creation-with-bowtie-and-bowtiesamtool-pipe">3. Index creation with bowtie and  bowtie/samtool pipe</a></li>
+            <li><a href="#4-sort-with-samtools-and-build-a-index">4. Sort with samtools and build a index</a></li>
+            <li><a href="#5-starting-pylon-for-missmatch-correction">5. Starting pylon for missmatch correction</a></li>
+            <li><a href="#6-quality-control-with-buscopy">6. Quality control with busco.py</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="manipulating-fastq-files-to-fasta">Manipulating fastq files to fasta</h1>
+<h1 id="illumina-practical">Illumina - practical</h1>
 <ul>
-<li>here you can find a few awk, sed shortcuts for fasta manipulation</li>
+<li>example workflow with a few steps included</li>
+<li>part of the SLU bioinformatics course</li>
+<li><strong>in general always check the <code>--help</code> for each program</strong></li>
 </ul>
-<pre><code class="bash"># converting fastq to fasta
-sed -n '1~4s/^@/&gt;/p;2~4p' INFILE.fastq &gt; OUTFILE.fasta
+<h2 id="1-cleaning-up-reads-illumina">1. Cleaning up Reads (Illumina)</h2>
+<ul>
+<li><code>fastqc</code> gives you an overview whats may be wrong with your reads</li>
+</ul>
+<blockquote>
+<p>N50 is defined as the minimum contig length needed to cover 50% of the genome. It means, half of the genome sequence is in contigs larger than or equal the N50 contig size</p>
+<p>PHRED quality score: gives the probability of an incorrect base call for each base. Score 10 = 1 error in 10 bases. Score 20 = 1 error in 100. Score 30 = 1 in 1000 and so on. It's encoded from 0 to 93 as ASCII symbols in the fastq format.
+<em> <code>scythe</code> removes adapters and or barcodes, or remove the "overrepresented sequence" that fastqc is reporting
+  * <a href="https://support.illumina.com/downloads/illumina-customer-sequence-letter.html">Download Illumina adapter files here</a>
+</em> <code>sickle</code> for removal of low quality sequences; <code>-s /dev/null</code> moves singleton files to trash
+* <code>multiqc</code> takes all fastqc reports in this directory and creates and combined html file</p>
+</blockquote>
+<pre><code class="bash">fastqc &lt;reads.fastq&gt;
 
-# maka fastafiles one liner (good for shell stuff)
-sed ':a;N;/^&gt;/M!s/\n//;ta;P;D' Input.fasta &gt; oneliner.fasta
+scythe -a &lt;adapters.fasta&gt; &lt;reads.fastq&gt;
 
-# filter multifasta by a certain length - in this case 1000 bp
-awk '/^&gt;/ { getline seq } length(seq) &gt;1000 { print $0 &quot;\n&quot; seq }' oneliner.fasta &gt; online_grt1000.fasta
+sickle pe -f &lt;fileinputfwd&gt; -r &lt;fileinputrev&gt; -o &lt;outputfwd&gt; -p &lt;outpudrev&gt; -t sanger -s /dev/null -q 25
+
+fastqc &lt;trimmed_reads.fastq&gt;
+
+multiqc .
+</code></pre>
+
+<h2 id="2a-megahit-assembly">2.a <code>megahit</code> assembly</h2>
+<pre><code class="bash">megahit -1 fwd.fastq.gz -2 rwd.fastq.gz -o m_genitalium
+</code></pre>
+
+<h2 id="2b-or-spades-assembly">2.b or <code>spades</code> assembly</h2>
+<pre><code class="bash">spades.py -k 21,33,55,77 --careful --only-assembler -1 &lt;fwd read&gt;.fastq.gz -2 &lt;rws reads&gt;.fastq.gz -o spade_output -m 16
+</code></pre>
+
+<h3 id="quality-control-with-quast">Quality control with <code>quast</code></h3>
+<pre><code>quast.py m_genitalium.fasta -o m_genitalium_report
+</code></pre>
+<h2 id="3-index-creation-with-bowtie-and-bowtiesamtool-pipe">3. Index creation with <code>bowtie</code> and  <code>bowtie</code>/<code>samtool</code> pipe</h2>
+<pre><code class="bash">bowtie2-build *ASSEMBLYFILE* *m_genitalium123*
+bowtie2 -x *m_genitalium123* -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz | samtools view -bS -o m_genitalium.bam
 </code></pre>
 
 <ul>
-<li>as loops:</li>
+<li><code>-x</code> is the foldername (created with the first bowtie2 command)</li>
 </ul>
-<pre><code class="bash"># lazy way
-    for x in *.fastq; do sed -n '1~4s/^@/&gt;/p;2~4p' $x &gt; ${x%.fastq}.fasta ; done
-    for x in *.fasta; do sed ':a;N;/^&gt;/M!s/\n//;ta;P;D' $x &gt; ${x%.fasta}_oneliner.fasta ; done
-    for x in *_oneliner.fasta; do awk '/^&gt;/ { getline seq } length(seq) &gt;1000 { print $0 &quot;\n&quot; seq }' $x &gt; ${x%._onliner.fasta}_clean.fasta ; done
+<h2 id="4-sort-with-samtools-and-build-a-index">4. Sort with samtools and build a index</h2>
+<pre><code>samtools sort m_genitalium.bam -o m_genitalium.sorted.bam
+samtools index m_genitalium.sorted.bam
+</code></pre>
+<h2 id="5-starting-pylon-for-missmatch-correction">5. Starting pylon for missmatch correction</h2>
+<pre><code>pilon --genome m_genitalium.fasta --frags m_genitalium.sorted.bam --output m_genitalium_improved
+</code></pre>
+<h2 id="6-quality-control-with-buscopy">6. Quality control with <code>busco.py</code></h2>
+<ul>
+<li>needs a database (<code>wget</code> from busco homepage)</li>
+<li>tells you how many conserved genes could be found in the assembly (QC)</li>
+</ul>
+<pre><code class="bash">wget http://busco.ezlab.org/datasets/bacteria_odb9.tar.gz
 
-# check all reads
-for x in *.fasta ; do echo  grep -c &quot;&gt;&quot; $x
+BUSCO.py -i m_genitalium_improved.fasta -l bacteria_odb9 -o busco_genitalium -m genome
 </code></pre>
 
-<h1 id="convert-gfa-to-fasta">Convert gfa to fasta</h1>
-<pre><code class="bash">awk '/^S/{print &quot;&gt;&quot;$2&quot;\n&quot;$3}' file_in.gfa | fold &gt; file_out.fasta
-</code></pre></div>
+<p><code>-i input</code> = output of pylon <code>-l</code> is the database from <code>wget</code> <code>-m genome</code> = which type</p></div>
         </div>
 
         <footer class="col-md-12">
