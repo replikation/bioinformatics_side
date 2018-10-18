@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Bioinformatics</title>
-        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Longreads (Nanopore) - Bioinformatics</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,13 +19,13 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -39,26 +39,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=".">Bioinformatics</a>
+                    <a class="navbar-brand" href="..">Bioinformatics</a>
                 </div>
 
                 <!-- Expanded navigation -->
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href=".">Home</a>
+                            <li >
+                                <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="databases/">General</a>
+    <a href="../databases/">General</a>
 </li>
                                     
 <li >
-    <a href="emboss/">EMBOSS</a>
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -67,19 +67,19 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="shell/">Basics</a>
+    <a href="../shell/">Basics</a>
 </li>
                                     
 <li >
-    <a href="fasta/">Fasta Manipulation</a>
+    <a href="../fasta/">Fasta Manipulation</a>
 </li>
                                     
 <li >
-    <a href="shell_adv/">Advanced Commands & Installation</a>
+    <a href="../shell_adv/">Advanced Commands & Installation</a>
 </li>
                                     
 <li >
-    <a href="git/">Git</a>
+    <a href="../git/">Git</a>
 </li>
                                 </ul>
                             </li>
@@ -88,7 +88,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="python/">Basics</a>
+    <a href="../python/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -97,7 +97,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="R/">R</a>
+    <a href="../R/">R</a>
 </li>
                                 </ul>
                             </li>
@@ -106,32 +106,32 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="atom/">Atom Editor</a>
+    <a href="../atom/">Atom Editor</a>
 </li>
                                     
 <li >
-    <a href="mkdocs/">mkdocs</a>
+    <a href="../mkdocs/">mkdocs</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sequencing <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="programs/">Programms</a>
+    <a href="../programs/">Programms</a>
 </li>
                                     
 <li >
-    <a href="illumina/">HTS (Illumina)</a>
+    <a href="../illumina/">HTS (Illumina)</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Longreads (Nanopore)</a>
 </li>
                                     
 <li >
-    <a href="nanopore/">Longreads (Nanopore)</a>
-</li>
-                                    
-<li >
-    <a href="hybrid/">Hybridassembly</a>
+    <a href="../hybrid/">Hybridassembly</a>
 </li>
                                 </ul>
                             </li>
@@ -140,11 +140,11 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="gwas/">GWAS</a>
+    <a href="../gwas/">GWAS</a>
 </li>
                                     
 <li >
-    <a href="gs/">GS</a>
+    <a href="../gs/">GS</a>
 </li>
                                 </ul>
                             </li>
@@ -156,13 +156,13 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="disabled">
-                                <a rel="next" >
+                            <li >
+                                <a rel="next" href="../illumina/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="databases/">
+                                <a rel="prev" href="../hybrid/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -174,28 +174,81 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#home">Home</a></li>
-        <li class="main "><a href="#bioinformatics-collection">Bioinformatics Collection</a></li>
-            <li><a href="#table-of-content">Table of Content</a></li>
-            <li><a href="#license">License</a></li>
+        <li class="main active"><a href="#nanopore-practical">Nanopore - practical</a></li>
+            <li><a href="#0-base-calling-using">0. Base calling using</a></li>
+            <li><a href="#1-qc-of-reads">1. QC of reads</a></li>
+            <li><a href="#2-automated-removal-of-adapter-and-demultiplexing-with-porechop">2. Automated removal of adapter and demultiplexing with porechop</a></li>
+            <li><a href="#3-assembly-with-minimap2-and-miniasm">3. Assembly with minimap2 and miniasm</a></li>
+            <li><a href="#4-polishing">4. Polishing</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="home">Home</h1>
-<hr />
-<h1 id="bioinformatics-collection">Bioinformatics Collection</h1>
-<p>This website is a collection of lectures and tutorials for me.</p>
-<p>Commands are usually one liner, so use "triple" click to copy the whole line, even if its on 2 lines due to website formatting.</p>
-<p>Created/Collected by Christian Brandt.</p>
-<h2 id="table-of-content">Table of Content</h2>
-<p>see navigation above</p>
-<h2 id="license">License</h2>
-<p>GNU GENERAL PUBLIC LICENSE
-   Version 3, 29 June 2007</p>
-<p>Copyright (C) 2007 Free Software Foundation, Inc. <a href="https://fsf.org/">https://fsf.org/</a>
-Everyone is permitted to copy and distribute verbatim copies
-of this license document, but changing it is not allowed.</p></div>
+<h1 id="nanopore-practical">Nanopore - practical</h1>
+<ul>
+<li>a few example workflows</li>
+<li><strong>in general always check the <code>--help</code> for each program</strong></li>
+</ul>
+<h2 id="0-base-calling-using">0. Base calling using</h2>
+<pre><code class="bash"># part of my skript so variables are asigned to the options
+read_fast5_basecaller.py -i $currDir/$i -f $flowcell -t $CPU -q 100000 -o fastq -k $kittype -r -s $currDir/FASTQ/
+</code></pre>
+
+<h2 id="1-qc-of-reads">1. QC of reads</h2>
+<ul>
+<li>Using the assembly-stats to get a summary of the reads:</li>
+</ul>
+<p><code>assembly-stats ERR1147227.fastq</code></p>
+<h2 id="2-automated-removal-of-adapter-and-demultiplexing-with-porechop">2. Automated removal of adapter and demultiplexing with <code>porechop</code></h2>
+<ul>
+<li>porechop needs seperate outputs depending if barcodes were present or not</li>
+</ul>
+<pre><code class="bash">porechop -i &lt;input&gt;.fastq -b &lt;output_foulder&gt;
+</code></pre>
+
+<ul>
+<li>You can redo <code>assembly-stats</code> to validate</li>
+</ul>
+<h2 id="3-assembly-with-minimap2-and-miniasm">3. Assembly with <code>minimap2</code> and <code>miniasm</code></h2>
+<ul>
+<li>
+<p>use <code>canu</code> for de novo assemblies</p>
+</li>
+<li>
+<p><code>minimap2</code> creates a files that <code>miniasm</code> needs for assembly</p>
+</li>
+<li><code>minimap2</code> creates a first draft map. However its <strong>not a good minion only assembler</strong>, we use it here to combine it with illumina data</li>
+</ul>
+<pre><code class="bash">minimap2 -x ava-ont ERR1147227_trimmed.fastq ERR1147227_trimmed.fastq | gzip -1 &gt; ERR1147227.paf.gz
+
+miniasm -f ERR1147227_trimmed.fastq ERR1147227.paf.gz &gt; ERR1147227.gfa
+</code></pre>
+
+<ul>
+<li>canu example</li>
+</ul>
+<pre><code class="bash">canu -d run_e.coli -p e.coli genomeSize=6m -nanopore-raw 7718_E.coli_sum.fastq
+</code></pre>
+
+<h2 id="4-polishing">4. Polishing</h2>
+<ul>
+<li>We do: index build, mapping reads to assembly, piping to samtools for bam conversion, sorting, indexing</li>
+<li><code>-p4</code> for 4 threads (CPU) as <code>bowtie2</code> takes time</li>
+</ul>
+<pre><code class="bash">bowtie2-build ERR1147227.fasta ERR1147227
+
+bowtie2 -p4 -x ERR1147227 -1 ecoli_hiseq_R1.fastq.gz -2 ecoli_hiseq_R2.fastq.gz | samtools view -bS -o ERR1147227.bam
+
+samtools sort ERR1147227.bam -o ERR1147227.sorted.bam
+
+samtools index ERR1147227.sorted.bam
+</code></pre>
+
+<ul>
+<li>Now we can do the actual polishing with <code>pilon</code></li>
+</ul>
+<pre><code class="bash">pilon --genome ERR1147227.fasta --frags ERR1147227.sorted.bam --output ERR1147227_improved
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
@@ -203,11 +256,11 @@ of this license document, but changing it is not allowed.</p></div>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -275,8 +328,3 @@ of this license document, but changing it is not allowed.</p></div>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2018-10-18 16:20:41
--->

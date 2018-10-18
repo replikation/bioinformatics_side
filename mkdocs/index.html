@@ -71,7 +71,15 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta_Manipulation</a>
+    <a href="../fasta/">Fasta Manipulation</a>
+</li>
+                                    
+<li >
+    <a href="../shell_adv/">Advanced Commands & Installation</a>
+</li>
+                                    
+<li >
+    <a href="../git/">Git</a>
 </li>
                                 </ul>
                             </li>
@@ -81,6 +89,15 @@
                                     
 <li >
     <a href="../python/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">R <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../R/">R</a>
 </li>
                                 </ul>
                             </li>
@@ -97,6 +114,40 @@
 </li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sequencing <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../programs/">Programms</a>
+</li>
+                                    
+<li >
+    <a href="../illumina/">HTS (Illumina)</a>
+</li>
+                                    
+<li >
+    <a href="../nanopore/">Longreads (Nanopore)</a>
+</li>
+                                    
+<li >
+    <a href="../hybrid/">Hybridassembly</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../gwas/">GWAS</a>
+</li>
+                                    
+<li >
+    <a href="../gs/">GS</a>
+</li>
+                                </ul>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -110,8 +161,8 @@
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li class="disabled">
-                                <a rel="prev" >
+                            <li >
+                                <a rel="prev" href="../programs/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -131,13 +182,14 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="mkdocs">mkdocs</h2>
-<p>Using this tutorial for side creation/installation:
+<p>Used <code>mkdocs</code> tutorial for site creation:
 https://mkdocs.readthedocs.io/en/stable/</p>
 <p>Using this style:
 https://github.com/mkdocs/mkdocs-bootswatch
-(do a pip3 installation)</p>
+(do a <code>pip3</code> installation)</p>
 <ul>
-<li>don't change anything on the git repository for the side creation !!</li>
+<li>don't change anything on the git repository, it should automatically do every thing after the push !!</li>
+<li>it uses the branch pushed via mkdocs for the website</li>
 </ul>
 <h3 id="first-deployment">First deployment</h3>
 <pre><code class="bash"># create rep on github
@@ -158,7 +210,7 @@ mkdocs gh-deploy
 </code></pre>
 
 <h3 id="change-things">change things</h3>
-<pre><code class="bash">#change stuff
+<pre><code class="bash"># change files
 # now build the side with:
 mkdocs build --clean  # clean is important if a style change was done
 
