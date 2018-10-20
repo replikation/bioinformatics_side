@@ -15,7 +15,7 @@ Created/Collected by Christian Brandt.
 
 ## Content cloud
 
-![picture](/pictures/20181019_110008.png)
+![picture](img/20181019_110008.png)
 
 ____
 ## SLU course
