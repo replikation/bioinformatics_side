@@ -50,19 +50,6 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -140,6 +131,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
     <a href="../gwas/">GWAS</a>
 </li>
                                     
@@ -162,7 +157,7 @@
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../gwas/">
+                                <a rel="prev" href="../databases/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -175,8 +170,8 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#hybridassemblies">Hybridassemblies</a></li>
-            <li><a href="#unicycler-polishing">Unicycler Polishing</a></li>
-            <li><a href="#assembly-visualization-with-bandage">Assembly visualization with Bandage</a></li>
+            <li><a href="#unicycler">Unicycler</a></li>
+            <li><a href="#assembly-visualization">Assembly visualization</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -193,13 +188,16 @@
 <em> polishing via pilon
 </em> and a few more corrections and stuff
 * So we only go with <code>porechop</code> for long reads and <code>scythe</code> <code>sickle</code> for short reads</p>
-<h2 id="unicycler-polishing">Unicycler Polishing</h2>
+<h2 id="unicycler">Unicycler</h2>
 <pre><code class="bash">unicycler -1 &lt;fwd&gt;_R1.fastq.gz -2 &lt;rev&gt;_R2.fastq.gz -l nanopore_reads.fastq -o outputfolder
 </code></pre>
 
 <p><code>-1</code> and <code>-2</code> are the illumina inputs <code>-l</code> is the long read input <code>-o</code> is the output</p>
-<h2 id="assembly-visualization-with-bandage">Assembly visualization with <code>Bandage</code></h2>
-<p><a href="https://github.com/rrwick/Bandage/">Bandage</a> is a GUI to interact with assembly graphs made by <em>de novo</em> assemblers such as Velvet, SPAdes, MEGAHIT and others.</p>
+<h2 id="assembly-visualization">Assembly visualization</h2>
+<ul>
+<li>with <code>Bandage</code>
+<a href="https://github.com/rrwick/Bandage/">Bandage</a> is a GUI to interact with assembly graphs made by <em>de novo</em> assemblers such as Velvet, SPAdes, MEGAHIT and others.</li>
+</ul>
 <blockquote>
 <p><img alt="" src="http://sepsis-omics.github.io/tutorials/modules/cmdline_assembly/images/illumina_assembly_bandage.png" />
 Figure: Connects Contigs; Repeats are region were many contigs connect; nanopore is one line</p>

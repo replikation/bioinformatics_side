@@ -1,6 +1,8 @@
-# Manipulating fastq files to fasta
+# Manipulating files via bash
+## Convert .fastq to .fasta
 
-* here you can find a few awk, sed shortcuts for fasta manipulation
+* using awk, sed for file manipulation
+* also includes creating fasta oneliners
 
 ```bash
 # converting fastq to fasta
@@ -25,7 +27,7 @@ awk '/^>/ { getline seq } length(seq) >1000 { print $0 "\n" seq }' oneliner.fast
 for x in *.fasta ; do echo  grep -c ">" $x
 ```
 
-# Convert gfa to fasta
+## Convert .gfa to .fasta
 
 ```bash
 awk '/^S/{print ">"$2"\n"$3}' file_in.gfa | fold > file_out.fasta

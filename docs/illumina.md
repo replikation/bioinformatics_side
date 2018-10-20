@@ -4,7 +4,7 @@
 * part of the SLU bioinformatics course
 * **in general always check the `--help` for each program**
 
-## 1. Cleaning up Reads (Illumina)
+## 1. Cleaning up Reads
 * `fastqc` gives you an overview whats may be wrong with your reads
 
 >N50 is defined as the minimum contig length needed to cover 50% of the genome. It means, half of the genome sequence is in contigs larger than or equal the N50 contig size
@@ -35,10 +35,16 @@ megahit -1 fwd.fastq.gz -2 rwd.fastq.gz -o m_genitalium
 ```bash
 spades.py -k 21,33,55,77 --careful --only-assembler -1 <fwd read>.fastq.gz -2 <rws reads>.fastq.gz -o spade_output -m 16
 ```
-### Quality control with `quast`
-    quast.py m_genitalium.fasta -o m_genitalium_report
+### Quality control
+* with `quast`
 
-## 3. Index creation with `bowtie` and  `bowtie`/`samtool` pipe
+```bash
+quast.py m_genitalium.fasta -o m_genitalium_report
+```
+
+## 3. Index creation
+* with `bowtie` and  `bowtie`/`samtool` pipe
+
 ```bash
 bowtie2-build *ASSEMBLYFILE* *m_genitalium123*
 bowtie2 -x *m_genitalium123* -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz | samtools view -bS -o m_genitalium.bam
@@ -52,7 +58,8 @@ bowtie2 -x *m_genitalium123* -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz | s
 ## 5. Starting pylon for missmatch correction
     pilon --genome m_genitalium.fasta --frags m_genitalium.sorted.bam --output m_genitalium_improved
 
-## 6. Quality control with `busco.py`
+## 6. Quality control
+* with `busco.py`
 * needs a database (`wget` from busco homepage)
 * tells you how many conserved genes could be found in the assembly (QC)
 

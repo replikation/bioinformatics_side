@@ -11,7 +11,7 @@ What it does (briefly):
 * and a few more corrections and stuff
 * So we only go with `porechop` for long reads and `scythe` `sickle` for short reads
 
-## Unicycler Polishing
+## Unicycler
 
 ```bash
 unicycler -1 <fwd>_R1.fastq.gz -2 <rev>_R2.fastq.gz -l nanopore_reads.fastq -o outputfolder
@@ -20,8 +20,8 @@ unicycler -1 <fwd>_R1.fastq.gz -2 <rev>_R2.fastq.gz -l nanopore_reads.fastq -o o
 `-1` and `-2` are the illumina inputs `-l` is the long read input `-o` is the output
 
 
-## Assembly visualization with `Bandage`
-
+## Assembly visualization
+* with `Bandage`
 [Bandage](https://github.com/rrwick/Bandage/) is a GUI to interact with assembly graphs made by *de novo* assemblers such as Velvet, SPAdes, MEGAHIT and others.
 
 > ![](http://sepsis-omics.github.io/tutorials/modules/cmdline_assembly/images/illumina_assembly_bandage.png)

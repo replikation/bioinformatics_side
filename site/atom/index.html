@@ -50,19 +50,6 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -138,6 +129,10 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../databases/">Databases</a>
+</li>
                                     
 <li >
     <a href="../gwas/">GWAS</a>
@@ -176,8 +171,6 @@
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#atom">Atom</a></li>
             <li><a href="#important-packages">Important Packages</a></li>
-            <li><a href="#installing-shellcheck-corrects-shell-scripts">Installing shellcheck (corrects shell scripts)</a></li>
-            <li><a href="#installing-pylama-corrects-python-scripts">Installing pylama (corrects python scripts)</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -188,8 +181,8 @@
 </ul>
 <h2 id="important-packages">Important Packages</h2>
 <ul>
-<li>minimap</li>
-<li>linter<ul>
+<li>minimap (shows a script minimap on the right side)</li>
+<li>linter (corrects skripts)<ul>
 <li>and linter-shellcheck<ul>
 <li>need also shellcheck in linux or powershell</li>
 </ul>
@@ -200,7 +193,7 @@
 </li>
 </ul>
 </li>
-<li>remote-atom<ul>
+<li>remote-atom (edit a remotly located script on your client via atom)<ul>
 <li>you need to start the atom server in atom</li>
 <li><code>Packages -&gt; Remote Atom -&gt; Start Server</code></li>
 <li>you need to install rmate on the host</li>
@@ -210,7 +203,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="installing-shellcheck-corrects-shell-scripts">Installing shellcheck (corrects shell scripts)</h2>
+<h3 id="installing-shellcheck">Installing shellcheck</h3>
 <ul>
 <li>you need the linter package and the linter-shellcheck package  in atom</li>
 <li>then you install shellcheck via scoop into windows directly via powershell</li>
@@ -230,7 +223,7 @@ scoop install shellcheck
 <pre><code class="bash">C:\Users\&lt;USERNAME&gt;\scoop\apps\shellcheck\0.5.0\shellcheck.exe
 </code></pre>
 
-<h2 id="installing-pylama-corrects-python-scripts">Installing pylama (corrects python scripts)</h2>
+<h3 id="installing-pylama-corrects-python-scripts">Installing pylama (corrects python scripts)</h3>
 <ul>
 <li>you need to install the linter and linter-python package in atom</li>
 <li>also you need to install pylama in python3</li>

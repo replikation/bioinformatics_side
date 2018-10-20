@@ -1,10 +1,11 @@
 # Shell Commands
-## Short in terminals
+
+* Terminal shortcuts
 ctrl + C terminates a process
 ctrl + D logout from a ssh remote
 ctrl + Z pauses a process
 
-## Standard commands
+## Basic Commands
 ```bash
     cut -d -f3         # -f 3,4 also possible, delimiter tab is default for -d without input
     sort
@@ -27,32 +28,28 @@ ctrl + Z pauses a process
     echo $PATH          # shows all bin/ directories
     df -h                  # free disk space
 ```
+## Variables
 
-## ssh & keys
-* tutorials for key generation and stuff [here](https://www.digitalocean.com/community/tutorials/how-to-copy-files-with-rsync-over-ssh)
-* `ssh`, `-i ~/.ssh/key`(key location) and username@IP, use the `-K` flag to allow fastqc graphical interface
-
-```bash
-# examples
-ssh -i ~/.ssh/replikation.pem ubuntu@ec2-18-218-161-33.us-east-2.compute.amazonaws.com
-ssh -i ~/.ssh/azure_rsa student@13.95.67.169
-```
-
-## file transfer
-
-* normally you use the `scp` command
-* however use `rsync` for huge amount of files
+* you can manipulate the output of variables directly
+* write variables like this `${x}` to make sure it uses the right variable name, if there comes no white space after
+* e.g. varible `x` can't be found in `$x_test` since it adds the `_test` to the name, but `${x}_test` would work
 
 ```bash
-# examples
-rsync -avp -e "ssh -i ~/.ssh/cloudgoogle" * replik@35.231.111.99:~/fast5_files
-rsync -avpr -e "ssh -i ~/.ssh/cloudgoogle" <USER>@<IP>:~/auto_assembly/ .
-# example for synology with different rsync path
-# Username@IP is stored in $IP
-rsync --rsync-path=/bin/rsync -vr -e "ssh -i ~/.ssh/id_rsa" --remove-source-files --include "*.fast5" --include "*/" --exclude "*" /cygdrive/c/data/reads/ $IP:/volume1/sequencing_data/
+# example for variable x
+echo "$x"
+# Forward_sequences.fasta
+
+# Remove the something from the end:
+echo "${x%.fasta}"
+# Forward_sequences
+
+# Remove something in front
+echo "${x#Forward_}"
+# sequences.fasta
 ```
 
-## pipes
+
+### Pipes
 
 ```bash
 # examples
@@ -60,7 +57,7 @@ cut -d, -f "$2" "$1" | tail -n +2 | sort | uniq -c
 cut -d, -f4 data/survey_data.csv | tail -n +2 | sort | uniq -c | sort -n
 ```
 
-## bash loop script examples
+### Loop examples
 
 ```bash
 # example 1
@@ -83,7 +80,7 @@ for i in *_1.fastq
 done
 ```
 
-## Installing and downloading files
+## Installing (apt) & Downloads
 
 ```bash
 apt search "TERM" # searches apt database

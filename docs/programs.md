@@ -15,10 +15,12 @@ mv * ~/.local/bin
 ## Assembly-stats
 * for installation see [github](https://github.com/sanger-pathogens/assembly-stats)
 
-## `porechop` - Adapter removal and demultiplexing
+## `porechop`
+* Adapter removal and demultiplexing
 * for installation see [github](https://github.com/rrwick/Porechop)
 
-## `minimap2` & `miniasm` - fast but error-prone long read assembler
+## `minimap2` & `miniasm`
+* fast but error-prone long read assembler
 
 > Use this only with pilon and Illumina correction
 
@@ -42,5 +44,6 @@ cd mummer-4.0.0beta2/
 make
 sudo make install
 ```
-## Unicycler - Hybrid assembler pipeline
+## Unicycler
+* Hybrid assembler pipeline
 * [github link](https://github.com/rrwick/Unicycler)

@@ -1,4 +1,4 @@
-## mkdocs
+# mkdocs
 Used `mkdocs` tutorial for site creation:
 https://mkdocs.readthedocs.io/en/stable/
 
@@ -9,25 +9,26 @@ https://github.com/mkdocs/mkdocs-bootswatch
 * don't change anything on the git repository, it should automatically do every thing after the push !!
 * it uses the branch pushed via mkdocs for the website
 
-### First deployment
+## Practical steps
+### First creation
 ```bash
-# create rep on github
-# git clone it and do on the repository:
+# create rep via github.vom
+# git clone it to loccal machine and do on the repository:
 mkdocs new <repositoryname>
 cd <repositoryname>
 # change a few things in the mkdocs.yml
-# create markdowns
+# create markdowns und docs/
 
 # now build the side with:
-mkdocs build
+mkdocs build --clean
 
 # push all changes to your master
-git add & git commit & git push ....
+git add & git commit & git push # and so on
 
 # push the side
 mkdocs gh-deploy
 ```
-### change things
+### Working with it, daily
 ```bash
 # change files
 # now build the side with:

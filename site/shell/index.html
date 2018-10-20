@@ -49,19 +49,6 @@
                             <li >
                                 <a href="..">Home</a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -140,6 +131,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
     <a href="../gwas/">GWAS</a>
 </li>
                                     
@@ -157,12 +152,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../emboss/">
+                                <a rel="next" href="..">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../fasta/">
+                                <a rel="prev" href="../shell_adv/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -175,23 +170,21 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#shell-commands">Shell Commands</a></li>
-            <li><a href="#short-in-terminals">Short in terminals</a></li>
-            <li><a href="#standard-commands">Standard commands</a></li>
-            <li><a href="#ssh-keys">ssh &amp; keys</a></li>
-            <li><a href="#file-transfer">file transfer</a></li>
-            <li><a href="#pipes">pipes</a></li>
-            <li><a href="#bash-loop-script-examples">bash loop script examples</a></li>
-            <li><a href="#installing-and-downloading-files">Installing and downloading files</a></li>
+            <li><a href="#basic-commands">Basic Commands</a></li>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#installing-apt-downloads">Installing (apt) &amp; Downloads</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="shell-commands">Shell Commands</h1>
-<h2 id="short-in-terminals">Short in terminals</h2>
-<p>ctrl + C terminates a process
+<ul>
+<li>Terminal shortcuts
+ctrl + C terminates a process
 ctrl + D logout from a ssh remote
-ctrl + Z pauses a process</p>
-<h2 id="standard-commands">Standard commands</h2>
+ctrl + Z pauses a process</li>
+</ul>
+<h2 id="basic-commands">Basic Commands</h2>
 <pre><code class="bash">    cut -d -f3         # -f 3,4 also possible, delimiter tab is default for -d without input
     sort
     head -10
@@ -214,36 +207,32 @@ ctrl + Z pauses a process</p>
     df -h                  # free disk space
 </code></pre>
 
-<h2 id="ssh-keys">ssh &amp; keys</h2>
+<h2 id="variables">Variables</h2>
 <ul>
-<li>tutorials for key generation and stuff <a href="https://www.digitalocean.com/community/tutorials/how-to-copy-files-with-rsync-over-ssh">here</a></li>
-<li><code>ssh</code>, <code>-i ~/.ssh/key</code>(key location) and username@IP, use the <code>-K</code> flag to allow fastqc graphical interface</li>
+<li>you can manipulate the output of variables directly</li>
+<li>write variables like this <code>${x}</code> to make sure it uses the right variable name, if there comes no white space after</li>
+<li>e.g. varible <code>x</code> can't be found in <code>$x_test</code> since it adds the <code>_test</code> to the name, but <code>${x}_test</code> would work</li>
 </ul>
-<pre><code class="bash"># examples
-ssh -i ~/.ssh/replikation.pem ubuntu@ec2-18-218-161-33.us-east-2.compute.amazonaws.com
-ssh -i ~/.ssh/azure_rsa student@13.95.67.169
+<pre><code class="bash"># example for variable x
+echo &quot;$x&quot;
+# Forward_sequences.fasta
+
+# Remove the something from the end:
+echo &quot;${x%.fasta}&quot;
+# Forward_sequences
+
+# Remove something in front
+echo &quot;${x#Forward_}&quot;
+# sequences.fasta
 </code></pre>
 
-<h2 id="file-transfer">file transfer</h2>
-<ul>
-<li>normally you use the <code>scp</code> command</li>
-<li>however use <code>rsync</code> for huge amount of files</li>
-</ul>
-<pre><code class="bash"># examples
-rsync -avp -e &quot;ssh -i ~/.ssh/cloudgoogle&quot; * replik@35.231.111.99:~/fast5_files
-rsync -avpr -e &quot;ssh -i ~/.ssh/cloudgoogle&quot; &lt;USER&gt;@&lt;IP&gt;:~/auto_assembly/ .
-# example for synology with different rsync path
-# Username@IP is stored in $IP
-rsync --rsync-path=/bin/rsync -vr -e &quot;ssh -i ~/.ssh/id_rsa&quot; --remove-source-files --include &quot;*.fast5&quot; --include &quot;*/&quot; --exclude &quot;*&quot; /cygdrive/c/data/reads/ $IP:/volume1/sequencing_data/
-</code></pre>
-
-<h2 id="pipes">pipes</h2>
+<h3 id="pipes">Pipes</h3>
 <pre><code class="bash"># examples
 cut -d, -f &quot;$2&quot; &quot;$1&quot; | tail -n +2 | sort | uniq -c
 cut -d, -f4 data/survey_data.csv | tail -n +2 | sort | uniq -c | sort -n
 </code></pre>
 
-<h2 id="bash-loop-script-examples">bash loop script examples</h2>
+<h3 id="loop-examples">Loop examples</h3>
 <pre><code class="bash"># example 1
 for x in $(seq 1977 2002)
  do
@@ -264,7 +253,7 @@ for i in *_1.fastq
 done
 </code></pre>
 
-<h2 id="installing-and-downloading-files">Installing and downloading files</h2>
+<h2 id="installing-apt-downloads">Installing (apt) &amp; Downloads</h2>
 <pre><code class="bash">apt search &quot;TERM&quot; # searches apt database
 apt show &quot;ncbi-blast+&quot; # described the package
 sudo apt install ncbi-blast+

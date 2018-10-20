@@ -2,26 +2,25 @@ site_name: Bioinformatics
 theme: yeti
 nav:
 - Home: index.md
-- Databases:
-        - General: databases.md
-        - EMBOSS: emboss.md
 - Shell:
         - Basics: shell.md
-        - Fasta Manipulation: fasta.md
-        - Advanced Commands & Installation: shell_adv.md
+        - Advanced: shell_adv.md
+        - File Manipulation (fasta): fasta.md
         - Git: git.md
 - Python:
         - Basics: python.md
 - R:
-        - R: R.md
+        - Basics: R.md
 - Tools:
         - Atom Editor: atom.md
         - mkdocs: mkdocs.md
+        - EMBOSS: emboss.md
 - Sequencing:
         - Programms: programs.md
         - HTS (Illumina): illumina.md
         - Longreads (Nanopore): nanopore.md
         - Hybridassembly: hybrid.md
 - Other Topics:
+        - Databases: databases.md
         - GWAS: gwas.md
         - GS: gs.md

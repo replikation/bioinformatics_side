@@ -1,12 +1,14 @@
 # Nanopore - practical
 
+* [de.NBI nanopore training course](https://denbi-nanopore-training-course.readthedocs.io/en/latest/)
 * a few example workflows
 * **in general always check the `--help` for each program**
 
-## 0. Base calling using
-
+## 0. Base calling
+*  using Albacore
+* Comparison of [Basecaller here](https://github.com/rrwick/Basecalling-comparison)
 ```bash
-# part of my skript so variables are asigned to the options
+# part of my script so variables are assigned to the options
 read_fast5_basecaller.py -i $currDir/$i -f $flowcell -t $CPU -q 100000 -o fastq -k $kittype -r -s $currDir/FASTQ/
 ```
 
@@ -15,8 +17,8 @@ read_fast5_basecaller.py -i $currDir/$i -f $flowcell -t $CPU -q 100000 -o fastq 
 
 `assembly-stats ERR1147227.fastq`
 
-## 2. Automated removal of adapter and demultiplexing with `porechop`
-
+## 2. Adapter removal & demultiplexing
+* with `porechop`
 * porechop needs seperate outputs depending if barcodes were present or not
 
 ```bash
@@ -25,10 +27,9 @@ porechop -i <input>.fastq -b <output_foulder>
 
 * You can redo `assembly-stats` to validate
 
-## 3. Assembly with `minimap2` and `miniasm`
-
+## 3. Assembly
+* with `minimap2` and `miniasm`
 * use `canu` for de novo assemblies
-
 * `minimap2` creates a files that `miniasm` needs for assembly
 * `minimap2` creates a first draft map. However its __not a good minion only assembler__, we use it here to combine it with illumina data
 
@@ -38,7 +39,7 @@ minimap2 -x ava-ont ERR1147227_trimmed.fastq ERR1147227_trimmed.fastq | gzip -1 
 miniasm -f ERR1147227_trimmed.fastq ERR1147227.paf.gz > ERR1147227.gfa
 ```
 
-* canu example
+* `canu` example
 
 ```bash
 canu -d run_e.coli -p e.coli genomeSize=6m -nanopore-raw 7718_E.coli_sum.fastq
