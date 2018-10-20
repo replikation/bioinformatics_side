@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Advanced Commands & Installation - Bioinformatics</title>
+        <title>Advanced - Bioinformatics</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -49,19 +49,6 @@
                             <li >
                                 <a href="..">Home</a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -70,12 +57,12 @@
     <a href="../shell/">Basics</a>
 </li>
                                     
-<li >
-    <a href="../fasta/">Fasta Manipulation</a>
+<li class="active">
+    <a href="./">Advanced</a>
 </li>
                                     
-<li class="active">
-    <a href="./">Advanced Commands & Installation</a>
+<li >
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -140,6 +131,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
     <a href="../gwas/">GWAS</a>
 </li>
                                     
@@ -157,12 +152,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../fasta/">
+                                <a rel="next" href="../shell/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../git/">
+                                <a rel="prev" href="../fasta/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -174,15 +169,40 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#screen-virtual-shell-session-in-the-cloud">Screen - virtual shell session in the cloud</a></li>
-        <li class="main "><a href="#installing-software">Installing software</a></li>
-        <li class="main "><a href="#advanced-scripting-for-deploying-software">Advanced Scripting for deploying Software</a></li>
-        <li class="main "><a href="#pip-for-python-installation">pip for Python installation</a></li>
+        <li class="main active"><a href="#advanced-shell">Advanced shell</a></li>
+            <li><a href="#remotecloud-computing">Remote/cloud computing</a></li>
+            <li><a href="#advanced-scripting-for-deploying-software">Advanced Scripting for deploying Software</a></li>
+            <li><a href="#pip-installation-for-python-packages">pip installation, for python packages</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="screen-virtual-shell-session-in-the-cloud">Screen - virtual shell session in the cloud</h2>
+<h1 id="advanced-shell">Advanced shell</h1>
+<h2 id="remotecloud-computing">Remote/cloud computing</h2>
+<h3 id="ssh-keys">ssh &amp; keys</h3>
+<ul>
+<li>tutorials for key generation and stuff <a href="https://www.digitalocean.com/community/tutorials/how-to-copy-files-with-rsync-over-ssh">here</a></li>
+<li><code>ssh</code>, <code>-i ~/.ssh/key</code>(key location) and username@IP, use the <code>-K</code> flag to allow fastqc graphical interface</li>
+</ul>
+<pre><code class="bash"># examples
+ssh -i ~/.ssh/replikation.pem ubuntu@ec2-18-218-161-33.us-east-2.compute.amazonaws.com
+ssh -i ~/.ssh/azure_rsa student@13.95.67.169
+</code></pre>
+
+<h3 id="file-transfer">file transfer</h3>
+<ul>
+<li>normally you use the <code>scp</code> command</li>
+<li>however use <code>rsync</code> for huge amount of files</li>
+</ul>
+<pre><code class="bash"># examples
+rsync -avp -e &quot;ssh -i ~/.ssh/cloudgoogle&quot; * replik@35.231.111.99:~/fast5_files
+rsync -avpr -e &quot;ssh -i ~/.ssh/cloudgoogle&quot; &lt;USER&gt;@&lt;IP&gt;:~/auto_assembly/ .
+# example for synology with different rsync path
+# Username@IP is stored in $IP
+rsync --rsync-path=/bin/rsync -vr -e &quot;ssh -i ~/.ssh/id_rsa&quot; --remove-source-files --include &quot;*.fast5&quot; --include &quot;*/&quot; --exclude &quot;*&quot; /cygdrive/c/data/reads/ $IP:/volume1/sequencing_data/
+</code></pre>
+
+<h3 id="screen-virtual-shell-session-in-the-cloud">Screen - virtual shell session in the cloud</h3>
 <ul>
 <li>you want to do this if you work remotely</li>
 <li>than it wont matter if the terminal window is closed sinces its a virtual process running on the host</li>
@@ -199,23 +219,13 @@ screen -R &lt;tab completion&gt;
 <li>to see all active screens type <code>screen -list</code></li>
 <li>to get back to your screen type <code>screen -R &lt;name&gt;</code> or the number of <code>screen -list</code> (works better) so <code>screen -R 37509</code></li>
 </ul>
-<h2 id="installing-software">Installing software</h2>
-<ul>
-<li>Download and compile new programs or git clones into <code>~/install/</code></li>
-<li>then put the path to <code>~/.bashrc</code>:
-    <code>b
-    # do nano ~/.bashrc and add
-    export PATH="/home/replik/install/canu/Linux-amd64/bin:$PATH"</code></li>
-<li>Search the programs in github</li>
-<li>the <code>make</code> or <code>configure</code> steps are written there or in the <code>README.md</code>. Do a <code>make clean</code> if you get errors during <code>make</code> before doing a new <code>make</code></li>
-</ul>
 <h2 id="advanced-scripting-for-deploying-software">Advanced Scripting for deploying Software</h2>
 <ul>
 <li>use <a href="http://www.fabfile.org/">fabric</a> for software deploying scripts</li>
 <li>take a look at Hadriens <a href="https://github.com/SGBC/course/tree/master/fabfiles">github for examples</a></li>
 <li>makes sense to just create a simple sudo apt install script for all the important libraries</li>
 </ul>
-<h2 id="pip-for-python-installation">pip for Python installation</h2>
+<h2 id="pip-installation-for-python-packages">pip installation, for python packages</h2>
 <ul>
 <li>due to the version chaos that is pip pip3 python and python3, here an explanation</li>
 <li>stick with python 3</li>

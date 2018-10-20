@@ -50,19 +50,6 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -138,6 +129,10 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../databases/">Databases</a>
+</li>
                                     
 <li >
     <a href="../gwas/">GWAS</a>
@@ -175,10 +170,10 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#nanopore-practical">Nanopore - practical</a></li>
-            <li><a href="#0-base-calling-using">0. Base calling using</a></li>
+            <li><a href="#0-base-calling">0. Base calling</a></li>
             <li><a href="#1-qc-of-reads">1. QC of reads</a></li>
-            <li><a href="#2-automated-removal-of-adapter-and-demultiplexing-with-porechop">2. Automated removal of adapter and demultiplexing with porechop</a></li>
-            <li><a href="#3-assembly-with-minimap2-and-miniasm">3. Assembly with minimap2 and miniasm</a></li>
+            <li><a href="#2-adapter-removal-demultiplexing">2. Adapter removal &amp; demultiplexing</a></li>
+            <li><a href="#3-assembly">3. Assembly</a></li>
             <li><a href="#4-polishing">4. Polishing</a></li>
     </ul>
 </div></div>
@@ -186,11 +181,16 @@
 
 <h1 id="nanopore-practical">Nanopore - practical</h1>
 <ul>
+<li><a href="https://denbi-nanopore-training-course.readthedocs.io/en/latest/">de.NBI nanopore training course</a></li>
 <li>a few example workflows</li>
 <li><strong>in general always check the <code>--help</code> for each program</strong></li>
 </ul>
-<h2 id="0-base-calling-using">0. Base calling using</h2>
-<pre><code class="bash"># part of my skript so variables are asigned to the options
+<h2 id="0-base-calling">0. Base calling</h2>
+<ul>
+<li>using Albacore</li>
+<li>Comparison of <a href="https://github.com/rrwick/Basecalling-comparison">Basecaller here</a></li>
+</ul>
+<pre><code class="bash"># part of my script so variables are assigned to the options
 read_fast5_basecaller.py -i $currDir/$i -f $flowcell -t $CPU -q 100000 -o fastq -k $kittype -r -s $currDir/FASTQ/
 </code></pre>
 
@@ -199,8 +199,9 @@ read_fast5_basecaller.py -i $currDir/$i -f $flowcell -t $CPU -q 100000 -o fastq 
 <li>Using the assembly-stats to get a summary of the reads:</li>
 </ul>
 <p><code>assembly-stats ERR1147227.fastq</code></p>
-<h2 id="2-automated-removal-of-adapter-and-demultiplexing-with-porechop">2. Automated removal of adapter and demultiplexing with <code>porechop</code></h2>
+<h2 id="2-adapter-removal-demultiplexing">2. Adapter removal &amp; demultiplexing</h2>
 <ul>
+<li>with <code>porechop</code></li>
 <li>porechop needs seperate outputs depending if barcodes were present or not</li>
 </ul>
 <pre><code class="bash">porechop -i &lt;input&gt;.fastq -b &lt;output_foulder&gt;
@@ -209,14 +210,11 @@ read_fast5_basecaller.py -i $currDir/$i -f $flowcell -t $CPU -q 100000 -o fastq 
 <ul>
 <li>You can redo <code>assembly-stats</code> to validate</li>
 </ul>
-<h2 id="3-assembly-with-minimap2-and-miniasm">3. Assembly with <code>minimap2</code> and <code>miniasm</code></h2>
+<h2 id="3-assembly">3. Assembly</h2>
 <ul>
-<li>
-<p>use <code>canu</code> for de novo assemblies</p>
-</li>
-<li>
-<p><code>minimap2</code> creates a files that <code>miniasm</code> needs for assembly</p>
-</li>
+<li>with <code>minimap2</code> and <code>miniasm</code></li>
+<li>use <code>canu</code> for de novo assemblies</li>
+<li><code>minimap2</code> creates a files that <code>miniasm</code> needs for assembly</li>
 <li><code>minimap2</code> creates a first draft map. However its <strong>not a good minion only assembler</strong>, we use it here to combine it with illumina data</li>
 </ul>
 <pre><code class="bash">minimap2 -x ava-ont ERR1147227_trimmed.fastq ERR1147227_trimmed.fastq | gzip -1 &gt; ERR1147227.paf.gz
@@ -225,7 +223,7 @@ miniasm -f ERR1147227_trimmed.fastq ERR1147227.paf.gz &gt; ERR1147227.gfa
 </code></pre>
 
 <ul>
-<li>canu example</li>
+<li><code>canu</code> example</li>
 </ul>
 <pre><code class="bash">canu -d run_e.coli -p e.coli genomeSize=6m -nanopore-raw 7718_E.coli_sum.fastq
 </code></pre>

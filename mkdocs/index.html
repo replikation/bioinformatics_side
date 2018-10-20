@@ -50,19 +50,6 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li class="active">
     <a href="./">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -140,6 +131,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
     <a href="../gwas/">GWAS</a>
 </li>
                                     
@@ -162,7 +157,7 @@
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../programs/">
+                                <a rel="prev" href="../emboss/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -175,13 +170,12 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#mkdocs">mkdocs</a></li>
-            <li><a href="#first-deployment">First deployment</a></li>
-            <li><a href="#change-things">change things</a></li>
+            <li><a href="#practical-steps">Practical steps</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="mkdocs">mkdocs</h2>
+<h1 id="mkdocs">mkdocs</h1>
 <p>Used <code>mkdocs</code> tutorial for site creation:
 https://mkdocs.readthedocs.io/en/stable/</p>
 <p>Using this style:
@@ -191,25 +185,26 @@ https://github.com/mkdocs/mkdocs-bootswatch
 <li>don't change anything on the git repository, it should automatically do every thing after the push !!</li>
 <li>it uses the branch pushed via mkdocs for the website</li>
 </ul>
-<h3 id="first-deployment">First deployment</h3>
-<pre><code class="bash"># create rep on github
-# git clone it and do on the repository:
+<h2 id="practical-steps">Practical steps</h2>
+<h3 id="first-creation">First creation</h3>
+<pre><code class="bash"># create rep via github.vom
+# git clone it to loccal machine and do on the repository:
 mkdocs new &lt;repositoryname&gt;
 cd &lt;repositoryname&gt;
 # change a few things in the mkdocs.yml
-# create markdowns
+# create markdowns und docs/
 
 # now build the side with:
-mkdocs build
+mkdocs build --clean
 
 # push all changes to your master
-git add &amp; git commit &amp; git push ....
+git add &amp; git commit &amp; git push # and so on
 
 # push the side
 mkdocs gh-deploy
 </code></pre>
 
-<h3 id="change-things">change things</h3>
+<h3 id="working-with-it-daily">Working with it, daily</h3>
 <pre><code class="bash"># change files
 # now build the side with:
 mkdocs build --clean  # clean is important if a style change was done

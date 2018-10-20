@@ -50,19 +50,6 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -140,6 +131,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
     <a href="../gwas/">GWAS</a>
 </li>
                                     
@@ -157,7 +152,7 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../mkdocs/">
+                                <a rel="next" href="../emboss/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -177,10 +172,10 @@
         <li class="main active"><a href="#important-software">Important Software</a></li>
             <li><a href="#sra-toolkit">SRA-toolkit</a></li>
             <li><a href="#assembly-stats">Assembly-stats</a></li>
-            <li><a href="#porechop-adapter-removal-and-demultiplexing">porechop - Adapter removal and demultiplexing</a></li>
-            <li><a href="#minimap2-miniasm-fast-but-error-prone-long-read-assembler">minimap2 &amp; miniasm - fast but error-prone long read assembler</a></li>
+            <li><a href="#porechop">porechop</a></li>
+            <li><a href="#minimap2-miniasm">minimap2 &amp; miniasm</a></li>
             <li><a href="#mummer">MUMmer</a></li>
-            <li><a href="#unicycler-hybrid-assembler-pipeline">Unicycler - Hybrid assembler pipeline</a></li>
+            <li><a href="#unicycler">Unicycler</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -204,11 +199,15 @@ mv * ~/.local/bin
 <ul>
 <li>for installation see <a href="https://github.com/sanger-pathogens/assembly-stats">github</a></li>
 </ul>
-<h2 id="porechop-adapter-removal-and-demultiplexing"><code>porechop</code> - Adapter removal and demultiplexing</h2>
+<h2 id="porechop"><code>porechop</code></h2>
 <ul>
+<li>Adapter removal and demultiplexing</li>
 <li>for installation see <a href="https://github.com/rrwick/Porechop">github</a></li>
 </ul>
-<h2 id="minimap2-miniasm-fast-but-error-prone-long-read-assembler"><code>minimap2</code> &amp; <code>miniasm</code> - fast but error-prone long read assembler</h2>
+<h2 id="minimap2-miniasm"><code>minimap2</code> &amp; <code>miniasm</code></h2>
+<ul>
+<li>fast but error-prone long read assembler</li>
+</ul>
 <blockquote>
 <p>Use this only with pilon and Illumina correction</p>
 </blockquote>
@@ -233,8 +232,9 @@ make
 sudo make install
 </code></pre>
 
-<h2 id="unicycler-hybrid-assembler-pipeline">Unicycler - Hybrid assembler pipeline</h2>
+<h2 id="unicycler">Unicycler</h2>
 <ul>
+<li>Hybrid assembler pipeline</li>
 <li><a href="https://github.com/rrwick/Unicycler">github link</a></li>
 </ul></div>
         </div>

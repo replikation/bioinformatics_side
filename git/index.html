@@ -49,19 +49,6 @@
                             <li >
                                 <a href="..">Home</a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../databases/">General</a>
-</li>
-                                    
-<li >
-    <a href="../emboss/">EMBOSS</a>
-</li>
-                                </ul>
-                            </li>
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -71,11 +58,11 @@
 </li>
                                     
 <li >
-    <a href="../fasta/">Fasta Manipulation</a>
+    <a href="../shell_adv/">Advanced</a>
 </li>
                                     
 <li >
-    <a href="../shell_adv/">Advanced Commands & Installation</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li class="active">
@@ -97,7 +84,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">R</a>
+    <a href="../R/">Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -111,6 +98,10 @@
                                     
 <li >
     <a href="../mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../emboss/">EMBOSS</a>
 </li>
                                 </ul>
                             </li>
@@ -140,6 +131,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
     <a href="../gwas/">GWAS</a>
 </li>
                                     
@@ -157,7 +152,7 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../shell_adv/">
+                                <a rel="next" href="../fasta/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -174,19 +169,21 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#git-hub">Git Hub</a></li>
-            <li><a href="#githubcom-step-by-step">Github.com - step by step</a></li>
+        <li class="main active"><a href="#githubcom">Github.com</a></li>
+            <li><a href="#create-repository">Create Repository</a></li>
+            <li><a href="#installing-gits">Installing Gits</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="git-hub">Git Hub</h2>
+<h1 id="githubcom">Github.com</h1>
 <ul>
 <li>to create a git repository follow the  introductions at <a href="https://github.com/">github</a></li>
 <li>to get a new git repository (not yours) for the first time use:
 <code>git clone &lt;git_URL&gt;</code></li>
 </ul>
-<h3 id="githubcom-step-by-step">Github.com - step by step</h3>
+<h2 id="create-repository">Create Repository</h2>
+<p><strong> step by step</strong></p>
 <ul>
 <li>create git repository at <a href="https://github.com/">github</a></li>
 <li>follow the description to link it to your local folder</li>
@@ -198,6 +195,16 @@
 <li><code>git push origin master</code> pushes commited file to internet git repository</li>
 <li><code>git pull</code> to get a update from github</li>
 <li><code>nano .gitignore</code> write filenames in .gitignore that you don't want to be added or pushed</li>
+</ul>
+<h2 id="installing-gits">Installing Gits</h2>
+<ul>
+<li>Download and compile new programs or git clones into <code>~/install/</code></li>
+<li>then put the path to <code>~/.bashrc</code>:
+    <code>b
+    # do nano ~/.bashrc and add
+    export PATH="/home/replik/install/canu/Linux-amd64/bin:$PATH"</code></li>
+<li>Search the programs in github</li>
+<li>the <code>make</code> or <code>configure</code> steps are written there or in the <code>README.md</code>. Do a <code>make clean</code> if you get errors during <code>make</code> before doing a new <code>make</code></li>
 </ul></div>
         </div>
 
