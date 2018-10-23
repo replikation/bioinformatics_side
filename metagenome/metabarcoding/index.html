@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Metabarcoding - Bioinformatics</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">Bioinformatics</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Basics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../shell/shell/">Commands</a>
+</li>
+            
+<li >
+    <a href="../../shell/shell_adv/">Cloud Computing</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../shell/fasta/">File Manipulation (fasta)</a>
+</li>
+                                    
+<li >
+    <a href="../../shell/git/">Git</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../python/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">R <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../R/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../tools/atom/">Atom Editor</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/emboss/">EMBOSS</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/UGENE/">UGENE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sequencing <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../sequencing/programs/">Programs</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/illumina/">HTS (Illumina)</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/nanopore/">Longreads (Nanopore)</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/hybrid/">Hybridassembly</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/annotation/">Annotation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metagenome <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../metagenomics/">Metagenomics</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Metabarcoding</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../other_topics/databases/">Databases</a>
+</li>
+                                    
+<li >
+    <a href="../../other_topics/gwas/">GWAS</a>
+</li>
+                                    
+<li >
+    <a href="../../other_topics/gs/">GS</a>
+</li>
+                                    
+<li >
+    <a href="../../other_topics/RNA_seq/">RNA seq</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../metagenomics/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../other_topics/databases/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#metabarcoding">Metabarcoding</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#biodiversity">Biodiversity</a></li>
+            <li><a href="#metabarcoding-practical">Metabarcoding - practical</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="metabarcoding">Metabarcoding</h1>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>very biased part since we only look at one very small gene</li>
+<li>a rapid method of high-throughput, DNA-based identification of multiple species from a complex and possibly degraded sample of DNA or from mass collection of specimens</li>
+<li>16S rRNA regions for genomic classification</li>
+<li>not ideal, 23S or more gene would be useful, but most reference only exist on 16S</li>
+<li>platform dependent sequence information (short reads is less information)</li>
+<li>usually illumina is used because its cheap, but nanopore data or pacbio will be the future standard since the results are way better<blockquote>
+<p>Preparation steps for metabarcoding using Illumina.
+<img alt="" src="http://media.springernature.com/m685/nature-static/assets/v1/image-assets/srep41948-f1.jpg" /></p>
+</blockquote>
+</li>
+</ul>
+<p>Programs to use:
++ <a href="http://qiime.org/">QIIME</a> but its buggy
++ <a href="www.mothur.org/">MOTHUR</a> also buggy
++ <a href="https://www.biorxiv.org/content/early/2015/11/06/030742">WIMP - what's in my pot</a> nanopore approach, its  really good</p>
+<h2 id="biodiversity">Biodiversity</h2>
+<ul>
+<li><strong>α = represents a local habitat/environment/sample</strong><ul>
+<li>can be plotted using the <code>plot_richness</code> function of the <code>phylosec</code> package</li>
+<li>this is a wrapper featuring 7 plots like "Shannon"</li>
+</ul>
+</li>
+<li><strong>β = is the differences between two α (samples)</strong><ul>
+<li>can be plotted using the <code>plot_ordination</code> function of the <code>phylosec</code> package</li>
+<li>declare the method first (<code>ord &lt;- ordinate(physeq, 'NMDS', 'bray'</code>)</li>
+<li>see below for the different β diversity methods</li>
+</ul>
+</li>
+<li><strong>γ = describes the total diversity of an ecosystem or of all gathered samples</strong></li>
+</ul>
+<p><strong>Illustration of α, β, and γ diversity:</strong>
+<img alt="" src="https://media.springernature.com/lw785/springer-static/image/art%3A10.1007%2Fs00442-008-1190-z/MediaObjects/442_2008_1190_Fig1_HTML.gif" />
+Figure: <em>Circles</em> represent α diversity as richness of species (symbols) in a sample (local). <em>Dashed box</em> represents γ diversity (diversity within a set of samples or within a larger region). β diversity describes the differences between samples (β~D~ = similarity; β~P~ = species richness comparision). This is a more complex description and explained in detail in this <a href="https://link.springer.com/article/10.1007/s00442-008-1190-z">paper</a>.</p>
+<h3 id="diversity-analysis">β diversity analysis</h3>
+<h4 id="plotting-your-data-pca-versus-mda">Plotting your data: PCA versus MDA</h4>
+<ul>
+<li>Principal Component Analysis (PCA) or Multiple Discriminant Analysis (MDA) both eliminate an axis (e.g. from 3D to 2D) while maximizing the variance on the x-axis, see <a href="http://setosa.io/ev/principal-component-analysis/">example</a></li>
+<li>MDA also maximizes the spread of the 2D data</li>
+<li>more information <a href="http://sebastianraschka.com/Articles/2014_pca_step_by_step.html">here</a></li>
+<li>log-transform is used to filter off trivial effects, which could dominate our PCA</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>without log normalization</th>
+<th>with log normalization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="https://i.stack.imgur.com/UWYdC.png" /></td>
+<td><img alt="" src="https://i.stack.imgur.com/BTanP.png" /></td>
+</tr>
+</tbody>
+</table>
+<h4 id="which-distance-method-to-choose-for-diversity">Which distance method to choose for β diversity?</h4>
+<p>A overview can be found <a href="https://sites.lifesci.ucla.edu/eeb-kraft/wp-content/uploads/sites/56/2016/01/Anderson_et_al_ELE_2010.pdf">in this publication</a>.
+<em> identities only = binary; Abundance included = quantitative
+</em> All methods destinquish whether they exclude or include joint absences:
+  <img alt="" src="https://i.imgur.com/XVz9EwR.png" /></p>
+<h2 id="metabarcoding-practical">Metabarcoding - practical</h2>
+<p><strong>Another detailed tutorial about DADA2 it <a href="https://benjjneb.github.io/dada2/tutorial.html">can be found here</a></strong>
+<em> we use the DADA2 apporach (very extensive manual and very memory efficient while being fast)
+</em> is a relatively new method to analyse amplicon data which uses exact variants instead of OTUs</p>
+<h3 id="1-install-and-load-packages">1. Install and Load Packages</h3>
+<ul>
+<li>install DADA2 and other necessary packages</li>
+</ul>
+<pre><code class="R">source('https://bioconductor.org/biocLite.R')
+biocLite('dada2')
+biocLite('phyloseq')
+biocLite('DECIPHER')
+install.packages('ggplot2')
+install.packages('phangorn')
+</code></pre>
+
+<ul>
+<li>load the packages and verify you have the correct DADA2 version</li>
+</ul>
+<pre><code class="R">library(dada2)
+library(ggplot2)
+library(phyloseq)
+library(phangorn)
+library(DECIPHER)
+packageVersion('dada2')
+</code></pre>
+
+<ul>
+<li>downloaded our data in shell</li>
+</ul>
+<pre><code class="bash">wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip
+unzip MiSeqSOPData.zip
+cd MiSeq_SOP
+wget https://zenodo.org/record/824551/files/silva_nr_v128_train_set.fa.gz
+wget https://zenodo.org/record/824551/files/silva_species_assignment_v128.fa.gz
+</code></pre>
+
+<ul>
+<li>Assign in R the path to our data to a variable and check it</li>
+</ul>
+<pre><code class="R">path &lt;- '~/MiSeq_SOP'
+list.files(path)
+</code></pre>
+
+<h3 id="2-filtering-and-trimming-the-reads-in-r-using-dada2">2. Filtering and Trimming the Reads in R using DADA2</h3>
+<ul>
+<li>create two lists with the sorted name of the reads: one for forward reads, one for reverse reads</li>
+</ul>
+<pre><code class="R">raw_forward &lt;- sort(list.files(path, pattern=&quot;_R1_001.fastq&quot;, full.names=TRUE))
+raw_reverse &lt;- sort(list.files(path, pattern=&quot;_R2_001.fastq&quot;, full.names=TRUE))
+# we also need the sample names
+sample_names &lt;- sapply(strsplit(basename(raw_forward), &quot;_&quot;), `[`, 1)
+</code></pre>
+
+<ul>
+<li>visualizing the quality of our reads</li>
+</ul>
+<pre><code class="R">plotQualityProfile(raw_forward[1:2])
+plotQualityProfile(raw_reverse[1:2])
+</code></pre>
+
+<blockquote>
+<p>The quality plots (for reverse) are looking like this:
+<img alt="" src="https://i.imgur.com/YWzTV1o.png" />
+really bad quality starting at around 150 bp</p>
+</blockquote>
+<ul>
+<li>Dada2 requires us to define the name of our output files first before trimming</li>
+</ul>
+<pre><code class="R"># place filtered files in filtered/ subdirectory
+filtered_path &lt;- file.path(path, &quot;filtered&quot;)
+filtered_forward &lt;- file.path(filtered_path, paste0(sample_names, &quot;_R1_trimmed.fastq.gz&quot;))
+filtered_reverse &lt;- file.path(filtered_path, paste0(sample_names, &quot;_R2_trimmed.fastq.gz&quot;))
+</code></pre>
+
+<ul>
+<li>for filtering parameters: <code>maxN=0</code> (DADA2 requires no Ns), <code>truncQ=2</code>, <code>rm.phix=TRUE</code> and <code>maxEE=2</code></li>
+<li>maxEE parameter sets the maximum number of “expected errors
+allowed in a read, which <a href="http://www.drive5.com/usearch/manual/expected_errors.html">according to the USEARCH authors</a> is a better filter than simply averaging quality scores</li>
+</ul>
+<pre><code class="R">out &lt;- filterAndTrim(raw_forward, filtered_forward, raw_reverse, filtered_reverse, truncLen=c(240,160), maxN=0, maxEE=c(2,2), truncQ=2, rm.phix=TRUE, compress=TRUE, multithread=TRUE)
+
+# to see the read output
+head(out)
+</code></pre>
+
+<ul>
+<li>DADA2 algorithm depends on a parametric error model and every amplicon dataset has a slightly different error rate</li>
+<li><code>learnErrors</code> of DADA2 learns the error model from the data and will help DADA2 to fits its method to your data</li>
+</ul>
+<pre><code class="R">errors_forward &lt;- learnErrors(filtered_forward, multithread=TRUE)
+errors_reverse &lt;- learnErrors(filtered_reverse, multithread=TRUE)
+</code></pre>
+
+<ul>
+<li>visualize the estimated error rates</li>
+</ul>
+<pre><code class="R">plotErrors(errors_forward, nominalQ=TRUE) + theme_minimal()
+</code></pre>
+
+<blockquote>
+<p>The error rates for each possible transition (eg. A to C, A to G (A2G), …) are shown:
+<img alt="" src="https://i.imgur.com/37JZKgU.png" /></p>
+</blockquote>
+<h3 id="3-dereplication">3. Dereplication</h3>
+<ul>
+<li><strong>Dereplication</strong> combines identical reads into "unique sequences" with a corresponding "abundance" (number of reads with that unique sequence)</li>
+<li>highly reduces computation time by eliminating redundant comparisons</li>
+</ul>
+<pre><code class="R">derep_forward &lt;- derepFastq(filtered_forward, verbose=TRUE)
+derep_reverse &lt;- derepFastq(filtered_reverse, verbose=TRUE)
+# name the derep-class objects by the sample names
+names(derep_forward) &lt;- sample_names
+names(derep_reverse) &lt;- sample_names
+</code></pre>
+
+<h3 id="4-sample-inference">4. Sample inference</h3>
+<ul>
+<li>applying the core sequence-variant inference algorithm to the dereplicated data</li>
+</ul>
+<pre><code class="R">dada_forward &lt;- dada(derep_forward, err=errors_forward, multithread=TRUE)
+dada_reverse &lt;- dada(derep_reverse, err=errors_reverse, multithread=TRUE)
+# inspect the dada-class object
+dada_forward[[1]]
+</code></pre>
+
+<h3 id="5-merge-paired-end-reads">5. Merge Paired-end Reads</h3>
+<ul>
+<li>reads are now trimmed, dereplicated and error-corrected, so we merge R1 &amp; R2 together</li>
+</ul>
+<pre><code class="R">merged_reads &lt;- mergePairs(dada_forward, derep_forward, dada_reverse, derep_reverse, verbose=TRUE)
+# inspect the merger data.frame from the first sample
+head(merged_reads[[1]])
+</code></pre>
+
+<h3 id="6-construct-sequence-table">6. Construct Sequence Table</h3>
+<ul>
+<li>constructing a sequence table of our samples</li>
+<li>a higher-resolution version of the OTU table produced by traditional methods</li>
+</ul>
+<pre><code class="R">seq_table &lt;- makeSequenceTable(merged_reads)
+dim(seq_table)
+# inspect distribution of sequence lengths
+table(nchar(getSequences(seq_table)))
+</code></pre>
+
+<h3 id="7-remove-chimeras">7. Remove Chimeras</h3>
+<ul>
+<li>this are reads who map to more than one region or contig (so called split-reads)</li>
+<li><code>dada</code> removes substitutions and indel errors but chimeras remain</li>
+<li>We remove the chimeras with:</li>
+</ul>
+<pre><code class="R">seq_table_nochim &lt;- removeBimeraDenovo(seq_table, method='consensus', multithread=TRUE, verbose=TRUE)
+dim(seq_table_nochim)
+# which percentage of our reads did we keep?
+sum(seq_table_nochim) / sum(seq_table)
+</code></pre>
+
+<ul>
+<li>as a final check of our progress, we’ll look at the number of reads that made it through each step in the pipeline:</li>
+</ul>
+<pre><code class="R">get_n &lt;- function(x) sum(getUniques(x))
+track &lt;- cbind(out, sapply(dada_forward, get_n), sapply(merged_reads, get_n), rowSums(seq_table), rowSums(seq_table_nochim))
+colnames(track) &lt;- c('input', 'filtered', 'denoised', 'merged', 'tabled', 'nonchim')
+rownames(track) &lt;- sample_names
+head(track) #checking the table we build
+
+##Looks like this:
+##        input filtered denoised merged tabled nonchim
+## F3D0    7793     7113     7113   6600   6600    6588
+## F3D1    5869     5299     5299   5078   5078    5067
+</code></pre>
+
+<h3 id="8-assign-taxonomy">8. Assign Taxonomy</h3>
+<ul>
+<li>now we assign taxonomy to our sequences using the <strong>SILVA database</strong></li>
+</ul>
+<pre><code class="R">taxa &lt;- assignTaxonomy(seq_table_nochim, '~/MiSeq_SOP/silva_nr_v128_train_set.fa.gz', multithread=TRUE)
+taxa &lt;- addSpecies(taxa, '~/MiSeq_SOP/silva_species_assignment_v128.fa.gz')
+</code></pre>
+
+<ul>
+<li>inspecting the classification with:</li>
+</ul>
+<pre><code class="R">taxa_print &lt;- taxa  # removing sequence rownames for display only
+rownames(taxa_print) &lt;- NULL
+head(taxa_print)
+</code></pre>
+
+<h3 id="9-phylogenetic-tree">9. Phylogenetic Tree</h3>
+<ul>
+<li>creating a multiple alignment</li>
+</ul>
+<pre><code class="R">sequences &lt;- getSequences(seq_table)
+names(sequences) &lt;- sequences  # this propagates to the tip labels of the tree
+alignment &lt;- AlignSeqs(DNAStringSet(sequences), anchor=NA)
+</code></pre>
+
+<ul>
+<li>build a neighbour-joining tree then fit a maximum likelihood tree using the neighbour-joining tree as a starting point</li>
+</ul>
+<pre><code class="R">phang_align &lt;- phyDat(as(alignment, 'matrix'), type='DNA')
+dm &lt;- dist.ml(phang_align)
+treeNJ &lt;- NJ(dm)  # note, tip order != sequence order
+fit = pml(treeNJ, data=phang_align) #changed negative lengths to 0
+
+fitGTR &lt;- update(fit, k=4, inv=0.2)
+fitGTR &lt;- optim.pml(fitGTR, model='GTR', optInv=TRUE, optGamma=TRUE, rearrangement = 'stochastic', control = pml.control(trace = 0))
+detach('package:phangorn', unload=TRUE)
+</code></pre>
+
+<h3 id="10-phyloseq">10. Phyloseq</h3>
+<ul>
+<li>we load now pre-prepared meta data for this tutorial</li>
+<li>its a normal tab table or data.frame starting with the sequence name</li>
+</ul>
+<pre><code class="R">sample_data &lt;- read.table('https://hadrieng.github.io/tutorials/data/16S_metadata.txt', header=TRUE, row.names=&quot;sample_name&quot;)
+</code></pre>
+
+<ul>
+<li>constructing the phyloseq object using our output and the downloaded metadata</li>
+<li>we remove the mock sample, which is some kind of quality control of the whole process (it consists of 20 samples of known connetions)</li>
+<li>for more details about the mock sample look at the <a href="https://benjjneb.github.io/dada2/tutorial.html">extensive tutorial</a></li>
+</ul>
+<pre><code class="R">physeq &lt;- phyloseq(otu_table(seq_table_nochim, taxa_are_rows=FALSE), sample_data(sample_data), tax_table(taxa), phy_tree(fitGTR$tree))
+# remove mock sample
+physeq &lt;- prune_samples(sample_names(physeq) != 'Mock', physeq)
+physeq
+</code></pre>
+
+<h3 id="11-diversity-analysis-graphs">11. Diversity analysis graphs</h3>
+<h4 id="diversity">α diversity</h4>
+<ul>
+<li><code>plot_richness</code> is from <code>phyloseq package</code>. its just a "wrapper" so no calculations. We use the Shannon and Fisher wraper.</li>
+</ul>
+<pre><code class="R">plot_richness(physeq, x='day', measures=c('Shannon', 'Fisher'), color='when') + theme_minimal()
+</code></pre>
+
+<p><img alt="" src="https://i.imgur.com/eiBIXKb.png" /></p>
+<hr />
+<h4 id="diversity_1">β diversity</h4>
+<p><strong>1. Performed a MDS with euclidean distance (mathematically equivalent to a PCA)</strong></p>
+<pre><code class="R">ord &lt;- ordinate(physeq, 'MDS', 'euclidean')
+plot_ordination(physeq, ord, type='samples', color='when', title='PCA of the samples from the MiSeq SOP') + theme_minimal()
+</code></pre>
+
+<p><img alt="" src="https://i.imgur.com/jIxxBFF.png" />
+<strong>2. Performed with Bray-Curtis distance</strong></p>
+<pre><code class="R">ord &lt;- ordinate(physeq, 'NMDS', 'bray')
+plot_ordination(physeq, ord, type='samples', color='when', title='PCA of the samples from the MiSeq SOP') + theme_minimal()
+</code></pre>
+
+<ul>
+<li>β diversity (Bray-Courtis distance) looks like this:</li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/Ha5ogZY.png" /></p>
+<hr />
+<p><strong>Distribution of the most abundant families</strong></p>
+<pre><code class="R">top20 &lt;- names(sort(taxa_sums(physeq), decreasing=TRUE))[1:20]
+physeq_top20 &lt;- transform_sample_counts(physeq, function(OTU) OTU/sum(OTU))
+physeq_top20 &lt;- prune_taxa(top20, physeq_top20)
+plot_bar(physeq_top20, x='day', fill='Family') + facet_wrap(~when, scales='free_x') + theme_minimal()
+</code></pre>
+
+<ul>
+<li>looks like this
+<img alt="" src="https://i.imgur.com/SbFTCTD.png" /></li>
+</ul>
+<hr />
+<p>We can place them in a tree</p>
+<pre><code class="R">bacteroidetes &lt;- subset_taxa(physeq, Phylum %in% c('Bacteroidetes'))
+plot_tree(bacteroidetes, ladderize='left', size='abundance', color='when', label.tips='Family')
+</code></pre>
+
+<p>Looks like this:
+<img alt="" src="https://i.imgur.com/K2YvCIF.png" /></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
