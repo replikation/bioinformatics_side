@@ -2,7 +2,8 @@
 
 This website is a collection of lectures and tutorials.
 
-* Commands written here are "one liner", so use the "triple" click to copy the whole line, so you have the right command even if its on 2 ore more lines due to website formatting
+* Commands are written as "one liner"
+  * use the "triple" mouse click to copy the complete line, because it gets the complete command even if its on 2 or more lines due to website formatting
 
 
 Created/Collected by Christian Brandt.
@@ -11,7 +12,7 @@ Created/Collected by Christian Brandt.
 
 * [Google Scholar Profile](https://scholar.google.se/citations?user=YSWxKeoAAAAJ&hl=en)
 
-* [Git](https://github.com/replikation)
+* [Git Profile](https://github.com/replikation)
 
 ## Content cloud
 

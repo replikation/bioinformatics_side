@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Annotation - Bioinformatics</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">Bioinformatics</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Basics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../shell/shell/">Commands</a>
+</li>
+            
+<li >
+    <a href="../../shell/shell_adv/">Cloud Computing</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../shell/fasta/">File Manipulation (fasta)</a>
+</li>
+                                    
+<li >
+    <a href="../../shell/git/">Git</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../python/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">R <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../R/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../tools/atom/">Atom Editor</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/emboss/">EMBOSS</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/UGENE/">UGENE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sequencing <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../programs/">Programs</a>
+</li>
+                                    
+<li >
+    <a href="../illumina/">HTS (Illumina)</a>
+</li>
+                                    
+<li >
+    <a href="../nanopore/">Longreads (Nanopore)</a>
+</li>
+                                    
+<li >
+    <a href="../hybrid/">Hybridassembly</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Annotation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metagenome <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../metagenome/metagenomics/">Metagenomics</a>
+</li>
+                                    
+<li >
+    <a href="../../metagenome/metabarcoding/">Metabarcoding</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../other_topics/databases/">Databases</a>
+</li>
+                                    
+<li >
+    <a href="../../other_topics/gwas/">GWAS</a>
+</li>
+                                    
+<li >
+    <a href="../../other_topics/gs/">GS</a>
+</li>
+                                    
+<li >
+    <a href="../../other_topics/RNA_seq/">RNA seq</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../hybrid/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../metagenome/metagenomics/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#genome-annotation">Genome annotation</a></li>
+            <li><a href="#structural-genome-annotation">Structural genome annotation</a></li>
+            <li><a href="#genome-annotation-with-augustus-practical">Genome annotation with augustus - practical</a></li>
+            <li><a href="#maker-gene-build-pipeline-practical">maker gene build pipeline - practical</a></li>
+            <li><a href="#functional-genome-annotation">Functional genome annotation</a></li>
+            <li><a href="#interproscan-approach-practical">Interproscan approach - practical</a></li>
+            <li><a href="#blast-approach-practical">BLAST approach - practical</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="genome-annotation">Genome annotation</h1>
+<h2 id="structural-genome-annotation">Structural genome annotation</h2>
+<ul>
+<li><strong>Structural</strong> gene annotation - find out where the region of interest is</li>
+<li><strong>Functional</strong> gene annotation - find out what the region do</li>
+<li>gff - genome feature file</li>
+</ul>
+<p><strong>Main steps:</strong>
+QC assembly -&gt; structural annotation -&gt; manual curation -&gt; functional annotation -&gt; Submission or Downstream analysis
+<em> QC of assembly is highly important
+</em> Repeat Masking to improve the gene annotations
+<em> most pipelines have this included, but check first before using a annotation program
+</em> annotations are either based on proteins or transcripts
+<em> if a protein is unknown then you won't annotate it
+</em> RNA-seq tries to find all transcripts - should always be included in a annotation project</p>
+<p><strong>Approaches for annotations:</strong>
+<em> </em>Similarity-based methods<em> - these use similarity to annotated sequences like proteins, cDNAs, or ESTs
+</em> <em>Ab initio prediction</em> - likelihood based methods that needs to be trained (give them 1000 known genes of a species)
+    * annotations based on gene content (codon usage, GC content, exon/intron size, promotor, ORF, start codons, splice sites and more)
+    * sensitivity and specifity has to be determined after the training
+    * false positive results? overpredicting?
+    * sensitivity and specifity on nucleotide level is more important than on gene level when evaluating the performance
+<em> </em>Hybrid approaches<em> - ab </em>initio<em> tools with the ability to integrate external evidence/hints
+</em> <em>Comparative (homology) based gene finders</em> - these align genomic sequences from different species and use the alignments to  guide the gene predictions
+<em> </em>Chooser, combiner approaches<em> - these combine gene predictions of other gene finders
+</em> <em>Pipelines</em> - These combine multiple approaches
+    * use a pipeline</p>
+<blockquote>
+<p><strong>Popular tools</strong>:</p>
+<blockquote>
+<p><strong>Supported by the maker tool:</strong></p>
+<ul>
+<li><strong>SNAP</strong> - Works ok, easy to train, not as good as others especially on longer intron genomes.</li>
+<li><strong>Augustus</strong> - Works great, hard to train (but getting better)</li>
+<li><strong>GeneMark-ES</strong> - Self training, no hints, buggy, not good for fragmented genomes or long introns (Best suited for Fungi).</li>
+<li><strong>FGENESH</strong> - Works great, costs money even for training.</li>
+<li><strong>GlimmerHMM (Eukaryote)</strong></li>
+<li><strong>GenScan</strong></li>
+<li><strong>Gnomon (NCBI)</strong></li>
+</ul>
+</blockquote>
+</blockquote>
+<ul>
+<li>but you want to use those tools in a pipeline - combining various methodes since it improves highly the output quality</li>
+</ul>
+<blockquote>
+<p><strong>PIPELINES</strong>:</p>
+<blockquote>
+<p><strong>PASA</strong></p>
+<ul>
+<li>Produces evidence-driven consensus gene models</li>
+<li>(-) minimalist pipeline</li>
+<li>(+) good for detecting isoforms</li>
+<li>(+) biologically relevant predictions</li>
+<li>using Ab initio tools and combined with EVM it does a pretty good job</li>
+<li>PASA + Ab initio + EVM is not automatized</li>
+</ul>
+<p><strong>NCBI pipeline</strong></p>
+<ul>
+<li>best one yet - but difficult to install</li>
+<li>NCBI staff can be asked an they help you</li>
+<li>Evidence + ab initio (Gnomon), repeat masking, gene naming, data formatting, miRNAs, tRNAs</li>
+</ul>
+<p><strong>Ensembl</strong></p>
+<ul>
+<li>Evidence based only ( comparative + homology )</li>
+</ul>
+<p><strong>MAKER2</strong></p>
+<ul>
+<li>Evidence based and/or ab initio</li>
+<li>developed as an easy-to-use alternative to other pipelines</li>
+<li>Easy to use and to configure</li>
+<li>Almost unlimited parallelism built-in (limited by data and hardware)</li>
+<li>Largely independent from the underlying system it is run on</li>
+<li>Everything is run through one command, no manual combining of data/outputs</li>
+<li>Follows common standards, produces GMOD compliant output</li>
+<li>Annotation Edit Distance (AED) metric for improved quality control</li>
+<li>Provides a mechanism to train and retrain ab <em>initio</em> gene predictors</li>
+<li>Annotations can be updated by re-launching Maker with new evidence</li>
+</ul>
+</blockquote>
+</blockquote>
+<ul>
+<li>Pipelines give good results, MAKER2 the most flexible, adjustable</li>
+<li>Most methods only build gene models, no functional inference</li>
+<li>Computational pipelines make mistakes</li>
+<li>Annotation requires manual curation</li>
+<li>As for assembly, an annotation is never finished, it can always be improved (e.g. Human)</li>
+</ul>
+<h2 id="genome-annotation-with-augustus-practical">Genome annotation with <code>augustus</code> - practical</h2>
+<ul>
+<li>we are using chromosome 4 of the fruit fly, Drosophila melanogaster</li>
+<li>QC of the assembly first:<ul>
+<li>Fragmentation? (N50, N90, how many short contigs)</li>
+<li>Sanity of the fasta file (Presence of Ns, presence of ambiguous nucleotides, presence of lowercase nucleotides, single line sequences vs multiline sequences)</li>
+<li>completeness (using BUSCO)</li>
+<li>presence of organelles</li>
+<li>Others (GC content, How distant the investigated species is from the others annotated species available)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-busco-for-assembly-check">1. <code>BUSCO</code> for Assembly check</h3>
+<ul>
+<li>BUSCO provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionarily-informed expectations of gene content from near-universal single-copy orthologs selected from <a href="http://orthodb.org">OrthoDB <em>v9</em></a>.</li>
+<li>first get the best dataset from the <a href="http://busco.ezlab.org">busco website</a></li>
+</ul>
+<pre><code class="bash">wget http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
+tar xzvf metazoa_odb9.tar.gz
+</code></pre>
+
+<ul>
+<li>launching BUSCO, to create the folder 4_dmel_busco</li>
+<li>inside is a <code>short_summary_4_dmel_busco.txt</code> for statistics on how many genes/regions could be found in comparision to the reference genome</li>
+<li>the better the assembly the more will be found</li>
+</ul>
+<pre><code class="bash">BUSCO.py -i ~/annotation_course/data/genome/4.fa -o 4_dmel_busco -m geno -c 8 -l metazoa_odb9
+</code></pre>
+
+<ul>
+<li><code>fasta_statisticsAndPlot.pl</code> is  used for additional statistics</li>
+<li>Part of this <a href="https://github.com/NBISweden/GAAS/commit/74fb7049b47f4816ecfd7fdffaa4a622831e80a2">github rep called GAAS</a></li>
+</ul>
+<pre><code>fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/4.fa
+</code></pre>
+
+<h3 id="2-augustus-an-ab-initio-gene-finder">2. <code>augustus</code> an ab <em>initio</em> gene finder</h3>
+<ul>
+<li>if satisfied by the quality of the assembly we start the annotation</li>
+<li>we focus on the gene finder <code>augustus</code></li>
+<li>these gene finders use likelihoods to find the most likely genes in the genome</li>
+<li>they are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules</li>
+<li>the most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct</li>
+<li>we have training files for Drosophila</li>
+</ul>
+<p><strong>Augustus</strong>
+* call it with a genome/assembly and it saves the annotation as a gff3 file</p>
+<pre><code class="bash">augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes &gt; augustus_drosophila.gff
+#to get additional isoforms use this:
+augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes --alternatives-from-sampling=true &gt; augustus_drosophila_isoform.gff
+</code></pre>
+
+<ul>
+<li><code>gff3_sp_statistics.pl</code> is also from GAAS for the created gff file from <code>augustus</code></li>
+<li>gives an statistical overview of the gene annotations</li>
+</ul>
+<pre><code>gff3_sp_statistics.pl --gff augustus_drosophila.gff
+</code></pre>
+
+<h3 id="3-visualisation">3. Visualisation</h3>
+<ul>
+<li>opened the chromosome 4 file and the gff file in UGENE</li>
+<li>looks like this:
+<img alt="" src="https://i.imgur.com/rAxyelb.png" /></li>
+<li>An other good and popular software to explore genomes is <a href="https://software.broadinstitute.org/software/igv/">IGV</a></li>
+</ul>
+<h2 id="maker-gene-build-pipeline-practical"><code>maker</code> gene build pipeline - practical</h2>
+<p><strong>MAKER</strong> is a computational pipeline to automatically generate annotations from a range of input data. The Maker pipeline can work with any combination of the following data sets, which are put into the <code>maker_opts.ctl</code>:</p>
+<ul>
+<li>Proteins from the same species or related<ul>
+<li>Swissport for high quality protein sequences</li>
+<li>Refseq sequence sets from the <a href="ftp://ftp.ncbi.nlm.nih.gov/refseq/">ftp-servers</a></li>
+<li>Ensembl using Biomart interface to download data for a specific region or a specific gene</li>
+</ul>
+</li>
+<li>Proteins from more distantly related organisms<ul>
+<li>Uniprot to include protein sequences from organisms closely related to your study organism</li>
+</ul>
+</li>
+<li>EST sequences from the same species or very closely related species<ul>
+<li>NCBI or EBI websites to retrieve such kind of data  </li>
+</ul>
+</li>
+<li>RNA-seq data from the same or very closely related species, in the form of splice sites or assembled transcripts<ul>
+<li>normally genereted by yourself or are retrived on the Sequence Read Archive of NCBI (SRA) or the ENA of EBI</li>
+</ul>
+</li>
+<li>ab <em>initio</em> predictions from one or more tools (supported are: Augustus, Snap, GeneMark, Fgenesh)</li>
+</ul>
+<h3 id="1-start-maker">1. Start <code>maker</code></h3>
+<ul>
+<li>do <code>maker -CTL</code> to create the 3 files for the pipeline (<code>maker_opts.ctl, maker_bopts.ctl, maker_exe.ctl</code>)</li>
+</ul>
+<h3 id="21-evidence-based-annotation">2.1 Evidence-based annotation</h3>
+<ul>
+<li>the best protein- and EST-alignments are chosen to build the most likely gene model, <strong>without an ab <em>initio</em> model</strong></li>
+</ul>
+<blockquote>
+<p>We need to prepare various files and add their path to the <code>maker_opts.ctl</code> file (use , to seperate files):
+<em>   name of the genome sequence (<code>genome=</code>)
+</em>   name of the 'EST' set file(s) (<code>est=</code>)
+<em>   name of the 'Protein' set file(s) (<code>protein=</code>)
+</em>   name of the repeatmasker and repeatrunner files (<code>rm_gff=</code>)
+<em> disabling ab </em>initio<em> with <code>protein2genome=1</code>, <code>est2genome=1</code>
+</em> we deactivated the parameters <code>model_org=</code> and <code>repeat_protein=</code> to avoid the heavy work of repeatmasker (blank values)</p>
+</blockquote>
+<ul>
+<li>if the <code>maker_opts.ctl</code>is configured properly start the maker pipeline with</li>
+</ul>
+<pre><code class="bash">mpiexec -n 8 maker # -n is core numbers
+# and compile the output with:
+maker_merge_outputs_from_datastore.pl --output maker_no_abinitio
+</code></pre>
+
+<ul>
+<li>in the folder you find the annotation file <code>maker.gff</code></li>
+<li>to get statistics use the <code>gff3_sp_statistics.pl</code></li>
+</ul>
+<pre><code class="bash">gff3_sp_statistics.pl --gff maker_no_abinitio/annotationByType/maker.gff
+</code></pre>
+
+<h3 id="22-run-maker-with-ab-initio-predictions">2.2 Run Maker with ab-initio predictions</h3>
+<ul>
+<li>builds on the gff from step 2.1 and does a ab-initio prediction</li>
+<li>These files were present(repeatmasker.chr4.gff, repeatrunner.chr4.gff, 4.fa)</li>
+<li>These were created in Step 2.1 (est_gff_stringtie.gff, est2genome.gff, protein2genome.gff)</li>
+<li>so add them to the <code>maker_opts.ctl</code></li>
+<li>change these now to <code>protein2genome=0</code>, <code>est2genome=0</code>, <code>keep_preds=1</code>, <code>augustus_species=fly</code></li>
+<li>With these settings, Maker will run augustus to predict gene loci, but inform these predictions with information from the protein and est alignments</li>
+<li><strong>You can combine step 2.1 &amp; 2.2 into one</strong></li>
+<li><strong>its basically step 2.1 with augustus and ab initio activated (the gffs are created during the pipeline)</strong></li>
+</ul>
+<pre><code class="bash">mpiexec -n 8 maker
+#compiling
+maker_merge_outputs_from_datastore.pl --output maker_with_abinitio
+#check statistics with this GAAS script
+gff3_sp_statistics.pl --gff maker_with_abinitio/annotationByType/maker.gff
+</code></pre>
+
+<p><strong>Summary</strong>: We created 2 maker.gff files. One in <code>maker_with_abinto/</code> one in <code>maker_noabinto directory/</code>. Doing Step 2.2 helped to make the gene predictions less fragmented. For best performance go all th way to step 2.2.</p>
+<blockquote>
+<p>For Intron / Exon manual curation look for the GT/AG in an Intron
+5'-3' [EXON]++GT--intron--AG++[EXON]
+3'-5' [EXON]++GA--intron--TG++[EXON]
+<img alt="" src="http://slideplayer.com/10370846/35/images/1/Schematic+of+Eukaryotic+Protein-Coding+Locus.jpg" /></p>
+</blockquote>
+<h2 id="functional-genome-annotation">Functional genome annotation</h2>
+<ul>
+<li><strong>Functional</strong> gene annotation - find out what the region does</li>
+<li>You can do this experimentally (slow and expensive) or computationally</li>
+</ul>
+<p><strong>Computationally:</strong>
+<em> Sequence based - <strong>mainly done</strong>
+    * based on similarity/motif/profile
+    * orthology based on evolutionary relationship
+        * Clustering with KOG/COG
+        * Synteny: Satsuma + kraken + custom script
+        * phylogeny based
+</em> Structure based
+    * global structure comparison
+    * localized regions
+    * active sites resides
+* Protein-Protein Interaction data</p>
+<h3 id="blast-based-functional-genome-annotation">blast based functional genome annotation</h3>
+<ul>
+<li>you need Sequence, gff3 files</li>
+<li>Uniprot (exhaustive) or Swissprot (reliable)</li>
+<li>Use Annie to extract best hits from blast-hit list and the corresponding description from uniprot-headers</li>
+<li>Add the information to the annotation.gff using custom-script</li>
+<li>then you have a nice description of the blast hit in the gff file</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Information</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEGG</td>
+<td>Pathway</td>
+<td>Kyoto Encyclopedia of Genes and Genomes</td>
+</tr>
+<tr>
+<td>MetaCyc</td>
+<td>Pathway</td>
+<td>Curated database of experimentally elucidated metabolic pathways from all domains of life (NIH)</td>
+</tr>
+<tr>
+<td>Reactome</td>
+<td>Pathway</td>
+<td>Curated and peer reviewed pathway database</td>
+</tr>
+<tr>
+<td>UniPathway</td>
+<td>Pathway</td>
+<td>Manually curated resource of enzyme-catalyzed and spontaneous chemical reactions.</td>
+</tr>
+<tr>
+<td>GO</td>
+<td>Gene Ontology</td>
+<td>Three structured, controlled vocabularies (ontologies) : biological processes, cellular components and molecular functions</td>
+</tr>
+<tr>
+<td>Pfam</td>
+<td>Protein families</td>
+<td>Multiple sequence alignments and hidden Markov models</td>
+</tr>
+<tr>
+<td>Interpro</td>
+<td>P. fam., domains &amp; functional sites</td>
+<td>Run separate search applications, and create a signature to search against Interpro.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Approach</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trinotate</td>
+<td>Best blast hit, protein domain identification (HMMER/PFAM), protein signal peptide and transmembrane domain prediction (signalP/tmHMM), and leveraging various annotation databases (eggNOG/GO/Kegg databases).</td>
+<td>Not automated</td>
+</tr>
+<tr>
+<td>Annocript</td>
+<td>Best blast hit</td>
+<td>Collects the best-hit and related annotations (proteins, domains, GO terms, Enzymes, pathways, short)</td>
+</tr>
+<tr>
+<td>Annot8r</td>
+<td>Best blast hits</td>
+<td>A tool for Gene Ontology, KEGG biochemical pathways and Enzyme Commission EC number annotation of nucleotide and peptide sequences.</td>
+</tr>
+<tr>
+<td>Sma3s</td>
+<td>Best blast hit, Best reciprocal blast hit, clusterisation</td>
+<td>3 annotation levels</td>
+</tr>
+<tr>
+<td>afterParty</td>
+<td>BLAST, InterProScan</td>
+<td>web application</td>
+</tr>
+<tr>
+<td><strong>Interproscan</strong></td>
+<td>Separate search applications, HMMs, fingerprints, patterns of InterPro</td>
+<td>Created to unite secondary databases</td>
+</tr>
+<tr>
+<td>Blast2Go</td>
+<td>get best blast hits</td>
+<td>Retrieve only GO,Commercial !</td>
+</tr>
+</tbody>
+</table>
+<h2 id="interproscan-approach-practical">Interproscan approach - practical</h2>
+<ul>
+<li>we took a gff file and the corresponding fasta file</li>
+<li>we had a pre downloaded database</li>
+<li>we used this script to extract the protein sequences with an gff annotation (<code>AA.fa</code>)</li>
+</ul>
+<pre><code class="bash">gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p --cfs -o AA.fa
+</code></pre>
+
+<ul>
+<li>we used the <a href="https://github.com/ebi-pf-team/interproscan/wiki/HowToDownload">interproscan</a> complete thing - incl. databases (48 GB) to get the information</li>
+<li>there is a way to analyse through the web but it has a limit on requests</li>
+</ul>
+<pre><code class="bash">#takes 2-3 seconds per protein
+interproscan.sh -i AA.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
+</code></pre>
+
+<ul>
+<li>load the retrieved functional information in your annotation file writing your own script or use the<code>maker</code> script</li>
+</ul>
+<pre><code class="bash">ipr_update_gff maker_with_abinitio.gff AA.fa.tsv &gt;  maker_with_abinitio_with_interpro.gff
+</code></pre>
+
+<h2 id="blast-approach-practical">BLAST approach - practical</h2>
+<ul>
+<li>similar to your resistance gene blasts</li>
+</ul>
+<pre><code class="bash">blastp -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -query AA.fa -outfmt 6 -out blast.out -num_threads 8
+</code></pre>
+
+<ul>
+<li>we are using <code>annie</code> to process the blast output</li>
+</ul>
+<pre><code class="bash">git clone https://github.com/genomeannotation/Annie.git
+# This is the annie.py script
+Annie/annie.py -b blast.out -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -g maker_with_abinitio.gff -o annotation_blast.annie
+</code></pre>
+
+<ul>
+<li>
+<p>Annie writes in a 3-column table format file, providing gene name and mRNA product information. The purpose of annie is relatively simple. It recovers the information in the sequence header of the uniprot fasta file, from the best sequence found by Blast (the lowest e-value).</p>
+</li>
+<li>
+<p>load the retrieved functional information in your annotation file writing your own script or use the<code>maker</code> script</p>
+</li>
+</ul>
+<pre><code>maker_gff3manager_JD_v8.pl -f maker_with_abinitio_with_interpro.gff -b annotation_blast.annie --ID FLY -o finalOutputDir
+</code></pre>
+
+<ul>
+<li>we change the [product] tag to the [description] tag so Webapollo shows the actual protein name directly in the screen instead of just hovering over it</li>
+</ul>
+<pre><code>/home/student/.local/GAAS/annotation/WebApollo/gff3_webApollo_compliant.pl --gff finalOutputDir/codingGeneFeatures.gff -o final_annotation.gff
+</code></pre>
+
+<h3 id="subbmitting-to-ebi-using-a-tool">Subbmitting to EBI using a tool</h3>
+<p>In order to submit to <strong>EBI</strong>, the use of a tool like <a href="https://github.com/NBISweden/EMBLmyGFF3">EMBLmyGFF3</a> will be your best choice.</p>
+<p><strong>Let's prepare your annotation to submit to ENA (EBI)</strong>
+You need to create an account and create a project asking a locus_tag for your annotation. You have  to fill lot of metada information related to the assembly and so on. We will skip those tasks using fake information. First you need to download and install EMBLmyGFF3:</p>
+<pre><code>pip install --user git+https://github.com/NBISweden/EMBLmyGFF3.git
+EMBLmyGFF3 finalOutputDir/codingGeneFeatures.gff 4.fa -o my_annotation_ready_to_submit.embl
+</code></pre>
+
+<p>You now have a EMBL flat file ready to submit.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

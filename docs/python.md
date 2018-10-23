@@ -28,8 +28,10 @@ total = item_one + \
 ```python
 #!/usr/bin/python3
 print("test") #basically like echo, includes \n
+
 input("\n\nPress the enter key to exit.") #creates a user prompt, has two empty lines before
-; #like shell to get more commands in one line
+
+; # ";" is used like in shell to get more commands in one line
 ```
 
 ## Variables in python3

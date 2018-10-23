@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>GS - Bioinformatics</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">Bioinformatics</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Basics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../shell/shell/">Commands</a>
+</li>
+            
+<li >
+    <a href="../../shell/shell_adv/">Cloud Computing</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../shell/fasta/">File Manipulation (fasta)</a>
+</li>
+                                    
+<li >
+    <a href="../../shell/git/">Git</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../python/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">R <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../R/">Basics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../tools/atom/">Atom Editor</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/emboss/">EMBOSS</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/mkdocs/">mkdocs</a>
+</li>
+                                    
+<li >
+    <a href="../../tools/UGENE/">UGENE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sequencing <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../sequencing/programs/">Programs</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/illumina/">HTS (Illumina)</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/nanopore/">Longreads (Nanopore)</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/hybrid/">Hybridassembly</a>
+</li>
+                                    
+<li >
+    <a href="../../sequencing/annotation/">Annotation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metagenome <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../metagenome/metagenomics/">Metagenomics</a>
+</li>
+                                    
+<li >
+    <a href="../../metagenome/metabarcoding/">Metabarcoding</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../databases/">Databases</a>
+</li>
+                                    
+<li >
+    <a href="../gwas/">GWAS</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">GS</a>
+</li>
+                                    
+<li >
+    <a href="../RNA_seq/">RNA seq</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../gwas/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../RNA_seq/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#genomic-selection-gs">Genomic selection (GS)</a></li>
+            <li><a href="#overview-mas-versus-gs">Overview (MAS versus GS)</a></li>
+            <li><a href="#mas-marker-assisted-selection">MAS - marker assisted selection</a></li>
+            <li><a href="#gs-genomic-selection">GS - genomic selection</a></li>
+            <li><a href="#pros-and-cons-of-gs">Pros and Cons of GS</a></li>
+            <li><a href="#other-information-about-breeding">Other information about breeding</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="genomic-selection-gs">Genomic selection (GS)</h1>
+<h2 id="overview-mas-versus-gs">Overview (MAS versus GS)</h2>
+<p><strong>Marker assisted selection (MAS)</strong>: A small number of molelcular markers are used to tag genes-of-interest, but the overall impact on enhancing the efficiency of breeding is limited. MAS has been successfully used to incorporate major genes and/or QTLs. But, most traits of interest are not controlled by just a few large-effect genes, but by many genes of small effect and/or by a combination of major and minor genes. MAS is far less suitable for these types of trait genetic architectures. Epistatic interactions and the effects of genetic background make molecular breeding even more complicated.</p>
+<blockquote>
+<p><strong>Traditional EBV</strong> (estimated breeding values): based on Mendelian Sampling
+* for MAS you use the program <strong>MAS-BLUP</strong></p>
+</blockquote>
+<p><strong>Genomic selection (GS)</strong>, introduced in 2001, presents a new alternative to traditional MAS that actually improve gain per selection in a breeding program per unit time, and thus breeding efficiency. In a GS breeding schema, genome-wide DNA markers are used to predict which individuals in a breeding population are most valuable as parents of the next generation of offspring. GC can get breeding values on newborns or embryos, therefore we can do selection way earlier than waiting for a specific trait to show. The generation intervall is faster and the genetic progress per year increases significantly.</p>
+<blockquote>
+<p><strong>gEBV</strong> (genomic-based estimated breeding values): Selection on SNP effects, includes Mendelian Sampling [color=lightgreen]
++ for GS you use the program <strong>GBLUP</strong></p>
+</blockquote>
+<p>A good <a href="https://www.illumina.com/content/dam/illumina-marketing/documents/products/research_reviews/genomic-selection-in-agriculture.pdf">overview of this can be found here.</a></p>
+<table>
+<thead>
+<tr>
+<th>MAS</th>
+<th>Genomic Selection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find QTL or genes and select specifically for favourable alleles</td>
+<td>Estimate effects across all markers and select on the sum of effects</td>
+</tr>
+<tr>
+<td>Need strategy to combine with EBV</td>
+<td>Replaces EBV (gEBV)</td>
+</tr>
+<tr>
+<td>LE-MAS computationally intensive</td>
+<td>Can be very computationally intensive</td>
+</tr>
+<tr>
+<td>LE-MAS has major genotyping requirements</td>
+<td>Major genotyping requirements</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mas-marker-assisted-selection">MAS - marker assisted selection</h2>
+<h3 id="3-starting-points-of-mas">3 starting points of MAS</h3>
+<p><strong>GAS (gene assisted selection)</strong>
+<em>Functional mutations - known genes</em>
+<em> QTL Genotype and effect
+</em> Genotype selection candidates
+* For application in unrelated breeds, effect needs to be verified</p>
+<p><strong>LD-MAS (linkage disequilibrium- marker assisted selection)</strong>
+<em>Markers in pop.-wide LD with functional mutation</em>
+<em> As straightforward as GAS, more markers when using haplotype
+</em> Monitor association over time
+* Application in other breeds my require confirmation study</p>
+<p><strong>LE-MAS (linkage equilibrium- marker assisted selection)</strong>
+<em>Markers in pop.-wide LE with functional mutation</em>
+<em> Only within family LD between marker and <strong>QTL (quantitative trait locus)</strong>
+</em> IBD and QTL variance
+<em> Requires extensive genotyping and statistical analysis
+</em> Can be implemented directly after QTL detection</p>
+<h3 id="strategies-for-mas-and-uptake">Strategies for MAS and Uptake</h3>
+<p>How to balance selection on markers and standard EBV?
+<em> Tandem Selection
+  * First select animals with favourable genotype
+  * The best EBV within that group
+</em> Index Selection
+  * Select on weighted sum of EBV and Marker Score
+* Pre-selection
+  * Select on markers in early life
+  * Then EBV later in life</p>
+<p><strong>Uptake:</strong>
++ Mainly for single gene defects (GAS or LD-MAS)
+    + BLAD, CVM, RYR
++ Some candidate genes
+    + IGF2, Myostatin, MC4R</p>
+<h2 id="gs-genomic-selection">GS - genomic selection</h2>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>Use genome-wide SNP information</li>
+<li>Rather than detecting QTL, estimate effects for all SNPs or SNP haplotypes</li>
+<li>Genomic breeding value (gEBV) is sum of all haplotype effects</li>
+</ul>
+<h3 id="principleconcepts-for-gs">Principle/Concepts for GS</h3>
+<ul>
+<li>You have a training population</li>
+<li>Population with known phenotypes (traits)</li>
+<li>thousands of genetic markers</li>
+<li>Used to create the gEBV</li>
+<li>You have a selection population, were you apply the gEBV</li>
+<li>so only the genotypes are known</li>
+<li>estimate the phenotype based on the gEBV</li>
+<li>Based on this you choose parents for the next "generation" of traits you want</li>
+</ul>
+<p><img alt="" src="http://www.cell.com/cms/attachment/2007959821/2030624957/gr4.jpg" /></p>
+<h3 id="gblup">GBLUP</h3>
+<p><strong>BLUP</strong> means <strong>best linear unbiased prediction</strong>, and this method allows breeders of <em>livestock</em> to predict the breeding value of their herd animals. GBLUP is the genetic-based BLUP.
+<em> Special Case: each genome region contributes equally to the trait
+  * Rather that summing BLUP estimates across SNPs
+  * Estimate BLUP at animal level using average marker based relationships.
+</em> Same as traditional EBV but using a marker-derived relationship matrix rather than a pedigree (<em>Stammbaum</em>) derived A matrix.
+* No need for pedigree recording (all genome selected), so may be a solution for species or systems where pedigree recording is difficult</p>
+<p><strong>Basic Formula for Genetic gain per year:</strong></p>
+<ul>
+<li>some errors here since i need a formular generation</li>
+</ul>
+<p>$$
+G = {r * i * \sigma a \over L_G}
+$$</p>
+<p><strong>G</strong> = Genetic gain per year
+<strong>i</strong> = Selection intensity e. g. i take the top 10 % of all animals with my trait
+<strong>σa</strong> = additative genetic standard derivation
+<strong>L~G~</strong> = Generation intervall (average year of the parents when their offspring is born)
+<strong>r</strong> = its a normalization of D</p>
+<p>$$
+r = \sqrt{N_p h²\over N_p h²+min(N_{QTL},M_e)}
+$$</p>
+<p><strong>N~P~</strong> = Number of phenotypes
+<strong>h²</strong> = heritability
+<strong>N~QTL~</strong> =
+<strong>M~e~</strong> is calculated with:</p>
+<p>$$
+M_e = {2N_eL \over ln(4N_eL) }
+$$</p>
+<p><strong>L</strong> = Genome size in Morgan (you need to google the value)
+<strong>N~e~</strong> = Population size</p>
+<p><strong>Software  is available for these calculations e. g. SelAction for Windows; or use Excel Spreadsheet</strong></p>
+<p>Rule of thumb: for an accuracy of around 0.99:
+  * 10 * population size * L markers
+  * 100 * population size * L phenotypes in training set</p>
+<h2 id="pros-and-cons-of-gs">Pros and Cons of GS</h2>
+<table>
+<thead>
+<tr>
+<th>Pro</th>
+<th>Contra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Increases accuracy</td>
+<td>Genotyping  not cheap</td>
+</tr>
+<tr>
+<td>Don’t need records on all animals</td>
+<td>Need new evaluation tools</td>
+</tr>
+<tr>
+<td>May not need pedigree</td>
+<td>So far, mainly simulation results</td>
+</tr>
+<tr>
+<td>Can monitor inbreeding</td>
+<td>Long term effects unknown</td>
+</tr>
+<tr>
+<td></td>
+<td>Only accounts for additive SNP effects</td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-information-about-breeding">Other information about breeding</h2>
+<p>Pig and chicken Breeding are using pure lines for selection but crossbreds for the "consumer products" like meat and eggs</p>
+<p><strong>Heterosis</strong> - crossbreading performes better then the mean of parents. (e.g. A³⁰⁰ + B⁴⁰⁰ is not C³⁵⁰ its C³⁵⁰⁻³⁷⁵)</p>
+<p><strong>Aquaculture</strong> has mass spawning, and you need populations for breeding (e.g. 30 female and 30 male fish's) -&gt; gene marker are really useful here</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

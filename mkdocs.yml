@@ -1,26 +1,33 @@
 site_name: Bioinformatics
 theme: yeti
 nav:
-- Home: index.md
+
 - Shell:
-        - Basics: shell.md
-        - Advanced: shell_adv.md
-        - File Manipulation (fasta): fasta.md
-        - Git: git.md
+        - Basics:
+              - Commands: shell/shell.md
+              - Cloud Computing: shell/shell_adv.md
+        - File Manipulation (fasta): shell/fasta.md
+        - Git: shell/git.md
 - Python:
         - Basics: python.md
 - R:
         - Basics: R.md
 - Tools:
-        - Atom Editor: atom.md
-        - mkdocs: mkdocs.md
-        - EMBOSS: emboss.md
+        - Atom Editor: tools/atom.md
+        - EMBOSS: tools/emboss.md
+        - mkdocs: tools/mkdocs.md
+        - UGENE: tools/UGENE.md
 - Sequencing:
-        - Programms: programs.md
-        - HTS (Illumina): illumina.md
-        - Longreads (Nanopore): nanopore.md
-        - Hybridassembly: hybrid.md
+        - Programs: sequencing/programs.md
+        - HTS (Illumina): sequencing/illumina.md
+        - Longreads (Nanopore): sequencing/nanopore.md
+        - Hybridassembly: sequencing/hybrid.md
+        - Annotation: sequencing/annotation.md
+- Metagenome:
+        - Metagenomics: metagenome/metagenomics.md
+        - Metabarcoding: metagenome/metabarcoding.md
 - Other Topics:
-        - Databases: databases.md
-        - GWAS: gwas.md
-        - GS: gs.md
+        - Databases: other_topics/databases.md
+        - GWAS: other_topics/gwas.md
+        - GS: other_topics/gs.md
+        - RNA seq: other_topics/RNA_seq.md
