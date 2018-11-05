@@ -1,12 +1,13 @@
 # Bioinformatics Collection
 
-This website is a collection of lectures and tutorials.
+This site is a collection of lectures, programs, tools, tutorials etc. for myself.
+It serves as a help but does not claim to be complete, accurate or reliable for others.
 
 * Commands are written as "one liner"
   * use the "triple" mouse click to copy the complete line, because it gets the complete command even if its on 2 or more lines due to website formatting
 
 
-Created/Collected by Christian Brandt.
+Written/Collected by Christian Brandt.
 
 * [Researchgate Profile](https://www.researchgate.net/profile/Christian_Brandt5)
 
@@ -23,6 +24,7 @@ ____
 
 * Big thanks to the SLU bioinformatic course at Uppsala
     - [Course site](https://sgbc.github.io/course/)
+* Big thanks to the CeBiTec course at Bielefeld
 
 ## License
 

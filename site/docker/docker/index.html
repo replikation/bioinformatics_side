@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Commands - Bioinformatics</title>
+        <title>Docker start - Bioinformatics</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -46,7 +46,7 @@
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -54,22 +54,22 @@
     <a href="#">Basics</a>
     <ul class="dropdown-menu">
             
-<li class="active">
-    <a href="./">Commands</a>
+<li >
+    <a href="../../shell/shell/">Commands</a>
 </li>
             
 <li >
-    <a href="../shell_adv/">Cloud Computing</a>
+    <a href="../../shell/shell_adv/">Cloud Computing</a>
 </li>
     </ul>
   </li>
                                     
 <li >
-    <a href="../fasta/">File Manipulation (fasta)</a>
+    <a href="../../shell/fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
-    <a href="../git/">Git</a>
+    <a href="../../shell/git/">Git</a>
 </li>
                                 </ul>
                             </li>
@@ -150,12 +150,12 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docker <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../../docker/docker/">Docker start</a>
+<li class="active">
+    <a href="./">Docker start</a>
 </li>
                                 </ul>
                             </li>
@@ -188,13 +188,13 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="disabled">
-                                <a rel="next" >
+                            <li >
+                                <a rel="next" href="../../metagenome/metabarcoding/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../shell_adv/">
+                                <a rel="prev" href="../../other_topics/databases/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -206,104 +206,156 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#shell-commands">Shell Commands</a></li>
-        <li class="main "><a href="#1-basic-commands">1. Basic Commands</a></li>
-            <li><a href="#11-variables">1.1 Variables</a></li>
-            <li><a href="#12-pipes">1.2 Pipes</a></li>
-            <li><a href="#13-loops">1.3 Loops</a></li>
-            <li><a href="#2-installing-apt-downloads">2. Installing (apt) &amp; Downloads</a></li>
+        <li class="main active"><a href="#docker">docker</a></li>
+        <li class="main "><a href="#getting-started">Getting started</a></li>
+            <li><a href="#installing-docker">Installing docker:</a></li>
+            <li><a href="#important-commands">Important commands</a></li>
+        <li class="main "><a href="#docker-example">Docker example</a></li>
+            <li><a href="#step-1-ubuntu">Step 1 - ubuntu</a></li>
+            <li><a href="#step-2-samtools">Step 2 - samtools</a></li>
+            <li><a href="#step-3-running-samtools_docker">Step 3 - running samtools_docker</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="shell-commands">Shell Commands</h1>
-<hr />
-<p>Terminal shortcuts</p>
+<h1 id="docker">docker</h1>
 <ul>
-<li>ctrl + C terminates a process</li>
-<li>ctrl + D logout from a ssh remote</li>
-<li>ctrl + Z pauses a process</li>
+<li>docker cant be installed on Win10 Home edition</li>
+<li>
+<p>i created a VM now with linux mint...</p>
+</li>
+<li>
+<p>activate in the BIOS VT-d
+*</p>
+</li>
 </ul>
-<h1 id="1-basic-commands">1. Basic Commands</h1>
-<pre><code class="bash">    cut -d -f3         # -f 3,4 also possible, delimiter tab is default for -d without input
-    sort
-    head -10
-    less
-    uniq -c             # a uniq that also counts using -c
-    wc -l               # wordcount or -l lines
-    tail -n +2          # starts at line 2, reverse &quot;head&quot;
-    seq 1 10            # sequence, prints 1 2 3 4 5 (...) 10
-    grep -c &quot;&gt;&quot;         # -c counts the &quot;&gt;&quot; in all the files you give grep
-    grep -w &quot;ls&quot;        # exact match
-    ls -lh              # human readable ls command  
-    ln -s ~/data/* .    # creates a link for all data in /data to current folder .      
-    zless               # makes a &quot;less&quot; on an gz file
-    tar -xvf
-    mkdir -p            # creates only folder if it doesnt exist
-    chmod u=rw          # [u g o a] [-+=] [rwx] user group other all(=user&amp;group&amp;other)
-
-    htop                # CPU and RAM information    
-    echo $PATH          # shows all bin/ directories
-    df -h                  # free disk space
-</code></pre>
-
-<h2 id="11-variables">1.1 Variables</h2>
+<h1 id="getting-started">Getting started</h1>
+<h2 id="installing-docker">Installing docker:</h2>
 <ul>
-<li>you can manipulate the output of variables directly</li>
-<li>write variables like this <code>${x}</code> to make sure it uses the right variable name, if there comes no white space after</li>
-<li>e.g. varible <code>x</code> can't be found in <code>$x_test</code> since it adds the <code>_test</code> to the name, but <code>${x}_test</code> would work</li>
+<li>install guide for docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository">here</a></li>
+<li>update the apt to find the docker repositories:</li>
 </ul>
-<pre><code class="bash"># example for variable x
-echo &quot;$x&quot;
-# Forward_sequences.fasta
+<p><strong>add docker rep to you ubuntu</strong></p>
+<pre><code class="bash">sudo apt-get update
 
-# Remove the something from the end:
-echo &quot;${x%.fasta}&quot;
-# Forward_sequences
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
 
-# Remove something in front
-echo &quot;${x#Forward_}&quot;
-# sequences.fasta
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 </code></pre>
 
-<h2 id="12-pipes">1.2 Pipes</h2>
-<pre><code class="bash"># examples
-cut -d, -f &quot;$2&quot; &quot;$1&quot; | tail -n +2 | sort | uniq -c
-cut -d, -f4 data/survey_data.csv | tail -n +2 | sort | uniq -c | sort -n
+<ul>
+<li>verifying the apt update with:</li>
+</ul>
+<pre><code class="bash">
+sudo apt-key fingerprint 0EBFCD88
+
+# results:
+pub   4096R/0EBFCD88 2017-02-22
+      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
+sub   4096R/F273FCD8 2017-02-22
 </code></pre>
 
-<h2 id="13-loops">1.3 Loops</h2>
-<pre><code class="bash"># example 1
-for x in $(seq 1977 2002)
- do
-        grep $x results/taxa_per_year.txt &gt; results/years/$x-count.txt
- done
-# example 2    
-for x in *.fasta;
- do
-     mkdir ${x%.fasta} #${x%.fasta} removes &quot;.fasta&quot; from the variable $x
-     mv $x ${x%.fasta} # so the folder would not be named Seq1.fastq/
- done
-# example 3: Sickle loop with &quot;basename&quot; to extract part of filenames
-for i in *_1.fastq
- do
-    prefix=$(basename $i _1.fastq)
-    echo &quot;${prefix} is correcting with sickle&quot;
-    sickle pe -f ${prefix}_1.fastq -r ${prefix}_2.fastq -o ${prefix}_1_corr.fastq -p ${prefix}_2_corr.fastq -t sanger -s /dev/null -q 2
-done
+<pre><code class="bash">sudo add-apt-repository \
+   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;
 </code></pre>
 
-<h2 id="2-installing-apt-downloads">2. Installing (apt) &amp; Downloads</h2>
-<pre><code class="bash">apt search &quot;TERM&quot; # searches apt database
-apt show &quot;ncbi-blast+&quot; # described the package
-sudo apt install ncbi-blast+
-# commands for download
-wget &lt;URL&gt;
-# sometimes better then wget, can handle redirections
-curl -O -J -L &lt;URL&gt;
+<p><strong>installing docker</strong></p>
+<pre><code class="bash">sudo apt-get update
 
-# to check the md5 sum of the file
-md5sum &lt;file&gt;
+sudo apt-get install docker-ce
+
+sudo docker run hello-world
+
+</code></pre>
+
+<ul>
+<li>add "docker" to your group so you don't have to type sudo every time</li>
+</ul>
+<pre><code class="bash">sudo usermod -a -G docker $USER
+sudo reboot
+</code></pre>
+
+<h2 id="important-commands">Important commands</h2>
+<pre><code class="bash">docker build -t &lt;image_name&gt; . # build a image
+
+docker images # shows all images
+docker rmi &lt;name&gt; # removes a image
+
+docker ps # shows current attached docker containers
+docker rm &lt;name&gt; # removes docker container
+</code></pre>
+
+<h1 id="docker-example">Docker example</h1>
+<ul>
+<li>the Dockerfile input in the following steps can be all combined to "one big" Dockerfile</li>
+<li>
+<p>like an big ready to deploy docker pipeline container</p>
+</li>
+<li>
+<p>currently I would still need the initial <code>docker pull ubuntu</code></p>
+</li>
+</ul>
+<h2 id="step-1-ubuntu">Step 1 - ubuntu</h2>
+<ul>
+<li>first I want a working ubuntu image with the essentials on it, so I can use apt get and stuff (easier than creating a minimal container at the start)</li>
+<li>go into an empty folder (e.g. <code>docker_tutorial</code>)</li>
+<li>do <code>nano Dockerfile</code> and add:</li>
+</ul>
+<pre><code class="bash">FROM ubuntu # gets the ubuntu image
+MAINTAINER YOU NAME&lt;your.name@googlemail.com&gt;
+RUN apt-get update
+RUN apt-get install -y wget build-essential
+</code></pre>
+
+<ul>
+<li>save it</li>
+<li>run inside the <code>docker_tutorial</code> folder the following:</li>
+</ul>
+<pre><code class="bash">docker pull ubuntu # first get the basic ubuntu image
+# now we create out of the ubuntu image the essential image with more libs and stuff
+docker build -t=&quot;ubuntu/ubuntu-build-essential&quot; .
+# this creates a docker image using the Dockerfile
+# you can view all your docker images and sizes via
+docker images
+</code></pre>
+
+<h2 id="step-2-samtools">Step 2 - samtools</h2>
+<ul>
+<li>we now use the essential image and create a new image which also includes samtools</li>
+<li>change the content of the Dockerfile to:</li>
+</ul>
+<pre><code class="bash">FROM main_ubuntu/ubuntu-build-essential # the image from step 1
+MAINTAINER YOU NAME&lt;your.name@cruk.cam.ac.uk&gt;
+RUN apt-get update
+RUN apt-get install -y ncurses-dev zlib1g-dev
+RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
+RUN mv samtools-1.3.1.tar.bz2 /opt
+WORKDIR /opt
+RUN tar -jxf samtools-1.3.1.tar.bz2
+WORKDIR samtools-1.3.1
+RUN ./configure
+RUN make
+RUN make install
+</code></pre>
+
+<ul>
+<li>now run:</li>
+</ul>
+<pre><code class="bash">docker build -t bioinf/samtools_docker .
+</code></pre>
+
+<h2 id="step-3-running-samtools_docker">Step 3 - running samtools_docker</h2>
+<ul>
+<li>just do the following</li>
+</ul>
+<pre><code class="bash"> docker run bioinf/samtools_docker samtools --help
 </code></pre></div>
         </div>
 

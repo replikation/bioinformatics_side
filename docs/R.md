@@ -80,18 +80,20 @@ More [tutorials](https://www.tutorialspoint.com/r/r_operators.htm) about operato
 ```
 
 ## Value/data types
+
 ```R
-#Numeric – A floating point number (default data type of R):
+# Numeric – A floating point number (default data type of R):
     2.4, 9, 888
-#Integer – A number with L suffix:
+# Integer – A number with L suffix:
     2L, 25L, 0L
-#Character - Any amount of text:
+# Character - Any amount of text:
     "a", "school is a house", "66"
-#Logical values:
+# Logical values:
     TRUE, FALSE
-#Complex – defined via imaginary value i:
+# Complex – defined via imaginary value i:
     2+3i, 5+8i
 ```
+
 ## **`class()` and `typeof()` functions**
 ```R
 #class( ) to determine the class of the R object

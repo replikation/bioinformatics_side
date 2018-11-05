@@ -3,6 +3,7 @@
 
 ## Important Packages
 
+* markdown-pdf (better protocol prints)
 * minimap (shows a script minimap on the right side)
 * linter (corrects skripts)
     * and linter-shellcheck
