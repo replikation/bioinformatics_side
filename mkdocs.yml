@@ -9,7 +9,8 @@ nav:
         - File Manipulation (fasta): shell/fasta.md
         - Git: shell/git.md
 - Python:
-        - Basics: python.md
+        - Basics: python/python.md
+        - Bioconda: python/bioconda.md
 - R:
         - Basics: R.md
 - Tools:
