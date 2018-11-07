@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Docker start - Bioinformatics</title>
+        <title>Docker-Basics - Bioinformatics</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -159,7 +159,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li class="active">
-    <a href="./">Docker start</a>
+    <a href="./">Docker-Basics</a>
 </li>
                                 </ul>
                             </li>
@@ -210,21 +210,22 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#docker">docker</a></li>
+        <li class="main active"><a href="#docker-hubdockercom">Docker (hub.docker.com)</a></li>
         <li class="main "><a href="#getting-started">Getting started</a></li>
             <li><a href="#installing-docker">Installing docker:</a></li>
             <li><a href="#important-commands">Important commands</a></li>
         <li class="main "><a href="#creating-docker-images">Creating docker images</a></li>
+            <li><a href="#ssh-into-docker-containers">ssh into docker containers</a></li>
         <li class="main "><a href="#run-dockers-examples">Run dockers examples</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="docker">docker</h1>
+<h1 id="docker-hubdockercom">Docker (hub.docker.com)</h1>
 <ul>
-<li>docker cant be installed on Win10 Home edition</li>
-<li>i created a VM now with linux mint...</li>
-<li>activate in the BIOS "VT-d" to install ubuntu VMs via VMWare</li>
+<li>docker can't be installed on Win10 Home edition</li>
+<li>Created a VM with ubuntu (ubuntu flavor also)</li>
+<li>activate in the <strong>BIOS "VT-d"</strong> and install a "ubuntu VM" via <strong>VMWare</strong></li>
 </ul>
 <h1 id="getting-started">Getting started</h1>
 <h2 id="installing-docker">Installing docker:</h2>
@@ -232,7 +233,7 @@
 <li>install guide for docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository">here</a></li>
 <li>update the apt to find the docker repositories:</li>
 </ul>
-<p><strong>add docker rep to your ubuntu</strong></p>
+<p><strong>1. install dependencies for docker</strong></p>
 <pre><code class="bash">sudo apt-get update
 
 sudo apt-get install \
@@ -244,9 +245,7 @@ sudo apt-get install \
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 </code></pre>
 
-<ul>
-<li>get docker key and verify it:</li>
-</ul>
+<p><strong>2. get docker key and verify it:</strong></p>
 <pre><code class="bash">sudo apt-key fingerprint 0EBFCD88
 
 # results:
@@ -256,16 +255,14 @@ uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
 sub   4096R/F273FCD8 2017-02-22
 </code></pre>
 
-<ul>
-<li>add the repository</li>
-</ul>
+<p><strong>3. add the docker repository</strong></p>
 <pre><code class="bash">sudo add-apt-repository \
    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable&quot;
 </code></pre>
 
-<p><strong>Installing docker</strong></p>
+<p><strong>4. Install docker</strong></p>
 <pre><code class="bash">sudo apt-get update
 
 sudo apt-get install docker-ce
@@ -274,38 +271,57 @@ sudo docker run hello-world
 
 </code></pre>
 
-<p>Add "docker" to your group so you don't have to type sudo every time</p>
+<ul>
+<li>add "docker" to your group so you don't have to type sudo every time</li>
+</ul>
 <pre><code class="bash">sudo usermod -a -G docker $USER
 sudo reboot
 </code></pre>
 
 <h2 id="important-commands">Important commands</h2>
-<pre><code class="bash">docker build -t &lt;image_name&gt; . # build a image from Docker file in .
+<pre><code class="bash">docker run --rm &lt;imagename&gt; &lt;command&gt; # runs image as a container and removes it afterwards  
+docker pull &lt;repositoryname/dockername&gt; # basically git clone of a docker image
+docker build -t &lt;image_name&gt; . # build a image from Docker file in .
 
 docker images # shows all images
 docker rmi &lt;name&gt; # removes a image
 
-docker ps # shows current attached docker containers
-docker rm &lt;name&gt; # removes docker container
+docker ps -a # shows all current containers (active and exited)
+docker rm &lt;name&gt; # removes docker container (IMPORTANT if you want to clean up)
 </code></pre>
 
 <h1 id="creating-docker-images">Creating docker images</h1>
 <ul>
-<li><strong>via automated builds</strong></li>
+<li><strong>via automated builds</strong> on hub.docker.com</li>
 <li>
-<p>this means i create "Dockerfiles" in ubuntu and check if they can be created, than i only push the "Dockerfile" to github</p>
+<p>this means I create <code>Dockerfiles</code> in ubuntu and check if they can be created, than I only push the <code>Dockerfiles</code> to github</p>
 </li>
 <li>
 <p>create a new automated rep on dockerhub</p>
 </li>
 <li>name it like the image (e.g. debian_basic)</li>
-<li>point under options to the correct directory</li>
+<li>point under options to the correct directory in github</li>
 <li>dockerhub needs to be linked to your github</li>
 </ul>
+<h2 id="ssh-into-docker-containers">ssh into docker containers</h2>
+<ul>
+<li>this makes creating Dockerfiles much more easier since you can check if something is wrong or not</li>
+<li>to get into a docker container you have to attach a images (then called container)</li>
+</ul>
+<pre><code class="bash">docker run -name docker_running -d replikation/debian_basic sleep 8h
+# now the container will be active for 8 hours
+# afterwards it will exits and detach the container
+
+# check all docker containers with
+docker ps -a
+
+# ssh into it the one called &quot;docker_running&quot;
+docker exec -it docker_running /bin/bash
+</code></pre>
+
 <p><strong>More information here:</strong></p>
 <ul>
-<li>create auto build for dockers
-https://docs.docker.com/docker-hub/builds/#create-an-automated-build</li>
+<li>create auto build for dockers - <a href="https://docs.docker.com/docker-hub/builds/#create-an-automated-build">LINK</a></li>
 </ul>
 <h1 id="run-dockers-examples">Run dockers examples</h1>
 <ul>
