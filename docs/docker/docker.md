@@ -93,15 +93,13 @@ docker rm <name> # removes docker container (IMPORTANT if you want to clean up)
 * to get into a docker container you have to attach a images (then called container)
 
 ````bash
-docker run -name docker_running -d replikation/debian_basic sleep 8h
-# now the container will be active for 8 hours
+# get into the docker bash
+docker run --name docker_running -d replikation/debian_basic /bin/bash
+# this can be done to just activate a container:
+docker run --name docker_running -d replikation/debian_basic sleep 8h
 # afterwards it will exits and detach the container
-
 # check all docker containers with
 docker ps -a
-
-# ssh into it the one called "docker_running"
-docker exec -it docker_running /bin/bash
 ````
 
 **More information here:**
@@ -116,4 +114,51 @@ docker exec -it docker_running /bin/bash
 docker run --rm -it -v /path/to/example_data:/example_data andrewjpage/tiptoft tiptoft /example_data/ERS654932_plasmids.fastq.gz
 ````
 
-+ `-rm` removes docker after it exits
+* example porechop
+
+````bash
+docker run --rm -it -v /home/christian/Desktop/Docker_experimental_area:/Docker_experimental_area porechop porechop -i /Docker_experimental_area/all2.fastq -b /Docker_experimental_area/demultiplexed
+````
+
++ `--rm` removes docker after it exits, so you dont "fill up" on containers
+
+## Docker pipelines
+* they need to run with `-i` and **without** `-t`
+```bash
+docker run --rm -i replikation/nanopolish echo $((3+4888)) | \
+docker run --rm -i replikation/nanopolish tr -d 1
+ ```
+
+## Docker Wildcards
+* WILDCARDS in docker via run are only interpreted via shell
+* so run a command like this with `sh -c`:
+```
+docker run --rm -i replikation/nanopolish sh -c 'ls /folder/*.fasta'
+```
+
+# Clean up for dockers
+
+**update all docker images**
+
+* change the REPOSITORY to your repository name were all the images are stored
+
+````bash
+docker images |grep -v REPOSITORY|awk '{print $1}'|xargs -L1 docker pull
+````
+
+**stop all containers**
+
+````bash
+docker stop $(docker ps -a -q)
+````
+
+**remove all container**
+
+````bash
+docker rm $(docker ps -a -q)
+````
+
+**remove all untagged images**
+````bash
+docker rmi "$(docker images -f "dangling=true" -q)"
+````

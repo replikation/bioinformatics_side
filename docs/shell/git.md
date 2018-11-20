@@ -37,3 +37,7 @@ ____
 * all files are maintained via the master
 * can be easily created with mkdocs
 * [see this side](../tools/mkdocs.md)
+
+# Cheatsheet
+
+* here is one, [click me](https://education.github.com/git-cheat-sheet-education.pdf)
