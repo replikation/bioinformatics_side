@@ -217,6 +217,8 @@
         <li class="main "><a href="#creating-docker-images">Creating docker images</a></li>
             <li><a href="#ssh-into-docker-containers">ssh into docker containers</a></li>
         <li class="main "><a href="#run-dockers-examples">Run dockers examples</a></li>
+            <li><a href="#docker-pipelines">Docker pipelines</a></li>
+        <li class="main "><a href="#clean-up-for-dockers">Clean up for dockers</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -308,15 +310,13 @@ docker rm &lt;name&gt; # removes docker container (IMPORTANT if you want to clea
 <li>this makes creating Dockerfiles much more easier since you can check if something is wrong or not</li>
 <li>to get into a docker container you have to attach a images (then called container)</li>
 </ul>
-<pre><code class="bash">docker run -name docker_running -d replikation/debian_basic sleep 8h
-# now the container will be active for 8 hours
+<pre><code class="bash"># get into the docker bash
+docker run --name docker_running -d replikation/debian_basic /bin/bash
+# this can be done to just activate a container:
+docker run --name docker_running -d replikation/debian_basic sleep 8h
 # afterwards it will exits and detach the container
-
 # check all docker containers with
 docker ps -a
-
-# ssh into it the one called &quot;docker_running&quot;
-docker exec -it docker_running /bin/bash
 </code></pre>
 
 <p><strong>More information here:</strong></p>
@@ -331,8 +331,48 @@ docker exec -it docker_running /bin/bash
 </code></pre>
 
 <ul>
-<li><code>-rm</code> removes docker after it exits</li>
-</ul></div>
+<li>example porechop</li>
+</ul>
+<pre><code class="bash">docker run --rm -it -v /home/christian/Desktop/Docker_experimental_area:/Docker_experimental_area porechop porechop -i /Docker_experimental_area/all2.fastq -b /Docker_experimental_area/demultiplexed
+</code></pre>
+
+<ul>
+<li><code>--rm</code> removes docker after it exits, so you dont "fill up" on containers</li>
+</ul>
+<h2 id="docker-pipelines">Docker pipelines</h2>
+<ul>
+<li>they need to run with <code>-i</code> and <strong>without</strong> <code>-t</code></li>
+</ul>
+<pre><code class="bash">docker run --rm -i replikation/nanopolish echo $((3+4888)) | \
+docker run --rm -i replikation/nanopolish tr -d 1
+ ```
+
+## Docker Wildcards
+* WILDCARDS in docker via run are only interpreted via shell
+* so run a command like this with `sh -c`:
+</code></pre>
+
+<p>docker run --rm -i replikation/nanopolish sh -c 'ls /folder/*.fasta'
+```</p>
+<h1 id="clean-up-for-dockers">Clean up for dockers</h1>
+<p><strong>update all docker images</strong></p>
+<ul>
+<li>change the REPOSITORY to your repository name were all the images are stored</li>
+</ul>
+<pre><code class="bash">docker images |grep -v REPOSITORY|awk '{print $1}'|xargs -L1 docker pull
+</code></pre>
+
+<p><strong>stop all containers</strong></p>
+<pre><code class="bash">docker stop $(docker ps -a -q)
+</code></pre>
+
+<p><strong>remove all container</strong></p>
+<pre><code class="bash">docker rm $(docker ps -a -q)
+</code></pre>
+
+<p><strong>remove all untagged images</strong></p>
+<pre><code class="bash">docker rmi &quot;$(docker images -f &quot;dangling=true&quot; -q)&quot;
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
