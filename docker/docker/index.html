@@ -371,7 +371,7 @@ docker run --rm -i replikation/nanopolish tr -d 1
 </code></pre>
 
 <p><strong>remove all untagged images</strong></p>
-<pre><code class="bash">docker rmi &quot;$(docker images -f &quot;dangling=true&quot; -q)&quot;
+<pre><code class="bash">docker rmi $(docker images -f &quot;dangling=true&quot; -q)
 </code></pre></div>
         </div>
 
