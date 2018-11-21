@@ -1,5 +1,8 @@
 # Bioinformatics Collection
 
+![](https://img.shields.io/badge/made%20with-mkdocs-blue.svg)
+![](https://img.shields.io/badge/licence-GPL--3.0-lightgrey.svg)
+
 This site is a collection of lectures, programs, tools, tutorials etc. for myself.
 It serves as a help but does not claim to be complete, accurate or reliable for others.
 
