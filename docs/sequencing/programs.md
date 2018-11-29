@@ -15,11 +15,11 @@ mv * ~/.local/bin
 ## Assembly-stats
 * for installation see [github](https://github.com/sanger-pathogens/assembly-stats)
 
-## `porechop`
-* Adapter removal and demultiplexing
+## porechop
+* Adapter removal and demultiplexing of nanopore data
 * for installation see [github](https://github.com/rrwick/Porechop)
 
-## `minimap2` & `miniasm`
+## minimap2 & miniasm
 * fast but error-prone long read assembler
 
 > Use this only with pilon and Illumina correction

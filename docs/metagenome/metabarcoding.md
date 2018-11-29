@@ -281,6 +281,7 @@ ord <- ordinate(physeq, 'MDS', 'euclidean')
 plot_ordination(physeq, ord, type='samples', color='when', title='PCA of the samples from the MiSeq SOP') + theme_minimal()
 ```
 ![](https://i.imgur.com/jIxxBFF.png)
+
 **2. Performed with Bray-Curtis distance**
 ```R
 ord <- ordinate(physeq, 'NMDS', 'bray')

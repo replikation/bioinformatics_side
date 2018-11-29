@@ -17,7 +17,7 @@ bash Miniconda3*.sh
 
 * add bioconda to the channel https://bioconda.github.io/
 
-```bash
+````bash
 conda config --add channels defaults #usually already installed
 conda config --add channels bioconda
 conda config --add channels conda-forge

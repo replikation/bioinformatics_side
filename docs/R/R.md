@@ -44,44 +44,46 @@ install.packages("fortunes")
 **Help functions**
 Get help in R [here](http://www.rseek.org/) or you use help commands:
 ```R
-help(read.table) #help on a function
-?read.table #is the same
+help(read.table) # help on a function
+?read.table # is the same
 
 help.search("deviation")
-??deviation #is the same
+??deviation # is the same
 ```
-## Variables
+### Variables
 * Variables: any letter or word incl. numbers, `_` or `.`
 * Variables are case sensitive and don't have to be declared first
 
 ```R
-x <- 4+3 #adds sum of 4+3 to the variable x
-y <- 9 #also shown in the environment window or with ls()
+x <- 4+3 # adds sum of 4+3 to the variable x
+y <- 9 # also shown in the environment window or with ls()
 x+y
-[1] 16 #result of x+y
+[1] 16 # result of x+y
 ```
 
-## Operators
+### Operators
 More [tutorials](https://www.tutorialspoint.com/r/r_operators.htm) about operators
 
-```R
-#Arithmetic Operators
+````R
+# Arithmetic Operators
     +, -, *, /, %%, %/%, ^
-#Relational Operators, TRUE or FALSE as a result
+# Relational Operators, TRUE or FALSE as a result
     >, <, >=, <=, ==, !=
-#Logical Operators, & = AND, | = OR
+# Logical Operators, & = AND, | = OR
     &, | , !, &&, ||      #&& = searches if the value is somewhere in the vectors
     4<3 | 4>3             #4<3 = FALSE, 4>3 = TRUE
     [1] TRUE
-#Assignment Operators
+# Assignment Operators
     <-, =, <<-, ->, ->>
-#Miscellaneous Operators
+# Miscellaneous Operators
     %in%, %*%
-```
+# check help for more
+````
 
-## Value/data types
 
-```R
+### Value/data types
+
+````R
 # Numeric – A floating point number (default data type of R):
     2.4, 9, 888
 # Integer – A number with L suffix:
@@ -92,12 +94,13 @@ More [tutorials](https://www.tutorialspoint.com/r/r_operators.htm) about operato
     TRUE, FALSE
 # Complex – defined via imaginary value i:
     2+3i, 5+8i
-```
+````
 
-## **`class()` and `typeof()` functions**
+
+### class() and typeof() functions
 ```R
-#class( ) to determine the class of the R object
-#typeof( ) to determine the internal type (storage mode) of the object
+# class( ) to determine the class of the R object
+# typeof( ) to determine the internal type (storage mode) of the object
     typeof(5.67)
     [1] "double"
     class(5)
@@ -109,7 +112,9 @@ More [tutorials](https://www.tutorialspoint.com/r/r_operators.htm) about operato
     class(var_name)
     [1] "integer"
 ```
-## `print()` and `paste()` functions
+
+### print() and paste() functions
+
 ```R
 print("I am at home") #prints its argument in R console
 [1] "I am at home"
@@ -120,7 +125,8 @@ print(x) #prints also variables
 print(paste("I went there", x, "times"))
 [1] "I went there 6 times"
 ```
-## Value storage types (Vectors, Matrices, Dataframes, Lists)
+
+## Data storage (Vector, Matrix, Data frame, List)
 * **Vectors** are one row data storages
     * all of the same class (e.g. *numeric*, *characters* like words or *logicals* like TRUE, FALSE)
     * allows arithmantics
@@ -138,7 +144,7 @@ print(paste("I went there", x, "times"))
     * access with `x[[2]][1]`: the first `[[ ]]` is for the list ID, the second `[ ]` is for the data in the list, its `[ ]` or `[,]` depending of stored vector or dataframe/matrix (see above)
 
 ___
-## Vectors
+### Vectors
 * values are included with combine `c(<value1>, <value2>, <etc.>)`
 
 ```R
@@ -247,7 +253,7 @@ class(z)
     [1] 4 5 6 7
 ```
 ___
-## Matrices
+### Matrices
 * Creating a Matrix using `matrix` e. g.:
  `matrix(c(<values>),nrow= ,ncol=, byrow=TRUE/FALSE)`
 * leave `nrow` or `ncol` blank e.g. only `ncol=2, byrow=TRUE` to fill the table by creating 2 columns and as many rows as needed for the data
@@ -353,7 +359,7 @@ df["1","b"]
     df[c("col2","col3")]
 ```
 ___
-## List
+### List
 * use the `list()` command to store objects in a data list
 * Each object (vector, matrix etc.) gets a own ID which is `[[1]]`, `[[2]]` and so on.
 
@@ -378,8 +384,8 @@ ___
 #Modify the contents of list members directly with [[ ]]
     my_list[[2]][1] = "new_SLU"
 ```
-# Advanced data manipulation, loops, merging data
-## IF - ELSE, FOR, WHILE function
+# Advanced data manipulation
+## if -else, for, while function
 **IF ELSE functions**
 * example:
 
@@ -404,7 +410,7 @@ m<- c(1:10) #a vector from 1 to 10
 for(i in m){print(paste("5*",i,"=",5*i))}
 #results is 5*3=15 for one of the 10 rows
 ```
-### Dealing with Working dir
+## Working dir
 * `getwd()` to get your current working dir
 * `setwd("/Users/naat0001/Desktop/")` to specify were your workdir should be now
 * You can do this also in rStudio using the GUI
@@ -425,16 +431,20 @@ setwd(file.path(mainDir, subDir))
 # file.path(mainDir, subDir) says basically
 # /Users/naat0001/Desktop/outputDirectory   
 ```
-### File import and download
-* Use delimiter files with `tab` `;` ` ` `,` like *.csv
-* Use `read.table` `with sep=""`(enter seperator here) and `header=TRUE`
+
+## File import and download
+* Use delimiter files with `tab` `;` ` ` `,` like `*.csv`
+* Use `read.table` with sep="" (enter seperator here) and `header=TRUE`
 
 ```R
 x <- read.table("path_to_file/file_name.csv", sep=",", header = TRUE)
 # read.table needs sep="" and header =TRUE
 ```
+
+
 **Download and read a file**
 `download.file` does store the file in your working dir with `destfile=`
+
 ```R
 download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "gapminder-FiveYearData.csv")
 # read the file to a varible
@@ -508,7 +518,7 @@ colnames(df2)[1] <- "Chr_ID"
 df3 <- merge(df1, df2, by.x="Chr", by.y="Chr_ID")
 ```
 
-## Graphs in R
+# Graphs in R
 * Overview of some basic plots can be found [here](https://www.statmethods.net/graphs/index.html).
 * Advanced graphs can be found [here](https://www.statmethods.net/advgraphs/index.html).
 * This example is based on the hist plot:
@@ -524,5 +534,6 @@ pdf(file="my_histogram.pdf")
 hist(x, main = "Title of histogram", col = "orange")
 dev.off()
 ```
+
 * [An introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.html)
 * [R for data science](http://r4ds.had.co.nz)

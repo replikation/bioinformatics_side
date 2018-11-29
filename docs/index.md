@@ -25,7 +25,7 @@ Written/Collected by Christian Brandt.
 ![picture](img/20181019_110008.png)
 
 ____
-## SLU course
+## Courses
 
 * Big thanks to the SLU bioinformatic course at Uppsala
     - [Course site](https://sgbc.github.io/course/)

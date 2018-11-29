@@ -38,7 +38,7 @@ awk '/^>/ { getline seq } length(seq) >1000 { print $0 "\n" seq }' oneliner.fast
 # lazy way
     for x in *.fastq; do sed -n '1~4s/^@/>/p;2~4p' $x > ${x%.fastq}.fasta ; done
     for x in *.fasta; do sed ':a;N;/^>/M!s/\n//;ta;P;D' $x > ${x%.fasta}_oneliner.fasta ; done
-    for x in *_oneliner.fasta; do awk '/^>/ { getline seq } length(seq) >1000 { print $0 "\n" seq }' $x > ${x%._onliner.fasta}_clean.fasta ; done
+    for x in *_oneliner.fasta; do awk '/^>/ { getline seq } length(seq) >1000 { print $0 "\n" seq }' $x > ${x%_onliner.fasta}_clean.fasta ; done
 
 # check all reads
 for x in *.fasta ; do echo  grep -c ">" $x

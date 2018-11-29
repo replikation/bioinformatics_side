@@ -55,8 +55,8 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 sudo docker run hello-world
-
 ```
+
 * add "docker" to your group so you don't have to type sudo every time
 
 ```bash

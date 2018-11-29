@@ -9,8 +9,8 @@ ___
 
 ```bash
 # examples
-ssh -i ~/.ssh/replikation.pem ubuntu@ec2-18-218-161-33.us-east-2.compute.amazonaws.com
-ssh -i ~/.ssh/azure_rsa student@13.95.67.169
+ssh -i ~/.ssh/replikation.pem ubuntu@ec2-11-218-160-32.us-east-2.compute.amazonaws.com
+ssh -i ~/.ssh/azure_rsa student@13.45.57.169
 ```
 ## 1.2 file transfer
 
@@ -51,24 +51,12 @@ screen -R <tab completion>
 * take a look at Hadriens [github for examples](https://github.com/SGBC/course/tree/master/fabfiles)
 * makes sense to just create a simple sudo apt install script for all the important libraries
 
-# 4. pip installation
 
-* its used for python packages
-1#* due to the version chaos that is pip pip3 python and python3, here an explanation
-* stick with python 3
-* so if a site tells you to do `pip install` do `pip3 install`
-
-```bash
-# installing the pip3 from python3.X (not pip from python 2.7)
-sudo apt-get install python3-pip ## use the apt-get for now
-# example of a pip install, DONT use sudo here
-pip3 install pylama pylama-pylint
-```
-
-# 5. mounting devices
+# 4. mounting devices
 
 * get the name of the disk to mount via `df`
 
 ```bash
+# mount <name of disk> to <target>
 sudo mount /dev/nvme1n1p1 /mnt/
 ```

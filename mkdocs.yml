@@ -12,7 +12,9 @@ nav:
         - Basics: python/python.md
         - Bioconda: python/bioconda.md
 - R:
-        - Basics: R.md
+        - Basics: R/R.md
+        - Graphics:
+              - ggplot: R/ggplot.md
 - Tools:
         - Atom Editor: tools/atom.md
         - EMBOSS: tools/emboss.md
