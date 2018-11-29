@@ -91,8 +91,18 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../R/">Basics</a>
+    <a href="../../R/R/">Basics</a>
 </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Graphics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../R/ggplot/">ggplot</a>
+</li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -198,7 +208,7 @@
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../../R/">
+                                <a rel="prev" href="../../R/R/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -233,11 +243,10 @@ bash Miniconda3*.sh
 <ul>
 <li>add bioconda to the channel https://bioconda.github.io/</li>
 </ul>
-<p>```bash
-conda config --add channels defaults #usually already installed
+<pre><code class="bash">conda config --add channels defaults #usually already installed
 conda config --add channels bioconda
 conda config --add channels conda-forge
-````</p></div>
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">

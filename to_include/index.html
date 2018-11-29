@@ -91,8 +91,18 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../R/">Basics</a>
+    <a href="../R/R/">Basics</a>
 </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Graphics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../R/ggplot/">ggplot</a>
+</li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -200,12 +210,7 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#overview-of-the-bioinformatic-course">Overview of the Bioinformatic Course</a></li>
-            <li><a href="#tags-bioinformatics-overview">tags: bioinformatics overview</a></li>
-            <li><a href="#downloading-from-ncbi">Downloading from NCBI</a></li>
-            <li><a href="#blast-ncbi-example-command">BLAST (ncbi+ example command)</a></li>
-        <li class="main "><a href="#11-epigenetics">11 - Epigenetics</a></li>
-            <li><a href="#overview">Overview</a></li>
+        <li class="main active"><a href="#downloading-from-ncbi">Downloading from NCBI</a></li>
         <li class="main "><a href="#13-other-useful-informations">13 - Other useful informations</a></li>
             <li><a href="#uppmax-cloud">UPPMAX Cloud</a></li>
             <li><a href="#slurm-work-flow">Slurm work flow</a></li>
@@ -213,43 +218,12 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="overview-of-the-bioinformatic-course">Overview of the Bioinformatic Course</h1>
-<p>[toc]</p>
-<h6 id="tags-bioinformatics-overview">tags: <code>bioinformatics</code> <code>overview</code></h6>
-<hr />
-<p>Lecturers git hub:
--   <a href="https://github.com/HadrienG">Hadrien Gourlé</a>
-    - <a href="https://sgbc.github.io/course/">Course site of Hadrien</a>
--   <a href="https://github.com/jhayer">Juliette Hayer</a>
--   <a href="https://github.com/Ackia">Oskar Karlsson</a></p>
 <p>Another good genomics tutorial can be found <a href="https://genomics.sschmeier.com/introduction.html">here</a></p>
 <h2 id="downloading-from-ncbi">Downloading from NCBI</h2>
 <pre><code class="bash">#from the sra-toolkit, use git hub
 fastq-dump &lt;accessionnumber&gt;
 </code></pre>
 
-<h2 id="blast-ncbi-example-command">BLAST (ncbi+ example command)</h2>
-<p><code>-outfmt 6</code> creates tab delimited file, for options see <code>--help</code>  </p>
-<pre><code class="bash">blastp -query *inputfile* -db *database* -out *outputfile* -outfmt &quot;6 qseqid length evalue&quot;
-</code></pre>
-
-<h1 id="11-epigenetics">11 - Epigenetics</h1>
-<h2 id="overview">Overview</h2>
-<ul>
-<li><strong>Epigenetics</strong> is the study of heritable changes in gene function that do not involve changes in the DNA sequence</li>
-<li>is influenced by age, environment, life style, diseases</li>
-<li>these modifications can be heritable</li>
-<li>not all genes are active at all times</li>
-<li>there are five histone families (Linker Histones: H1/H5 and Core Histones: H2A, H2B, H3 and H4)
-<img alt="" src="http://wondergressive.com/wp-content/uploads/2013/12/rvx_epigenetics.jpg" /></li>
-</ul>
-<h3 id="reduced-representation-bisulfite-sequencing-rrbs">Reduced representation bisulfite sequencing (RRBS)</h3>
-<ul>
-<li>is an efficient and high-throughput technique used to analyze the genome-wide <a href="https://en.wikipedia.org/wiki/Methylation" title="Methylation">methylation</a> profiles on a single nucleotide level</li>
-<li><a href="https://en.wikipedia.org/wiki/Reduced_representation_bisulfite_sequencing">RRBS</a> combines restriction enzymes and <a href="https://en.wikipedia.org/wiki/Bisulfite_sequencing" title="Bisulfite sequencing">bisulfite sequencing</a> in order to enrich for the areas of the genome that have a high <a href="https://en.wikipedia.org/wiki/CpG_site" title="CpG site">CpG</a> content.</li>
-<li>bisulfite threatment basically converts non methylated C's into T's so you can compare and see what has changed
-<img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Reduced_Representation_Bisulfite_Sequencing_Protocol.jpg/800px-Reduced_Representation_Bisulfite_Sequencing_Protocol.jpg" /></li>
-</ul>
 <h1 id="13-other-useful-informations">13 - Other useful informations</h1>
 <ul>
 <li>Lots of bioinformatic tools developed in sweden, check <a href="https://nbis.se/infrastructure/tools/">this site</a></li>

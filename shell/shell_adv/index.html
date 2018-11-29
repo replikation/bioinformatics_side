@@ -91,8 +91,18 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../R/">Basics</a>
+    <a href="../../R/R/">Basics</a>
 </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Graphics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../R/ggplot/">ggplot</a>
+</li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -216,8 +226,7 @@
             <li><a href="#12-file-transfer">1.2 file transfer</a></li>
         <li class="main "><a href="#2-screen">2. Screen</a></li>
         <li class="main "><a href="#3-advanced-scripting-for-deploying-software">3. Advanced Scripting for deploying Software</a></li>
-        <li class="main "><a href="#4-pip-installation">4. pip installation</a></li>
-        <li class="main "><a href="#5-mounting-devices">5. mounting devices</a></li>
+        <li class="main "><a href="#4-mounting-devices">4. mounting devices</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -231,8 +240,8 @@
 <li><code>ssh</code>, <code>-i ~/.ssh/key</code>(key location) and username@IP, use the <code>-K</code> flag to allow fastqc graphical interface</li>
 </ul>
 <pre><code class="bash"># examples
-ssh -i ~/.ssh/replikation.pem ubuntu@ec2-18-218-161-33.us-east-2.compute.amazonaws.com
-ssh -i ~/.ssh/azure_rsa student@13.95.67.169
+ssh -i ~/.ssh/replikation.pem ubuntu@ec2-11-218-160-32.us-east-2.compute.amazonaws.com
+ssh -i ~/.ssh/azure_rsa student@13.45.57.169
 </code></pre>
 
 <h2 id="12-file-transfer">1.2 file transfer</h2>
@@ -272,24 +281,12 @@ screen -R &lt;tab completion&gt;
 <li>take a look at Hadriens <a href="https://github.com/SGBC/course/tree/master/fabfiles">github for examples</a></li>
 <li>makes sense to just create a simple sudo apt install script for all the important libraries</li>
 </ul>
-<h1 id="4-pip-installation">4. pip installation</h1>
-<ul>
-<li>its used for python packages
-1#* due to the version chaos that is pip pip3 python and python3, here an explanation</li>
-<li>stick with python 3</li>
-<li>so if a site tells you to do <code>pip install</code> do <code>pip3 install</code></li>
-</ul>
-<pre><code class="bash"># installing the pip3 from python3.X (not pip from python 2.7)
-sudo apt-get install python3-pip ## use the apt-get for now
-# example of a pip install, DONT use sudo here
-pip3 install pylama pylama-pylint
-</code></pre>
-
-<h1 id="5-mounting-devices">5. mounting devices</h1>
+<h1 id="4-mounting-devices">4. mounting devices</h1>
 <ul>
 <li>get the name of the disk to mount via <code>df</code></li>
 </ul>
-<pre><code class="bash">sudo mount /dev/nvme1n1p1 /mnt/
+<pre><code class="bash"># mount &lt;name of disk&gt; to &lt;target&gt;
+sudo mount /dev/nvme1n1p1 /mnt/
 </code></pre></div>
         </div>
 

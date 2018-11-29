@@ -91,8 +91,18 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../R/">Basics</a>
+    <a href="../../R/R/">Basics</a>
 </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Graphics</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../R/ggplot/">ggplot</a>
+</li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -527,8 +537,8 @@ physeq
 plot_ordination(physeq, ord, type='samples', color='when', title='PCA of the samples from the MiSeq SOP') + theme_minimal()
 </code></pre>
 
-<p><img alt="" src="https://i.imgur.com/jIxxBFF.png" />
-<strong>2. Performed with Bray-Curtis distance</strong></p>
+<p><img alt="" src="https://i.imgur.com/jIxxBFF.png" /></p>
+<p><strong>2. Performed with Bray-Curtis distance</strong></p>
 <pre><code class="R">ord &lt;- ordinate(physeq, 'NMDS', 'bray')
 plot_ordination(physeq, ord, type='samples', color='when', title='PCA of the samples from the MiSeq SOP') + theme_minimal()
 </code></pre>
