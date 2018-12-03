@@ -227,6 +227,7 @@
         <li class="main "><a href="#2-screen">2. Screen</a></li>
         <li class="main "><a href="#3-advanced-scripting-for-deploying-software">3. Advanced Scripting for deploying Software</a></li>
         <li class="main "><a href="#4-mounting-devices">4. mounting devices</a></li>
+        <li class="main "><a href="#5-big-file-splitting">5. Big file splitting</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -287,6 +288,29 @@ screen -R &lt;tab completion&gt;
 </ul>
 <pre><code class="bash"># mount &lt;name of disk&gt; to &lt;target&gt;
 sudo mount /dev/nvme1n1p1 /mnt/
+</code></pre>
+
+<h1 id="5-big-file-splitting">5. Big file splitting</h1>
+<ul>
+<li>pack files via <code>tar</code></li>
+<li>split them into "chunks"</li>
+<li>transfer chunks via internet (e.g. <code>scp</code> or <code>rsync</code>)</li>
+<li>put them together via <code>cat</code> and extract via <code>tar</code></li>
+<li>example:</li>
+</ul>
+<pre><code class="bash"># tar a folder (-v for terminal status)
+tar -cf archive.tar sequencing_read_folder/
+  # alternatively with compression
+  tar -czf archive.tar.gz sequencing_read_folder/
+
+# split it into 10 GB chunks, alternatively -b 500M (500MB)
+split -b 10G archive.tar &quot;archive.tar.part&quot;
+
+# joining them together
+cat archive.tar.part* &gt; archive.tar
+
+# extract it
+tar -xf archive.tar sequencing_read_folder/
 </code></pre></div>
         </div>
 
