@@ -60,3 +60,27 @@ screen -R <tab completion>
 # mount <name of disk> to <target>
 sudo mount /dev/nvme1n1p1 /mnt/
 ```
+
+# 5. Big file splitting
+
+* pack files via `tar`
+* split them into "chunks"
+* transfer chunks via internet (e.g. `scp` or `rsync`)
+* put them together via `cat` and extract via `tar`
+* example:
+
+````bash
+# tar a folder (-v for terminal status)
+tar -cf archive.tar sequencing_read_folder/
+  # alternatively with compression
+  tar -czf archive.tar.gz sequencing_read_folder/
+
+# split it into 10 GB chunks, alternatively -b 500M (500MB)
+split -b 10G archive.tar "archive.tar.part"
+
+# joining them together
+cat archive.tar.part* > archive.tar
+
+# extract it
+tar -xf archive.tar sequencing_read_folder/
+````
