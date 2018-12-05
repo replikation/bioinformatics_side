@@ -101,6 +101,10 @@
 <li >
     <a href="../../R/ggplot/">ggplot</a>
 </li>
+            
+<li >
+    <a href="../../R/distanceheatmap/">heatmap</a>
+</li>
     </ul>
   </li>
                                 </ul>
@@ -264,7 +268,7 @@ rsync --rsync-path=/bin/rsync -vr -e &quot;ssh -i ~/.ssh/id_rsa&quot; --remove-s
 </ul>
 <pre><code class="bash">while true;
 do
-   rsync -vr --ignore-existing --bwlimit=2M --include &quot;*.fast5&quot; --include &quot;*/&quot; --exclude &quot;*&quot; /mnt/e/data/reads/20181205_1008_02WW /mnt/g/02.Schweden_WW
+   rsync -vr --ignore-existing --bwlimit=3M --include &quot;*.fast5&quot; --include &quot;*/&quot; --exclude &quot;*&quot; /mnt/e/data/reads/20181205_1008_02WW /mnt/g/02.Schweden_WW
   sleep 5 ;
 done
 </code></pre>
