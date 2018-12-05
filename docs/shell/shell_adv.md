@@ -26,6 +26,18 @@ rsync -avpr -e "ssh -i ~/.ssh/cloudgoogle" <USER>@<IP>:~/auto_assembly/ .
 rsync --rsync-path=/bin/rsync -vr -e "ssh -i ~/.ssh/id_rsa" --remove-source-files --include "*.fast5" --include "*/" --exclude "*" /cygdrive/c/data/reads/ $IP:/volume1/sequencing_data/
 ```
 
+* example for an ongoing rsync to transfer fast5 files
+  * limits the speed (so sequencer can use still most of the SSD write speed)
+
+````bash
+while true;
+do
+   rsync -vr --ignore-existing --bwlimit=2M --include "*.fast5" --include "*/" --exclude "*" /mnt/e/data/reads/20181205_1008_02WW /mnt/g/02.Schweden_WW
+  sleep 5 ;
+done
+````  
+
+
 # 2. Screen
 
 **virtual shell session in the cloud**
