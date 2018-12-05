@@ -258,6 +258,17 @@ rsync -avpr -e &quot;ssh -i ~/.ssh/cloudgoogle&quot; &lt;USER&gt;@&lt;IP&gt;:~/a
 rsync --rsync-path=/bin/rsync -vr -e &quot;ssh -i ~/.ssh/id_rsa&quot; --remove-source-files --include &quot;*.fast5&quot; --include &quot;*/&quot; --exclude &quot;*&quot; /cygdrive/c/data/reads/ $IP:/volume1/sequencing_data/
 </code></pre>
 
+<ul>
+<li>example for an ongoing rsync to transfer fast5 files</li>
+<li>limits the speed (so sequencer can use still most of the SSD write speed)</li>
+</ul>
+<pre><code class="bash">while true;
+do
+   rsync -vr --ignore-existing --bwlimit=2M --include &quot;*.fast5&quot; --include &quot;*/&quot; --exclude &quot;*&quot; /mnt/e/data/reads/20181205_1008_02WW /mnt/g/02.Schweden_WW
+  sleep 5 ;
+done
+</code></pre>
+
 <h1 id="2-screen">2. Screen</h1>
 <p><strong>virtual shell session in the cloud</strong></p>
 <ul>
