@@ -15,6 +15,7 @@ nav:
         - Basics: R/R.md
         - Graphics:
               - ggplot: R/ggplot.md
+              - heatmap: distanceheatmap/ggplot.md
 - Tools:
         - Atom Editor: tools/atom.md
         - EMBOSS: tools/emboss.md

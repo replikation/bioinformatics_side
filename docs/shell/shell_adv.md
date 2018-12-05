@@ -32,7 +32,7 @@ rsync --rsync-path=/bin/rsync -vr -e "ssh -i ~/.ssh/id_rsa" --remove-source-file
 ````bash
 while true;
 do
-   rsync -vr --ignore-existing --bwlimit=2M --include "*.fast5" --include "*/" --exclude "*" /mnt/e/data/reads/20181205_1008_02WW /mnt/g/02.Schweden_WW
+   rsync -vr --ignore-existing --bwlimit=3M --include "*.fast5" --include "*/" --exclude "*" /mnt/e/data/reads/20181205_1008_02WW /mnt/g/02.Schweden_WW
   sleep 5 ;
 done
 ````  

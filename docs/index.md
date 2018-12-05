@@ -22,7 +22,7 @@ Written/Collected by Christian Brandt.
 
 ## Content cloud
 
-![picture](img/20181019_110008.png)
+![picture](img/20181019_110008.jpg)
 
 ____
 ## Courses
