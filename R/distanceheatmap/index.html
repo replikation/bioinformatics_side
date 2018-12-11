@@ -224,22 +224,120 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#heatmaps">heatmaps</a></li>
-        <li class="main "><a href="#better-as-a-all-versus-all">better as a all versus all</a></li>
+        <li class="main active"><a href="#distance-based-heatmap">Distance based heatmap</a></li>
+        <li class="main "><a href="#distance-via-mash">Distance via mash</a></li>
+        <li class="main "><a href="#plotting-in-r">Plotting in R</a></li>
+            <li><a href="#optional-meta-data">optional meta data</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="heatmaps">heatmaps</h1>
+<h1 id="distance-based-heatmap">Distance based heatmap</h1>
 <ul>
-<li>fast distance estimation via mash</li>
+<li>tutorial to create a distance based heatmap</li>
+<li>fast distance estimation via <code>mash</code></li>
+<li>plotting via <code>R</code></li>
 </ul>
-<p>´´´´bash</p>
-<h1 id="better-as-a-all-versus-all">better as a all versus all</h1>
-<p>mash sketch -o reference <em>.fasta
+<h1 id="distance-via-mash">Distance via mash</h1>
+<ul>
+<li>see github <a href="https://github.com/marbl/Mash">here</a></li>
+<li>see example below with a folder full of fasta files</li>
+</ul>
+<pre><code class="bash"># better/faster as a blast all versus all
+mash sketch -o reference *.fasta
 mash info reference.msh
-mash dist reference.msh </em>.fasta
-````</p></div>
+mash dist reference.msh *.fasta &gt; results.tsv
+</code></pre>
+
+<ul>
+<li>this creates a <code>results.tsv</code> for R</li>
+<li>this file was modified afterwards</li>
+<li>the accession numbers were renamed and metadata was added to each name, e.g. <code>binA_11_IncA</code></li>
+<li>important if you want to add colors to each branch (see picture below)</li>
+</ul>
+<h1 id="plotting-in-r">Plotting in R</h1>
+<ul>
+<li>step by step in R</li>
+<li>example picture:</li>
+</ul>
+<p><img alt="picture" src="img/Rplot02.jpeg" /></p>
+<ul>
+<li>installing and loading dependencies</li>
+</ul>
+<pre><code class="R">source(&quot;https://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;gplots&quot;)
+library(reshape2);packageVersion(&quot;reshape2&quot;)
+library(RColorBrewer);packageVersion(&quot;RColorBrewer&quot;)
+library(&quot;gplots&quot;);packageVersion(&quot;gplots&quot;)
+</code></pre>
+
+<ul>
+<li>load data and create matrix</li>
+</ul>
+<pre><code class="R">setwd(&quot;&lt;path to file&gt;&quot;)
+df.results &lt;- read.table(&quot;results.tsv&quot;, header = T, sep = &quot;\t&quot;)
+matrix.results &lt;- acast(df.results, binA~binB, value.var = &quot;distance&quot;)
+</code></pre>
+
+<h2 id="optional-meta-data">optional meta data</h2>
+<ul>
+<li><strong>optional step to add colors to branches</strong></li>
+<li>greps certain values in the name to give it a color</li>
+<li>meta data has to be added to the name (e.g. accessionnumber_metadata)</li>
+</ul>
+<pre><code class="R">inc_colour &lt;- unlist(lapply(rownames(matrix.results), function(x){
+  if (grepl(&quot;no&quot;, x)) &quot;#FFFFFF&quot;          # white
+  else if (grepl(&quot;IncFIB&quot;, x))&quot;#FFA500&quot;  # orange
+  else if (grepl(&quot;IncA/C2&quot;, x))&quot;#BDB76B&quot; # dark khaki
+  else if (grepl(&quot;IncA/C&quot;, x))&quot;#808000&quot;  # olive
+  else if (grepl(&quot;IncN&quot;, x))&quot;#FFD700&quot;    # gold
+  else if (grepl(&quot;IncQ1&quot;, x))&quot;#00FF00&quot;   # lime
+  else if (grepl(&quot;IncFIA&quot;, x))&quot;#00FFFF&quot;  # cyan
+  else if (grepl(&quot;IncX3&quot;, x))&quot;#D2691E&quot;   # chocolate
+  else if (grepl(&quot;IncFII&quot;, x))&quot;#40E0D0&quot;  # turquoise
+  else if (grepl(&quot;IncL/M&quot;, x))&quot;#8B008B&quot;  # dark magenta
+  else if (grepl(&quot;IncI2&quot;, x))&quot;#8A2BE2&quot;   # blue violet
+  else if (grepl(&quot;IncU&quot;, x))&quot;#800000&quot;    # maroon
+  else if (grepl(&quot;IncP&quot;, x))&quot;#FF1493&quot;    # deep pink
+  else if (grepl(&quot;IncQ2&quot;, x))&quot;#6495ED&quot;   # corn flower blue
+  }))
+# important length has to be similar to matrix columns and rows
+length(inc_colour)
+</code></pre>
+
+<ul>
+<li>create plot via <code>heatmap2</code></li>
+</ul>
+<pre><code class="R"># same color gradient as the image from above
+Colors &lt;- rev(brewer.pal(11, &quot;Spectral&quot;)) # use spectral
+color.spek &lt;- colorRampPalette(Colors)(30)
+    # use this if you want 0 set to white (change the heatmap2 below)
+    color.zerow  &lt;- c(&quot;#F8F8F8&quot;, colorRampPalette(Colors)(n=900))
+
+# plotting data
+heatmap.2(matrix.plasmids, trace = &quot;none&quot;, tracecol = &quot;#000000&quot;,
+  col = color.spek, margins = c(11, 7.5), keysize = 0.8,
+  labRow = FALSE, labCol = FALSE, na.rm = T,
+  key.title = NA, key.xlab = &quot;Distance&quot;,
+  ColSideColors = inc_colour, RowSideColors = inc_colour)
+</code></pre>
+
+<ul>
+<li>add legend to picture</li>
+</ul>
+<pre><code class="R"># add name and add colors
+leg.name &lt;- c(&quot;None&quot;, &quot;IncFIB&quot;, &quot;IncA/C2&quot;, &quot;IncA/C&quot;)
+leg.color &lt;- c(&quot;#FFFFFF&quot;, &quot;#FFA500&quot;, &quot;#BDB76B&quot;, &quot;#808000&quot;)
+# add legend to heatmap
+legend(&quot;bottom&quot;, legend = paste(INC_names), fill = INC_names_legend, cex = 0.65, ncol = 7, horiz = F)
+</code></pre>
+
+<ul>
+<li>save as vector graphic</li>
+</ul>
+<pre><code class="R"># save as svg
+svg(&quot;Heatmap_spectral.svg&quot;, height = 9, width = 9)
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">

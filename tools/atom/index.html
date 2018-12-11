@@ -238,7 +238,7 @@
 <ul>
 <li>markdown-pdf (better protocol prints)</li>
 <li>minimap (shows a script minimap on the right side)</li>
-<li>linter (corrects skripts)<ul>
+<li>linter (corrects scripts)<ul>
 <li>and linter-shellcheck<ul>
 <li>need also shellcheck in linux or powershell</li>
 </ul>
@@ -247,9 +247,15 @@
 <li>needs pylama installed in python 3</li>
 </ul>
 </li>
+<li>and linter-lintr<ul>
+<li>don't install the auto-dependency on win10, go with "atom-language-r"</li>
+<li>add "C:\Program Files\R\R-3.5.1\bin\R.exe" to path of this <code>package</code></li>
+<li>install via R <code>install.packages("lintr")</code></li>
 </ul>
 </li>
-<li>remote-atom (edit a remotly located script on your client via atom)<ul>
+</ul>
+</li>
+<li>remote-atom (edit a remotely located script on your client via atom)<ul>
 <li>you need to start the atom server in atom</li>
 <li><code>Packages -&gt; Remote Atom -&gt; Start Server</code></li>
 <li>you need to install rmate on the host</li>
