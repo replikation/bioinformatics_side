@@ -26,7 +26,7 @@ mash dist reference.msh *.fasta > results.tsv
 * step by step in R
 * example picture:
 
-![picture](img/Rplot02.jpeg)
+![picture](../img/Rplot02.jpeg)
 
 * installing and loading dependencies
 
