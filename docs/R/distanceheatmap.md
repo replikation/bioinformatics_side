@@ -1,9 +1,11 @@
-Distance based heatmap
+Distance based heatmap.2
 ===
 
 * tutorial to create a distance based heatmap
 * fast distance estimation via ``mash``
 * plotting via ``R``
+* Another good guide about heatmap.2 can be found [here](https://earlglynn.github.io/RNotes/package/gplots/heatmap2.html)
+
 
 # Distance via mash
 
@@ -28,6 +30,8 @@ mash dist reference.msh *.fasta > results.tsv
 
 ![picture](../img/Rplot02.jpeg)
 
+## Dependencies
+
 * installing and loading dependencies
 
 ````R
@@ -46,7 +50,7 @@ df.results <- read.table("results.tsv", header = T, sep = "\t")
 matrix.results <- acast(df.results, binA~binB, value.var = "distance")
 ````
 
-## optional meta data
+## Optional meta data
 * **optional step to add colors to branches**
 * greps certain values in the name to give it a color
 * meta data has to be added to the name (e.g. accessionnumber_metadata)
@@ -71,6 +75,8 @@ inc_colour <- unlist(lapply(rownames(matrix.results), function(x){
 # important length has to be similar to matrix columns and rows
 length(inc_colour)
 ````
+
+## Plotting data
 
 * create plot via `heatmap2`
 
@@ -102,6 +108,11 @@ legend("bottom", legend = paste(INC_names), fill = INC_names_legend, cex = 0.65,
 * save as vector graphic
 
 ````R
-# save as svg
+# starts saving everything to svg
 svg("Heatmap_spectral.svg", height = 9, width = 9)
+# add here the ploting functions e.g.
+heatmap.2(.......) # see above
+legend(....)
+# stops saving everything to svg
+dev.off()
 ````
