@@ -224,19 +224,22 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#distance-based-heatmap">Distance based heatmap</a></li>
+        <li class="main active"><a href="#distance-based-heatmap2">Distance based heatmap.2</a></li>
         <li class="main "><a href="#distance-via-mash">Distance via mash</a></li>
         <li class="main "><a href="#plotting-in-r">Plotting in R</a></li>
-            <li><a href="#optional-meta-data">optional meta data</a></li>
+            <li><a href="#dependencies">Dependencies</a></li>
+            <li><a href="#optional-meta-data">Optional meta data</a></li>
+            <li><a href="#plotting-data">Plotting data</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="distance-based-heatmap">Distance based heatmap</h1>
+<h1 id="distance-based-heatmap2">Distance based heatmap.2</h1>
 <ul>
 <li>tutorial to create a distance based heatmap</li>
 <li>fast distance estimation via <code>mash</code></li>
 <li>plotting via <code>R</code></li>
+<li>Another good guide about heatmap.2 can be found <a href="https://earlglynn.github.io/RNotes/package/gplots/heatmap2.html">here</a></li>
 </ul>
 <h1 id="distance-via-mash">Distance via mash</h1>
 <ul>
@@ -261,6 +264,7 @@ mash dist reference.msh *.fasta &gt; results.tsv
 <li>example picture:</li>
 </ul>
 <p><img alt="picture" src="../../img/Rplot02.jpeg" /></p>
+<h2 id="dependencies">Dependencies</h2>
 <ul>
 <li>installing and loading dependencies</li>
 </ul>
@@ -279,7 +283,7 @@ df.results &lt;- read.table(&quot;results.tsv&quot;, header = T, sep = &quot;\t&
 matrix.results &lt;- acast(df.results, binA~binB, value.var = &quot;distance&quot;)
 </code></pre>
 
-<h2 id="optional-meta-data">optional meta data</h2>
+<h2 id="optional-meta-data">Optional meta data</h2>
 <ul>
 <li><strong>optional step to add colors to branches</strong></li>
 <li>greps certain values in the name to give it a color</li>
@@ -305,6 +309,7 @@ matrix.results &lt;- acast(df.results, binA~binB, value.var = &quot;distance&quo
 length(inc_colour)
 </code></pre>
 
+<h2 id="plotting-data">Plotting data</h2>
 <ul>
 <li>create plot via <code>heatmap2</code></li>
 </ul>
@@ -335,8 +340,13 @@ legend(&quot;bottom&quot;, legend = paste(INC_names), fill = INC_names_legend, c
 <ul>
 <li>save as vector graphic</li>
 </ul>
-<pre><code class="R"># save as svg
+<pre><code class="R"># starts saving everything to svg
 svg(&quot;Heatmap_spectral.svg&quot;, height = 9, width = 9)
+# add here the ploting functions e.g.
+heatmap.2(.......) # see above
+legend(....)
+# stops saving everything to svg
+dev.off()
 </code></pre></div>
         </div>
 

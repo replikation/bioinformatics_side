@@ -326,6 +326,12 @@ cat archive.tar.part* &gt; archive.tar
 
 # extract it
 tar -xf archive.tar sequencing_read_folder/
+</code></pre>
+
+<ul>
+<li>a combined tar zip and splitting</li>
+</ul>
+<pre><code class="bash">tar -cvzf targetdir/ | split --bytes=10GB - archivname.tar.gz.
 </code></pre></div>
         </div>
 
