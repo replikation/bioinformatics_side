@@ -51,7 +51,7 @@
                                 <ul class="dropdown-menu">
                                     
   <li class="dropdown-submenu">
-    <a href="#">Basics</a>
+    <a href="#">Basics/Hacking</a>
     <ul class="dropdown-menu">
             
 <li >
@@ -60,6 +60,14 @@
             
 <li >
     <a href="../../shell/shell_adv/">Cloud Computing</a>
+</li>
+            
+<li >
+    <a href="../../shell/ubuntu_server/">Ubuntu Server</a>
+</li>
+            
+<li >
+    <a href="../../shell/gpu/">GPUs</a>
 </li>
     </ul>
   </li>
@@ -175,6 +183,14 @@
 <li class="active">
     <a href="./">Docker-Basics</a>
 </li>
+                                    
+<li >
+    <a href="../win_docker/">Docker in Win</a>
+</li>
+                                    
+<li >
+    <a href="../gpu/">GPU_Docker</a>
+</li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -212,7 +228,7 @@
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../../other_topics/databases/">
+                                <a rel="prev" href="../win_docker/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -226,7 +242,7 @@
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#docker-hubdockercom">Docker (hub.docker.com)</a></li>
         <li class="main "><a href="#getting-started">Getting started</a></li>
-            <li><a href="#installing-docker">Installing docker:</a></li>
+            <li><a href="#installing-docker">Installing docker</a></li>
             <li><a href="#important-commands">Important commands</a></li>
         <li class="main "><a href="#creating-docker-images">Creating docker images</a></li>
             <li><a href="#ssh-into-docker-containers">ssh into docker containers</a></li>
@@ -244,15 +260,9 @@
 <li>activate in the <strong>BIOS "VT-d"</strong> and install a "ubuntu VM" via <strong>VMWare</strong></li>
 </ul>
 <h1 id="getting-started">Getting started</h1>
-<h2 id="installing-docker">Installing docker:</h2>
-<ul>
-<li>install guide for docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository">here</a></li>
-<li>update the apt to find the docker repositories:</li>
-</ul>
-<p><strong>1. install dependencies for docker</strong></p>
-<pre><code class="bash">sudo apt-get update
-
-sudo apt-get install \
+<h2 id="installing-docker">Installing docker</h2>
+<p><strong>Dependencies</strong></p>
+<pre><code class="bash">sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -261,33 +271,24 @@ sudo apt-get install \
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 </code></pre>
 
-<p><strong>2. get docker key and verify it:</strong></p>
-<pre><code class="bash">sudo apt-key fingerprint 0EBFCD88
+<p><strong>Repo and install</strong></p>
+<pre><code class="bash">#correct release candidate
+# for Linux mint
+var=&quot;bionic&quot;
+# for other
+var=$(lsb_release -cs)
 
-# results:
-pub   4096R/0EBFCD88 2017-02-22
-      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   4096R/F273FCD8 2017-02-22
-</code></pre>
+sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $var stable&quot;
+# this stuff is stored under /etc/apt/sources.list.d
+# you can edit or remove this file if there are some errors
 
-<p><strong>3. add the docker repository</strong></p>
-<pre><code class="bash">sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;
-</code></pre>
-
-<p><strong>4. Install docker</strong></p>
-<pre><code class="bash">sudo apt-get update
+sudo apt-get update
 
 sudo apt-get install docker-ce
-
-sudo docker run hello-world
 </code></pre>
 
 <ul>
-<li>add "docker" to your group so you don't have to type sudo every time</li>
+<li>add "docker" to your group so you don't have to type <code>sudo</code> every time</li>
 </ul>
 <pre><code class="bash">sudo usermod -a -G docker $USER
 sudo reboot
@@ -394,7 +395,7 @@ docker run --rm -i replikation/nanopolish tr -d 1
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+                shortcuts = {"help": 191, "search": 83, "next": 78, "previous": 80};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Metagenomics - Bioinformatics</title>
+        <title>GPUs - Bioinformatics</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -46,7 +46,7 @@
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shell <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -55,29 +55,29 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../shell/shell/">Commands</a>
+    <a href="../shell/">Commands</a>
 </li>
             
 <li >
-    <a href="../../shell/shell_adv/">Cloud Computing</a>
+    <a href="../shell_adv/">Cloud Computing</a>
 </li>
             
 <li >
-    <a href="../../shell/ubuntu_server/">Ubuntu Server</a>
+    <a href="../ubuntu_server/">Ubuntu Server</a>
 </li>
             
-<li >
-    <a href="../../shell/gpu/">GPUs</a>
+<li class="active">
+    <a href="./">GPUs</a>
 </li>
     </ul>
   </li>
                                     
 <li >
-    <a href="../../shell/fasta/">File Manipulation (fasta)</a>
+    <a href="../fasta/">File Manipulation (fasta)</a>
 </li>
                                     
 <li >
-    <a href="../../shell/git/">Git</a>
+    <a href="../git/">Git</a>
 </li>
                                 </ul>
                             </li>
@@ -163,16 +163,16 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metagenome <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li class="active">
-    <a href="./">Metagenomics</a>
+<li >
+    <a href="../../metagenome/metagenomics/">Metagenomics</a>
 </li>
                                     
 <li >
-    <a href="../metabarcoding/">Metabarcoding</a>
+    <a href="../../metagenome/metabarcoding/">Metabarcoding</a>
 </li>
                                 </ul>
                             </li>
@@ -223,12 +223,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../../sequencing/annotation/">
+                                <a rel="next" href="../ubuntu_server/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../metabarcoding/">
+                                <a rel="prev" href="../fasta/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -240,168 +240,146 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#metagenomics">Metagenomics</a></li>
-            <li><a href="#overview-terminology">Overview &amp; Terminology</a></li>
-            <li><a href="#whole-metagenome-sequencing-practical">Whole Metagenome Sequencing - practical</a></li>
-            <li><a href="#metagenome-assembly-and-binning-practical">Metagenome assembly and binning - practical</a></li>
+        <li class="main active"><a href="#gpu">GPU</a></li>
+            <li><a href="#nvidia-cuda">Nvidia cuda</a></li>
+            <li><a href="#setting-up-a-gpu-machine">Setting up a GPU-machine</a></li>
+            <li><a href="#gpu-docker">GPU Docker</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="metagenomics">Metagenomics</h1>
-<h2 id="overview-terminology">Overview &amp; Terminology</h2>
+<h1 id="gpu">GPU</h1>
 <ul>
-<li>collected genomic information of a sample</li>
-<li>unbiased targeting (no special marker like metabarcoding)</li>
-<li>Metabarcoding (16S) is used for large number of samples, i.e., multiple patients, longitudinal studies, etc. but offers limited taxonomical and functional resolution in comparision</li>
-<li><strong>Whole Metagenome sequencing (WMS)</strong>, or shotgun metagenome sequencing, provides insight into community biodiversity and function in contrast to Metabarcoding, where only a specific region of the bacterial community (the 16s rRNA) is sequenced</li>
-<li><strong>WMS</strong> aims at sequencing all the genomic material present in the environment</li>
-<li><strong>WMS</strong> is more expensive but offers increased resolution, and <strong>allows the discovery of viruses as well as other mobile genetic elements</strong></li>
+<li>accessing gpus is done via the cuda, because its not a cpu there are various driver and dependencies that have to match exactly</li>
+<li>see all nvidia things in your system
+<code>ls -la /dev | grep nvidia</code></li>
 </ul>
-<p><strong>Microbiota</strong>
-<em> organism within a set environment
-</em> mainly focused on bacteria
-* exluding viruses &amp; mobile elements</p>
-<p><strong>Microbiome</strong>
-<em> includes all factors of an environment
-</em> (organism, genetic elements, metabolites, proteins)</p>
-<p><strong>Holobiont</strong>
-<em> assemblages of different species that form a ecological unit
-</em> divided into: virome, microbiome and macrobiological hosts</p>
-<h2 id="whole-metagenome-sequencing-practical">Whole Metagenome Sequencing - practical</h2>
+<h2 id="nvidia-cuda">Nvidia cuda</h2>
 <ul>
-<li>comparing samples from the Pig Gut Microbiome against the Human Gut Microbiome</li>
+<li>Nvidia cuda allows the user access to the gpus</li>
+<li>First you need to know for what Nvidia drivers your program was designed (e.g. nvidia 384 driver)</li>
+<li>now you need to make sure your nvidia cuda supports this versions</li>
+<li>check (here)[https://docs.nvidia.com/deploy/cuda-compatibility/index.html]</li>
+<li>some examples:</li>
 </ul>
-<p>Software used:
--   <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>
--   <a href="https://ccb.jhu.edu/software/kraken/">Kraken</a>
--   <a href="https://www.r-project.org/">R</a>
--   <a href="https://github.com/fbreitwieser/pavian">Pavian</a></p>
-<p>Data used:</p>
-<pre><code class="bash">curl -O -J -L https://osf.io/h9x6e/download
-tar xvf subset_wms.tar.gz
+<table>
+<thead>
+<tr>
+<th>CUDA Toolkit</th>
+<th>Linux x86_64 Driver Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CUDA 10.0 (10.0.130)</td>
+<td>&gt;= 410.48</td>
+</tr>
+<tr>
+<td>CUDA 9.2 (9.2.88)</td>
+<td>&gt;= 396.26</td>
+</tr>
+<tr>
+<td>CUDA 9.1 (9.1.85)</td>
+<td>&gt;= 390.46</td>
+</tr>
+<tr>
+<td>CUDA 9.0 (9.0.76)</td>
+<td>&gt;= 384.81</td>
+</tr>
+<tr>
+<td>CUDA 8.0 (8.0.61 GA2)</td>
+<td>&gt;= 375.26</td>
+</tr>
+<tr>
+<td>CUDA 8.0 (8.0.44)</td>
+<td>&gt;= 367.48</td>
+</tr>
+<tr>
+<td>CUDA 7.5 (7.5.16)</td>
+<td>&gt;= 352.31</td>
+</tr>
+<tr>
+<td>CUDA 7.0 (7.0.28)</td>
+<td>&gt;= 346.46</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>e.g. if your program needs <strong>384</strong> since its the latest on xenial you need <strong>cuda 9.0</strong></li>
+<li>download the deb file from <a href="https://developer.nvidia.com/cuda-downloads">nvidia</a></li>
+<li>use Legacy Download for older cuda versions</li>
+<li>use the .deb download on this side end do this (follow site, this is just an example)</li>
+</ul>
+<pre><code class="bash">sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-&lt;press tab&gt;/7fa2af80.pub #this is a file on your computer
+sudo apt-get update
+sudo apt-get install cuda
 </code></pre>
 
+<h2 id="setting-up-a-gpu-machine">Setting up a GPU-machine</h2>
 <ul>
-<li>we <code>ssh</code> using additionally the <code>-X</code> flag to allow a graphical interface</li>
-<li>we used <code>fastqc</code> do check the quality of our data</li>
+<li>example <code>gpu-guppy basecaller</code></li>
+<li>available only via xenial (ubuntu 16) and it uses latest xenial-nvidia driver 384</li>
+<li>therefore cuda 9.0 is needed</li>
+<li>cuda is usually installing are drivers</li>
 </ul>
-<h3 id="1-taxonomic-read-assignment-with-kraken">1. Taxonomic read assignment with <code>Kraken</code></h3>
-<ul>
-<li>first we need the Kraken database</li>
-</ul>
-<pre><code class="bash">#create a databases directory and download the database
-wget https://ccb.jhu.edu/software/kraken/dl/minikraken_20171019_4GB.tgz
-tar xzf minikraken_20171019_4GB.tgz
+<pre><code class="bash">sudo apt-get update
+# download and get the cuda 9 deb from nvidia
+wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+# this gets ubuntu 16.04 64bit linux deb file
+# after downloading go to the deb file and do:
+sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
+sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
+
+# now guppy basecaller
+sudo apt-get update
+sudo apt-get install wget lsb-release
+export PLATFORM=$(lsb_release -cs)
+wget -O- https://mirror.oxfordnanoportal.com/apt/ont-repo.pub | sudo apt-key add -
+echo &quot;deb http://mirror.oxfordnanoportal.com/apt ${PLATFORM}-stable non-free&quot; | sudo tee /etc/apt/sources.list.d/nanoporetech.sources.list
+sudo apt-get update
+sudo apt-get install ont-guppy
 </code></pre>
 
+<h2 id="gpu-docker">GPU Docker</h2>
 <ul>
-<li>running <code>kraken</code> on the reads</li>
-<li><strong>produces a tab-delimited file with an assigned TaxID for each read</strong></li>
+<li>nvidia creates docker which should make it easier to communicate with a gpu and dont have driver issues</li>
+<li>this workflow creates the nvidia gpu docker support</li>
+<li>the installation below assumes that you installed docker-ce and you are now uninstalling docker via apt remove and installing a nvidia compatible docker version</li>
+<li>installation and gpu-test is working:</li>
 </ul>
-<pre><code class="bash"># for the script you need to declare the KRAKEN_DB path
-KRAKEN_DB=&quot;/mnt/databases/minikraken_20171013_4GB&quot;
-for i in *_1.fastq
-do
-    prefix=$(basename $i _1.fastq)
-    # print which sample is being processed
-    echo $prefix
-    kraken --db $KRAKEN_DB --threads 2 --fastq-input ${prefix}_1_corr.fastq ${prefix}_2_corr.fastq &gt; /home/student/wms/results/${prefix}.tab
-    kraken-report --db $KRAKEN_DB /home/student/wms/results/${prefix}.tab &gt; /home/student/wms/results/${prefix}_tax.txt
-done
-</code></pre>
+<pre><code class="bash"># Add the package repositories
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 
-<h3 id="2-visualization-with-pavian-in-r">2. Visualization with Pavian in R</h3>
-<ul>
-<li>Installing and run Pavian in R with those commands:</li>
-</ul>
-<pre><code class="R">#one time only installations and setup
-options(repos = c(CRAN = &quot;http://cran.rstudio.com&quot;))
-if (!require(remotes)) { install.packages(&quot;remotes&quot;) }
-remotes::install_github(&quot;fbreitwieser/pavian&quot;)
-#Start up command
-pavian::runApp(port=5000)
-</code></pre>
+# for a command line environment
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+# for linux mint 19.1 (based on ubuntu 18.04)
+distribution=&quot;ubuntu18.04&quot;
 
-<ul>
-<li>creates a new R-tab were you can open the kraken files</li>
-<li>creates a nice sankey chart of your organism within your sample</li>
-<li>its scalable, allows comparision between samples (as a table) and indepth analysis of samples (see figure)</li>
-</ul>
-<blockquote>
-<p>Example results in one sample as a sankey chart using pavian
-<img alt="" src="https://i.imgur.com/Lmvswjo.png" /></p>
-</blockquote>
-<ul>
-<li>KRONA chart is also for visualization of metagenomic data</li>
-<li>good for explanation of your sample</li>
-<li>but PAVIAN is way better</li>
-</ul>
-<h2 id="metagenome-assembly-and-binning-practical">Metagenome assembly and binning - practical</h2>
-<p>AIM: inspect and assemble metagenomic data and retrieve draft genomes</p>
-<ul>
-<li>using a mock community of 20 bacteria simulating Illumina HiSeq created with <a href="http://insilicoseq.readthedocs.io">InSilicoSeq</a></li>
-<li>selected from the <a href="http://ocean-microbiome.embl.de/companion.html">Tara Ocean study</a> that recovered 957 distinct Metagenome-assembled-genomes (or MAGs) that were previsouly unknown</li>
-</ul>
-<h3 id="1-correction-and-assembly-of-the-illumina-reads">1. Correction and assembly of the illumina reads</h3>
-<ul>
-<li>check the fastq data with <code>fastqc</code></li>
-<li>do <code>sickle</code> and <code>scythe</code> as needed; see <a href="../../sequencing/illumina/">HTS</a></li>
-<li>assembly here with <code>megahit</code></li>
-</ul>
-<pre><code class="bash">sickle pe -f tara_reads_R1.fastq.gz -r tara_reads_R2.fastq.gz -t sanger -o tara_trimmed_R1.fastq -p tara_trimmed_R2.fastq -s /dev/null
-megahit -1 tara_trimmed_R1.fastq -2 tara_trimmed_R2.fastq -o tara_assembly
-</code></pre>
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
-<h3 id="2-binning">2. Binning</h3>
-<ul>
-<li>First map the reads back against the assembly (for coverage information)</li>
-<li>bowtie2 is a ultra fast short read mapper/aligner</li>
-</ul>
-<pre><code class="bash">ln -s tara_assembly/final.contigs.fa . #link contigs to current folder
-bowtie2-build final.contigs.fa final.contigs #index
-bowtie2 -x final.contigs -1 tara_trimmed_R1.fastq -2 tara_trimmed_R2.fastq | samtools view -bS -o tara_to_sort.bam #alignment and bam conversion
-samtools sort tara_to_sort.bam -o tara.bam
-samtools index tara.bam
-</code></pre>
+sudo apt-get update
 
-<ul>
-<li>then we run <code>metabat</code></li>
-</ul>
-<pre><code class="bash">runMetaBat.sh -m 1500 final.contigs.fa tara.bam
-mv final.contigs.fa.metabat-bins1500 metabat
-</code></pre>
+# add this point you need to know which current docker version is supported with nvidia
+  docker --version
+    # e.g. Docker version 18.09.1, build 4c52b90
+  apt-cache madison nvidia-docker2 nvidia-container-runtime
+    # e.g. nvidia-docker2 | 2.0.3+docker18.09.0-1 ...
+    # so you need docker 18.09.0-1 if you are &quot;above&quot; it install docker like this:
+# get docker versions
+  apt-cache madison docker-ce
+  # e.g. docker-ce | 18.09.0~ce-0~ubuntu | (...)
+  sudo apt-get install docker-ce=18.09.0~ce-0~ubuntu
 
-<h3 id="3-qc-of-the-bins">3. QC of the bins</h3>
-<ul>
-<li>first time you run <code>checkm</code> you have to create the database</li>
-</ul>
-<pre><code class="bash">sudo checkm data setRoot ~/.local/data/checkm
-</code></pre>
+# Install nvidia-docker2 and reload the Docker daemon configuration
+sudo apt-get install -y nvidia-docker2
+sudo pkill -SIGHUP dockerd
 
-<pre><code class="bash">checkm lineage_wf -x fa metabat checkm/
-checkm bin_qa_plot -x fa checkm metabat plots
-</code></pre>
-
-<h3 id="4-get-organism-information-and-plot-it">4. Get organism information and plot it</h3>
-<pre><code class="bash">#tells you which organism, saves under checkm/lineage needs folder checkm
-checkm qa checkm/lineage.ms checkm
-#plots its
-checkm bin_qa_plot -x fa checkm metabat plots
-</code></pre>
-
-<ul>
-<li>you get something like this, which should represent 10 different species (theoretically):
-<img alt="" src="https://i.imgur.com/RG2mmkR.png" /></li>
-<li>now you can annotate each bin (fasta files are in metabat dir)</li>
-<li>more informations can be found <a href="https://www.nature.com/articles/s41564-017-0012-7">here</a> and <a href="https://www.nature.com/articles/sdata2017203">here</a></li>
-</ul>
-<h3 id="5-barrnap">5. Barrnap</h3>
-<ul>
-<li><strong>BA</strong>sic <strong>R</strong>apid <strong>R</strong>ibosomal <strong>RNA</strong> <strong>P</strong>redictor</li>
-<li>isnt tsuitable for novel stuff since it has to be in the database, but seems still to work (see figure above of unknown marine bacteria)</li>
-<li>you can download it <a href="https://github.com/tseemann/barrnap">here</a></li>
-</ul></div>
+# Test nvidia-smi with the latest official CUDA image
+docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">

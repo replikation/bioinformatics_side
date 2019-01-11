@@ -51,7 +51,7 @@
                                 <ul class="dropdown-menu">
                                     
   <li class="dropdown-submenu">
-    <a href="#">Basics</a>
+    <a href="#">Basics/Hacking</a>
     <ul class="dropdown-menu">
             
 <li >
@@ -60,6 +60,14 @@
             
 <li >
     <a href="../../shell/shell_adv/">Cloud Computing</a>
+</li>
+            
+<li >
+    <a href="../../shell/ubuntu_server/">Ubuntu Server</a>
+</li>
+            
+<li >
+    <a href="../../shell/gpu/">GPUs</a>
 </li>
     </ul>
   </li>
@@ -175,6 +183,14 @@
 <li >
     <a href="../../docker/docker/">Docker-Basics</a>
 </li>
+                                    
+<li >
+    <a href="../../docker/win_docker/">Docker in Win</a>
+</li>
+                                    
+<li >
+    <a href="../../docker/gpu/">GPU_Docker</a>
+</li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -250,6 +266,9 @@
 mash sketch -o reference *.fasta
 mash info reference.msh
 mash dist reference.msh *.fasta &gt; results.tsv
+# add a header to first line for the R script
+printf &quot;binA\tbinB\tdistance\tevalue\tX1000\n&quot; &gt; results_representatives.tsv
+cat results.tsv &gt;&gt; results_representatives.tsv
 </code></pre>
 
 <ul>
@@ -277,6 +296,7 @@ library(&quot;gplots&quot;);packageVersion(&quot;gplots&quot;)
 
 <ul>
 <li>load data and create matrix</li>
+<li>headers of the file are <strong>binA, binB</strong> and <strong>distance</strong> </li>
 </ul>
 <pre><code class="R">setwd(&quot;&lt;path to file&gt;&quot;)
 df.results &lt;- read.table(&quot;results.tsv&quot;, header = T, sep = &quot;\t&quot;)
@@ -356,7 +376,7 @@ dev.off()
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+                shortcuts = {"help": 191, "search": 83, "next": 78, "previous": 80};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
