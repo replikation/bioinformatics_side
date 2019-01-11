@@ -40,7 +40,7 @@ scoop install shellcheck
 * in atom go to the shellcheck package and enter the following path to it
 
 ```bash
-C:\Users\<USERNAME>\scoop\apps\shellcheck\0.5.0\shellcheck.exe
+C:\Users\<USERNAME>\scoop\apps\shellcheck\<VERSION>\shellcheck.exe
 ```
 
 ### Installing pylama (corrects python scripts)

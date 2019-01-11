@@ -3,9 +3,11 @@ theme: yeti
 nav:
 
 - Shell:
-        - Basics:
+        - Basics/Hacking:
               - Commands: shell/shell.md
               - Cloud Computing: shell/shell_adv.md
+              - Ubuntu Server: shell/ubuntu_server.md
+              - GPUs: shell/gpu.md
         - File Manipulation (fasta): shell/fasta.md
         - Git: shell/git.md
 - Python:
@@ -32,6 +34,8 @@ nav:
         - Metabarcoding: metagenome/metabarcoding.md
 - Docker:
         - Docker-Basics: docker/docker.md
+        - Docker in Win: docker/win_docker.md
+        - GPU_Docker: docker/gpu.md
 - Other Topics:
         - Databases: other_topics/databases.md
         - GWAS: other_topics/gwas.md

@@ -37,6 +37,25 @@ do
 done
 ````  
 
+## 1.3 Transfer through a proxy
+
+* "Proxy jump" Transfer from A(host) over B(proxy) to C(server) or vice versa
+* it functions like a normal ``scp`` but with the added `-oProxyJump=$PROXY` option
+* so you state what the proxy in between is
+* example:
+
+````bash
+# A is the host so "."
+# B(proxy) is e.g.:
+PROXY="username@IP"
+# C(server) is e.g.:
+Server="username@IP"
+#download fast5 files from server to host via proxy:
+scp -r -oProxyJump=$PROXY $SERVER:/var/home/FAST5_files .
+# it will now ask for both passwords (proxy and server)
+````
+
+* more examples [here](https://superuser.com/questions/276533/scp-files-via-intermediate-host)
 
 # 2. Screen
 
@@ -99,5 +118,17 @@ tar -xf archive.tar sequencing_read_folder/
 
 * a combined tar zip and splitting
 ````bash
+# pack split
 tar -cvzf targetdir/ | split --bytes=10GB - archivname.tar.gz.
+# combine unpack
+cat archivname.tar.gz.* > archivname.tar.gz; tar -xvzf archivname.tar.gz -C /mnt/d/dir
+````
+
+
+## 5.1 other
+
+* not tested, its like tar directly to remote machine
+
+````bash
+tar -zc ./path | ssh remoteMachine "cat > ~/file.tar.gz"
 ````

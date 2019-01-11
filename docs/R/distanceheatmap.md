@@ -17,6 +17,9 @@ Distance based heatmap.2
 mash sketch -o reference *.fasta
 mash info reference.msh
 mash dist reference.msh *.fasta > results.tsv
+# add a header to first line for the R script
+printf "binA\tbinB\tdistance\tevalue\tX1000\n" > results_representatives.tsv
+cat results.tsv >> results_representatives.tsv
 ````
 
 * this creates a `results.tsv` for R
@@ -43,6 +46,7 @@ library("gplots");packageVersion("gplots")
 ````
 
 * load data and create matrix
+* headers of the file are **binA, binB** and **distance** 
 
 ````R
 setwd("<path to file>")

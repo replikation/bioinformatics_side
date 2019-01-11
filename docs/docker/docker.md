@@ -6,17 +6,11 @@ Docker (hub.docker.com)
 * activate in the **BIOS "VT-d"** and install a "ubuntu VM" via **VMWare**
 
 # Getting started
-## Installing docker:
+## Installing docker
 
-* install guide for docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository)
-* update the apt to find the docker repositories:
-
-**1. install dependencies for docker**
-
+**Dependencies**
 ```bash
-sudo apt-get update
-
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -25,39 +19,25 @@ sudo apt-get install \
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
-**2. get docker key and verify it:**
+**Repo and install**
 
 ```bash
-sudo apt-key fingerprint 0EBFCD88
+#correct release candidate
+# for Linux mint
+var="bionic"
+# for other
+var=$(lsb_release -cs)
 
-# results:
-pub   4096R/0EBFCD88 2017-02-22
-      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid                  Docker Release (CE deb) <docker@docker.com>
-sub   4096R/F273FCD8 2017-02-22
-```
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $var stable"
+# this stuff is stored under /etc/apt/sources.list.d
+# you can edit or remove this file if there are some errors
 
-**3. add the docker repository**
-
-```bash
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-```
-
-
-**4. Install docker**
-
-```bash
 sudo apt-get update
 
 sudo apt-get install docker-ce
-
-sudo docker run hello-world
 ```
 
-* add "docker" to your group so you don't have to type sudo every time
+* add "docker" to your group so you don't have to type `sudo` every time
 
 ```bash
 sudo usermod -a -G docker $USER
