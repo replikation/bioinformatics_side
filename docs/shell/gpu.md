@@ -8,7 +8,7 @@
 * Nvidia cuda allows the user access to the gpus
 * First you need to know for what Nvidia drivers your program was designed (e.g. nvidia 384 driver)
 * now you need to make sure your nvidia cuda supports this versions
-* check (here)[https://docs.nvidia.com/deploy/cuda-compatibility/index.html]
+* check [here](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 * some examples:
 
 |CUDA Toolkit |	Linux x86_64 Driver Version
@@ -46,7 +46,7 @@ sudo apt-get update
 wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
 # this gets ubuntu 16.04 64bit linux deb file
 # after downloading go to the deb file and do:
-sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
 sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get install cuda

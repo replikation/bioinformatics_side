@@ -28,7 +28,7 @@ pip3 install mkdocs-bootswatch
 mkdocs new <repositoryname>
 cd <repositoryname>
 # change a few things in the mkdocs.yml
-# create markdowns und docs/
+# create markdown-files under docs/
 
 # now build the site with:
 mkdocs build --clean

@@ -41,3 +41,5 @@ nav:
         - GWAS: other_topics/gwas.md
         - GS: other_topics/gs.md
         - RNA seq: other_topics/RNA_seq.md
+- Congress:
+        - 2019: congress/LR_2019.md
