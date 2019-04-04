@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>2019 - Bioinformatics</title>
+        <title>2019_LRM - Bioinformatics</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -193,7 +193,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Topics <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -212,15 +212,16 @@
 <li >
     <a href="../../other_topics/RNA_seq/">RNA seq</a>
 </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
                                     
+  <li class="dropdown-submenu">
+    <a href="#">Congress</a>
+    <ul class="dropdown-menu">
+            
 <li class="active">
-    <a href="./">2019</a>
+    <a href="./">2019_LRM</a>
 </li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                         </ul>
@@ -249,7 +250,7 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#long-read-sequencing">Long Read Sequencing</a></li>
+        <li class="main active"><a href="#long-read-sequencing-meeting">Long Read Sequencing Meeting</a></li>
         <li class="main "><a href="#1-whats-new-in-long-read-sequencing-at-ngi">1. Whats new in long read sequencing at NGI</a></li>
             <li><a href="#11-challenges">1.1 Challenges</a></li>
             <li><a href="#12-swegen">1.2 SweGen</a></li>
@@ -271,7 +272,7 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="long-read-sequencing">Long Read Sequencing</h1>
+<h1 id="long-read-sequencing-meeting">Long Read Sequencing Meeting</h1>
 <hr />
 <p><em>Disclaimer: The views and opinions expressed in this blog are those of the author and do not necessarily reflect the official policy or position of any other agency, organization, employer or company. Assumptions made in the analysis are not reflective of the position of any entity other than the author – and, since we are critically-thinking human beings, these views are always subject to change, revision, and rethinking at any time</em></p>
 <p><a href="https://www.scilifelab.se/events/long-read-sequencing-meeting/">Homepage</a></p>
@@ -305,7 +306,7 @@
 <li>open source free software pipeline</li>
 <li>gelbead emulsion, 8 channels for 8 samples</li>
 <li>micro reaction vessels (gem)</li>
-<li>gem: cell + enzyme + gelebead</li>
+<li>gem: cell * enzyme * gelebead</li>
 <li>Linked read libraries</li>
 <li>basically it's like multiple barcoding and tagging steps to solve some issues of short assembly</li>
 <li>they tag reads so it's clear from wich HMW DNA the read is originating from</li>
@@ -322,41 +323,53 @@
 <li>200Gb per promethion flowcell</li>
 <li>24 cell run 3 Tb (125 Gb per cell)</li>
 </ul>
-<p><strong>User publications</strong>
-+ dark and <a href="https://www.biorxiv.org/content/10.1101/514497v1">camouflaged genes</a>
-+ detection of <a href="https://www.ncbi.nlm.nih.gov/m/pubmed/30273778/">gene fusions</a>
-+ same day <a href="https://jcm.asm.org/content/55/5/1285">diagnostic and surveillance</a></p>
-<p><strong>Nanopore "private Q&amp;A"</strong>
-+ Flipflop with a methylation aware will come soon
-  + use Tombo in github for now to get methylation info
-+ refueling step will be soon implemented via software, tells you when to do the step
-+ flongle runs only for around 16h with around 1 Gb
-+ ubuntu18 guppy soon, no GPU minknow support for live basecalling
-+ nuclease wash protocol on nanopore site
-  + only useful for fast pore dying, not after a big run
-<img alt="poster" src="../img/LR_2019/20190403_152042.jpg" /></p>
+<p><strong>User publications</strong></p>
+<ul>
+<li>dark and <a href="https://www.biorxiv.org/content/10.1101/514497v1">camouflaged genes</a></li>
+<li>detection of <a href="https://www.ncbi.nlm.nih.gov/m/pubmed/30273778/">gene fusions</a></li>
+<li>same day <a href="https://jcm.asm.org/content/55/5/1285">diagnostic and surveillance</a></li>
+</ul>
+<p><strong>Nanopore "private Q&amp;A"</strong></p>
+<ul>
+<li>Flipflop with a methylation aware will come soon</li>
+<li>use Tombo in github for now to get methylation info</li>
+<li>refueling step will be soon implemented via software, tells you when to do the step</li>
+<li>flongle runs only for around 16h with around 1 Gb</li>
+<li>ubuntu18 guppy soon, no GPU minknow support for live basecalling</li>
+<li>nuclease wash protocol on nanopore site</li>
+<li>only useful for fast pore dying, not after a big run
+<img alt="poster" src="../img/LR_2019/20190403_152042.jpg" /></li>
+</ul>
 <h2 id="23-pacbio-latest">2.3 PacBio, latest</h2>
-<p><strong>Accuracy</strong>
-+ 89.0 % read accuracy (over 20kb)
-  + circular consensus sequencing
-  + increased to 99.8% with PacBio HiFi
-    + but less than 20kb reads
-+ basically to improve read quality PacBio needs to decrease total read length. (Circular read consensus)
-<img alt="denovo" src="../img/LR_2019/20190403_103029.jpg" />
-+ 15x coverage seems to be enough, more is not increasing quality or accuracy</p>
-<p><strong>Updates</strong>
-+ improved lib prep protocol for low input
-  + 100ng starting input (support at 150ng)
-  + starts mid April
-+ target enrichment using crispr/cas9
-  + q3 2019 (2 day protocol)
-+ RNA still based on RT-PCR</p>
-<p><strong>New sequel II system</strong>
-+ 8x yield
-+ lower cost
-<img alt="sequel" src="../img/LR_2019/20190403_103341.jpg" />
-+ accuracy seems to bit a smaller bit better than previously
-+ they claim that it's now getting better than short reads</p>
+<p><strong>Accuracy</strong></p>
+<ul>
+<li>89.0 % read accuracy (over 20kb)</li>
+<li>circular consensus sequencing</li>
+<li>increased to 99.8% with PacBio HiFi<ul>
+<li>but less than 20kb reads</li>
+</ul>
+</li>
+<li>basically to improve read quality PacBio needs to decrease total read length. (Circular read consensus)
+<img alt="denovo" src="../img/LR_2019/20190403_103029.jpg" /></li>
+<li>15x coverage seems to be enough, more is not increasing quality or accuracy</li>
+</ul>
+<p><strong>Updates</strong></p>
+<ul>
+<li>improved lib prep protocol for low input</li>
+<li>100ng starting input (support at 150ng)</li>
+<li>starts mid April</li>
+<li>target enrichment using crispr/cas9</li>
+<li>q3 2019 (2 day protocol)</li>
+<li>RNA still based on RT-PCR</li>
+</ul>
+<p><strong>New sequel II system</strong></p>
+<ul>
+<li>8x yield</li>
+<li>lower cost
+<img alt="sequel" src="../img/LR_2019/20190403_103341.jpg" /></li>
+<li>accuracy seems to bit a smaller bit better than previously</li>
+<li>they claim that it's now getting better than short reads</li>
+</ul>
 <h1 id="3-topics-and-speeches">3. Topics and speeches</h1>
 <h2 id="31-inra-ensat">3.1 INRA ENSAT</h2>
 <p><em>Mohamed-Zouine, INRA/ENSAT. Long DNA molecule sequencing:
@@ -441,8 +454,10 @@ from de novo assembly to chromosome level scaffolding of the tomato and melon ge
 <img alt="compari" src="../img/LR_2019/20190403_155140.jpg" />
 <img alt="g_assembly" src="../img/LR_2019/20190403_160118.jpg" /></li>
 </ul>
-<p><strong>APPROACH</strong>
-+ <code>wtdbg2</code> + <code>racon</code> + <code>medaka</code> + <code>pilon</code> (10x genomes)</p>
+<p><strong>APPROACH</strong></p>
+<ul>
+<li><code>wtdbg2</code> + <code>racon</code> + <code>medaka</code> + <code>pilon</code> (10x genomes)</li>
+</ul>
 <h2 id="37-norway-sprouch-pine-trails">3.7 Norway sprouch / pine trails</h2>
 <p><em>Niklas Mähler, Umeå University. Long read assembly of Norway spruce and Scots pine</em></p>
 <ul>
@@ -454,22 +469,21 @@ from de novo assembly to chromosome level scaffolding of the tomato and melon ge
 <li>N50 12kb</li>
 <li>removed 0.58 % chloroplast and 7.9 % mitochondria DNA</li>
 </ul>
-<p><strong>Software</strong>
-<code>wtdbg2</code> &amp; <code>marvel</code>
-+ <code>marvel</code>
-  + all vs all alignment, no error correction, masks repeats - 150000CPU for one algo round
-  + they need 2 mio CPU hours and 1 Pb of storage for pines
-+ <code>wtdbg2</code>
-  + used reads longer than 12kbs on 15x coverage
-  + needs lots of RAM
-  + they did <code>busco</code> on <code>wtdbg2</code>, bad results
-  + however the 10 mio scaffold aligned nicely
-+ they have currently "hardware" issues with CPU time and storage due to the size</p>
+<p><strong>Software</strong></p>
+<p><code>wtdbg2</code> &amp; <code>marvel</code>
+<em> <code>marvel</code>
+  * all vs all alignment, no error correction, masks repeats - 150000CPU for one algo round
+  * they need 2 mio CPU hours and 1 Pb of storage for pines
+</em> <code>wtdbg2</code>
+  * used reads longer than 12kbs on 15x coverage
+  * needs lots of RAM
+  * they did <code>busco</code> on <code>wtdbg2</code>, bad results
+  * however the 10 mio scaffold aligned nicely
+* they have currently "hardware" issues with CPU time and storage due to the size</p>
 <h2 id="38-smrt-analysis-on-plasmid-genes-content-and-methylation-profiles">3.8 SMRT analysis on plasmid genes content and methylation profiles</h2>
 <p><em>Åsa Sjöling, KI. SMRT analysis of plasmid gene content and methylation profiles within clonal lineages of enterotoxigenic Escherichia coli (ETEC)</em></p>
 <ul>
-<li>Karolinska, microbiology (MTC) Sjöling</li>
-<li>E.coli plasmids</li>
+<li><em>E. coli</em> plasmids</li>
 <li>interpulse duration for methylation. The lag in measurement of the base is detected
 <img alt="linage_methyl" src="../img/LR_2019/20190403_163637.jpg" />
 <img alt="meth_analysis" src="../img/LR_2019/20190403_163812.jpg" /></li>
@@ -503,7 +517,7 @@ from de novo assembly to chromosome level scaffolding of the tomato and melon ge
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"previous": 80, "next": 78, "help": 191, "search": 83};
+                shortcuts = {"search": 83, "help": 191, "next": 78, "previous": 80};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
