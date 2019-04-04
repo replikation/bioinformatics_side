@@ -214,6 +214,15 @@
 </li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../congress/LR_2019/">2019</a>
+</li>
+                                </ul>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -258,7 +267,7 @@
 <li>Nvidia cuda allows the user access to the gpus</li>
 <li>First you need to know for what Nvidia drivers your program was designed (e.g. nvidia 384 driver)</li>
 <li>now you need to make sure your nvidia cuda supports this versions</li>
-<li>check (here)[https://docs.nvidia.com/deploy/cuda-compatibility/index.html]</li>
+<li>check <a href="https://docs.nvidia.com/deploy/cuda-compatibility/index.html">here</a></li>
 <li>some examples:</li>
 </ul>
 <table>
@@ -327,7 +336,7 @@ sudo apt-get install cuda
 wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
 # this gets ubuntu 16.04 64bit linux deb file
 # after downloading go to the deb file and do:
-sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
 sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get install cuda
@@ -349,7 +358,7 @@ sudo apt-get install ont-guppy
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+                shortcuts = {"previous": 80, "next": 78, "help": 191, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>

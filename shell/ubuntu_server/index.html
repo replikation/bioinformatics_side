@@ -214,6 +214,15 @@
 </li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../congress/LR_2019/">2019</a>
+</li>
+                                </ul>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -243,6 +252,8 @@
         <li class="main active"><a href="#ubuntu-server-commands">ubuntu server commands</a></li>
         <li class="main "><a href="#1-download">1. Download</a></li>
         <li class="main "><a href="#2-userpermission-handling">2. User/Permission handling</a></li>
+            <li><a href="#21-usergroup-informations">2.1 User/Group informations</a></li>
+            <li><a href="#22-add-usergroup">2.2 Add User/Group</a></li>
         <li class="main "><a href="#3-mounting-devices">3. Mounting devices</a></li>
     </ul>
 </div></div>
@@ -252,22 +263,41 @@
 <h1 id="1-download">1. Download</h1>
 <ul>
 <li>download from <a href="https://www.ubuntu.com/download/server">here</a></li>
-<li>select in the installation menu also the docker installation</li>
 </ul>
 <h1 id="2-userpermission-handling">2. User/Permission handling</h1>
+<h2 id="21-usergroup-informations">2.1 User/Group informations</h2>
+<ul>
+<li>general commands to get some inforamtions about users and their rights</li>
+</ul>
+<pre><code class="bash"># show all users
+getent passwd
+# show all groups (e.g. docker)
+getent group
+# see who is logged in
+who
+</code></pre>
+
+<h2 id="22-add-usergroup">2.2 Add User/Group</h2>
+<ul>
+<li>ask user also to change password</li>
+</ul>
+<pre><code class="bash">sudo adduser [username]
+# tell him to change pw
+sudo chage -d 0 [username]
+</code></pre>
+
 <ul>
 <li>add docker to the user (to run docker without sudo)</li>
 </ul>
-<pre><code class="bash">sudo groupadd docker # creates the docker group
+<pre><code class="bash">sudo groupadd docker # creates if group is not available
 sudo usermod -a -G docker $USER
-sudo reboot
 </code></pre>
 
 <h1 id="3-mounting-devices">3. Mounting devices</h1>
 <ul>
-<li>identify disks via <code>fdisk -l</code></li>
+<li>identify all disks via <code>fdisk -l</code></li>
 </ul>
-<pre><code class="bash">sudo mount /dev/nvme1n1p1 /mnt/
+<pre><code class="bash">sudo mount /dev/nvme1n1p1 /mnt/500GB
 </code></pre></div>
         </div>
 
@@ -277,7 +307,7 @@ sudo reboot
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+                shortcuts = {"previous": 80, "next": 78, "help": 191, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
