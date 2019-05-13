@@ -281,10 +281,18 @@
 </li>
 </ul>
 </li>
-<li>remote-atom (edit a remotely located script on your client via atom)<ul>
+<li>
+<p>remote-atom (edit a remotely located script on your client via atom)</p>
+<ul>
 <li>you need to start the atom server in atom</li>
 <li><code>Packages -&gt; Remote Atom -&gt; Start Server</code></li>
 <li>you need to install rmate on the host</li>
+</ul>
+<p><code>bash
+curl -o /usr/local/bin/rmate https://raw.githubusercontent.com/aurora/rmate/master/rmate
+sudo chmod +x /usr/local/bin/rmate
+mv /usr/local/bin/rmate /usr/local/bin/ratom</code></p>
+<ul>
 <li>access host via <code>ssh -R 52698:localhost:52698 name@IP</code></li>
 <li>start a remote script like <code>rmate skript.sh</code></li>
 <li>you can rename rmate to ratom also for <code>ratom skript.sh</code></li>
@@ -338,7 +346,7 @@ pip3 install pylama pylama-pylint ## dont use sudo here
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "previous": 80, "search": 83, "next": 78};
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>

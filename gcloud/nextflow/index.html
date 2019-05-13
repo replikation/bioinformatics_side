@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>GPU_Docker - Bioinformatics</title>
+        <title>Nextflow - Bioinformatics</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -176,20 +176,20 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docker <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../docker/">Docker-Basics</a>
+    <a href="../../docker/docker/">Docker-Basics</a>
 </li>
                                     
 <li >
-    <a href="../win_docker/">Docker in Win</a>
+    <a href="../../docker/win_docker/">Docker in Win</a>
 </li>
                                     
-<li class="active">
-    <a href="./">GPU_Docker</a>
+<li >
+    <a href="../../docker/gpu/">GPU_Docker</a>
 </li>
                                 </ul>
                             </li>
@@ -232,16 +232,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../win_docker/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../../other_topics/databases/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -250,52 +240,42 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#gpu-docker">GPU Docker</a></li>
+        <li class="main active"><a href="#nextflow">Nextflow</a></li>
+        <li class="main "><a href="#installation">Installation</a></li>
+            <li><a href="#channel-quick-report">channel quick report</a></li>
+            <li><a href="#split-channel">split Channel</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="gpu-docker">GPU Docker</h1>
+<h1 id="nextflow">Nextflow</h1>
+<h1 id="installation">Installation</h1>
+<pre><code class="bash"># Java run time
+sudo apt-get install -y default-jre
+# nextflow, download and create executable
+wget -qO- https://get.nextflow.io | bash
+# move to $PATH for convienence
+sudo mv nextflow /usr/bin
+</code></pre>
+
+<h2 id="_1"></h2>
+<p>nextflow clean -f</p>
 <ul>
-<li>
-<p>for detailed cuda installation etc check the <strong>shell/gpu section</strong>.</p>
-</li>
-<li>
-<p>nvidia creates docker which should make it easier to communicate with a gpu and dont have driver issues</p>
-</li>
-<li>this workflow creates the nvidia gpu docker support</li>
-<li>the installation below assumes that you installed docker-ce and you are now uninstalling docker via apt remove and installing a nvidia compatible docker version</li>
-<li>installation and gpu-test is working:</li>
+<li>removes leftovers from pipeline</li>
 </ul>
-<pre><code class="bash"># Add the package repositories
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-
-# for a command line environment
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-# for linux mint 19.1 (based on ubuntu 18.04)
-distribution=&quot;ubuntu18.04&quot;
-
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-
-sudo apt-get update
-
-# add this point you need to know which current docker version is supported with nvidia
-  docker --version
-    # e.g. Docker version 18.09.1, build 4c52b90
-  apt-cache madison nvidia-docker2 nvidia-container-runtime
-    # e.g. nvidia-docker2 | 2.0.3+docker18.09.0-1 ...
-    # so you need docker 18.09.0-1 if you are &quot;above&quot; it install docker like this:
-# get docker versions
-  apt-cache madison docker-ce
-  # e.g. docker-ce | 18.09.0~ce-0~ubuntu | (...)
-  sudo apt-get install docker-ce=18.09.0~ce-0~ubuntu
-
-# Install nvidia-docker2 and reload the Docker daemon configuration
-sudo apt-get install -y nvidia-docker2
-sudo pkill -SIGHUP dockerd
-
-# Test nvidia-smi with the latest official CUDA image
-docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+<h2 id="channel-quick-report">channel quick report</h2>
+<p>accession_list.subscribe { println "Got: ${it}" }</p>
+<h2 id="split-channel">split Channel</h2>
+<p>you have a input channel with one value and want to split into multiple channels</p>
+<p>you have for this:
+splitCsv
+splitText
+splitFasta
+splitFastq</p>
+<p>the operator has to be added to the input stream.
+you never modify the output stream, you are doing this with the input stream!!</p>
+<pre><code class="groovy">input:
+  val(x) from test_ch.splitText()
 </code></pre></div>
         </div>
 
