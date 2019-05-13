@@ -41,3 +41,31 @@ ____
 # Cheatsheet
 
 * here is one, [click me](https://education.github.com/git-cheat-sheet-education.pdf)
+
+# 2. Branching
+
+* on a local master do
+* creates the branch "testside"
+
+````bash
+# create a branch
+git checkout -b testside
+# Edit, add and commit your files.
+git push -u origin testside
+
+# commiting and push normally but use this:
+git push origin testside # not master
+````
+
+* merging branch with master
+
+````bash
+# change to the master branch
+git checkout master
+# merge the testside branch INTO the master
+git merge testside
+# push the new master to github
+git push origin master
+# cheange back to testside via
+git checkout testside
+````

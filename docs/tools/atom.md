@@ -18,6 +18,13 @@
     + you need to start the atom server in atom
     + `Packages -> Remote Atom -> Start Server`
     * you need to install rmate on the host
+
+    ````bash
+    curl -o /usr/local/bin/rmate https://raw.githubusercontent.com/aurora/rmate/master/rmate
+    sudo chmod +x /usr/local/bin/rmate
+    mv /usr/local/bin/rmate /usr/local/bin/ratom
+    ````
+
     * access host via `ssh -R 52698:localhost:52698 name@IP`
     * start a remote script like `rmate skript.sh`
     * you can rename rmate to ratom also for `ratom skript.sh`
