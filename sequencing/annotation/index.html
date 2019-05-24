@@ -268,26 +268,34 @@
 <li><strong>Functional</strong> gene annotation - find out what the region do</li>
 <li>gff - genome feature file</li>
 </ul>
-<p><strong>Main steps:</strong>
-QC assembly -&gt; structural annotation -&gt; manual curation -&gt; functional annotation -&gt; Submission or Downstream analysis
-<em> QC of assembly is highly important
-</em> Repeat Masking to improve the gene annotations
-<em> most pipelines have this included, but check first before using a annotation program
-</em> annotations are either based on proteins or transcripts
-<em> if a protein is unknown then you won't annotate it
-</em> RNA-seq tries to find all transcripts - should always be included in a annotation project</p>
-<p><strong>Approaches for annotations:</strong>
-<em> </em>Similarity-based methods<em> - these use similarity to annotated sequences like proteins, cDNAs, or ESTs
-</em> <em>Ab initio prediction</em> - likelihood based methods that needs to be trained (give them 1000 known genes of a species)
-    * annotations based on gene content (codon usage, GC content, exon/intron size, promotor, ORF, start codons, splice sites and more)
-    * sensitivity and specifity has to be determined after the training
-    * false positive results? overpredicting?
-    * sensitivity and specifity on nucleotide level is more important than on gene level when evaluating the performance
-<em> </em>Hybrid approaches<em> - ab </em>initio<em> tools with the ability to integrate external evidence/hints
-</em> <em>Comparative (homology) based gene finders</em> - these align genomic sequences from different species and use the alignments to  guide the gene predictions
-<em> </em>Chooser, combiner approaches<em> - these combine gene predictions of other gene finders
-</em> <em>Pipelines</em> - These combine multiple approaches
-    * use a pipeline</p>
+<p><strong>Main steps:</strong></p>
+<p>QC assembly -&gt; structural annotation -&gt; manual curation -&gt; functional annotation -&gt; Submission or Downstream analysis</p>
+<ul>
+<li>QC of assembly is highly important</li>
+<li>Repeat Masking to improve the gene annotations</li>
+<li>most pipelines have this included, but check first before using a annotation program</li>
+<li>annotations are either based on proteins or transcripts</li>
+<li>if a protein is unknown then you won't annotate it</li>
+<li>RNA-seq tries to find all transcripts - should always be included in a annotation project</li>
+</ul>
+<p><strong>Approaches for annotations:</strong></p>
+<ul>
+<li><em>Similarity-based methods</em> - these use similarity to annotated sequences like proteins, cDNAs, or ESTs</li>
+<li><em>Ab initio prediction</em> - likelihood based methods that needs to be trained (give them 1000 known genes of a species)<ul>
+<li>annotations based on gene content (codon usage, GC content, exon/intron size, promotor, ORF, start codons, splice sites and more)</li>
+<li>sensitivity and specifity has to be determined after the training</li>
+<li>false positive results? overpredicting?</li>
+<li>sensitivity and specifity on nucleotide level is more important than on gene level when evaluating the performance</li>
+</ul>
+</li>
+<li><em>Hybrid approaches</em> - ab <em>initio</em> tools with the ability to integrate external evidence/hints</li>
+<li><em>Comparative (homology) based gene finders</em> - these align genomic sequences from different species and use the alignments to  guide the gene predictions</li>
+<li><em>Chooser, combiner approaches</em> - these combine gene predictions of other gene finders</li>
+<li><em>Pipelines</em> - These combine multiple approaches<ul>
+<li>use a pipeline</li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p><strong>Popular tools</strong>:</p>
 <blockquote>
@@ -448,13 +456,15 @@ augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes --alterna
 <li>the best protein- and EST-alignments are chosen to build the most likely gene model, <strong>without an ab <em>initio</em> model</strong></li>
 </ul>
 <blockquote>
-<p>We need to prepare various files and add their path to the <code>maker_opts.ctl</code> file (use , to seperate files):
-<em>   name of the genome sequence (<code>genome=</code>)
-</em>   name of the 'EST' set file(s) (<code>est=</code>)
-<em>   name of the 'Protein' set file(s) (<code>protein=</code>)
-</em>   name of the repeatmasker and repeatrunner files (<code>rm_gff=</code>)
-<em> disabling ab </em>initio<em> with <code>protein2genome=1</code>, <code>est2genome=1</code>
-</em> we deactivated the parameters <code>model_org=</code> and <code>repeat_protein=</code> to avoid the heavy work of repeatmasker (blank values)</p>
+<p>We need to prepare various files and add their path to the <code>maker_opts.ctl</code> file (use , to seperate files):</p>
+<ul>
+<li>name of the genome sequence (<code>genome=</code>)</li>
+<li>name of the 'EST' set file(s) (<code>est=</code>)</li>
+<li>name of the 'Protein' set file(s) (<code>protein=</code>)</li>
+<li>name of the repeatmasker and repeatrunner files (<code>rm_gff=</code>)</li>
+<li>disabling ab <em>initio</em> with <code>protein2genome=1</code>, <code>est2genome=1</code></li>
+<li>we deactivated the parameters <code>model_org=</code> and <code>repeat_protein=</code> to avoid the heavy work of repeatmasker (blank values)</li>
+</ul>
 </blockquote>
 <ul>
 <li>if the <code>maker_opts.ctl</code>is configured properly start the maker pipeline with</li>
@@ -685,7 +695,7 @@ EMBLmyGFF3 finalOutputDir/codingGeneFeatures.gff 4.fa -o my_annotation_ready_to_
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+                shortcuts = {"help": 191, "previous": 80, "next": 78, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
