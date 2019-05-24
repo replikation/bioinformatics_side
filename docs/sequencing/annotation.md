@@ -1,11 +1,14 @@
 # Genome annotation
 ## Structural genome annotation
+
 * **Structural** gene annotation - find out where the region of interest is
 * **Functional** gene annotation - find out what the region do
 * gff - genome feature file
 
 **Main steps:**
+
 QC assembly -> structural annotation -> manual curation -> functional annotation -> Submission or Downstream analysis
+
 * QC of assembly is highly important
 * Repeat Masking to improve the gene annotations
 * most pipelines have this included, but check first before using a annotation program
@@ -14,6 +17,7 @@ QC assembly -> structural annotation -> manual curation -> functional annotation
 * RNA-seq tries to find all transcripts - should always be included in a annotation project
 
 **Approaches for annotations:**
+
 * *Similarity-based methods* - these use similarity to annotated sequences like proteins, cDNAs, or ESTs
 * *Ab initio prediction* - likelihood based methods that needs to be trained (give them 1000 known genes of a species)
     * annotations based on gene content (codon usage, GC content, exon/intron size, promotor, ORF, start codons, splice sites and more)
@@ -130,12 +134,14 @@ gff3_sp_statistics.pl --gff augustus_drosophila.gff
 ```
 
 ### 3. Visualisation
+
 * opened the chromosome 4 file and the gff file in UGENE
 * looks like this:
 ![](https://i.imgur.com/rAxyelb.png)
 * An other good and popular software to explore genomes is [IGV](https://software.broadinstitute.org/software/igv/)
 
 ## `maker` gene build pipeline - practical
+
 **MAKER** is a computational pipeline to automatically generate annotations from a range of input data. The Maker pipeline can work with any combination of the following data sets, which are put into the `maker_opts.ctl`:
 
 * Proteins from the same species or related
@@ -157,6 +163,7 @@ gff3_sp_statistics.pl --gff augustus_drosophila.gff
 * the best protein- and EST-alignments are chosen to build the most likely gene model, **without an ab *initio* model**
 
 >We need to prepare various files and add their path to the `maker_opts.ctl` file (use , to seperate files):
+>
 >*   name of the genome sequence (`genome=`)
 >*   name of the 'EST' set file(s) (`est=`)
 >*   name of the 'Protein' set file(s) (`protein=`)

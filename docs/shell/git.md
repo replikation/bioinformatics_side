@@ -69,3 +69,27 @@ git push origin master
 # cheange back to testside via
 git checkout testside
 ````
+
+# 3. Working with ssh keys
+
+a) create key via `ssh-keygen -t rsa -b 4096 -C "your_email@domain.com"` if you dont have one
+b) copy the `*.pub` key to github.com (account - settings - ssh und gpg keys)
+c) do `nano ~/.ssh/config` and add
+```bash
+host github.com
+ HostName github.com
+ IdentityFile ~/.ssh/id_rsa
+ User git
+```
+d) ``chmod 660 .ssh/config``
+
+* you need to clone with ssh not http on github.com (small button at the clone window)
+
+```bash
+# looks like this
+git clone git@github.com:nanozoo/bx_guppy_gpu.git
+```
+
+e) change http to git@
+
+`git remote set-url origin git@github.com:USERNAME/REPONAME.git`
