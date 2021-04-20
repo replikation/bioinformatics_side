@@ -24,6 +24,7 @@
  5. sequencing and getting the reads (fastq)
 
 **Bioinformatics:**
+
  1. **Preprocessing** fastq files using: `Trimmomatic, cutadapt, trimgalore`
     1. adapter removal
     2. trimming of bad quality
@@ -52,6 +53,7 @@ You need to know:
 * QC reports?
 
 Normalization for: **library size**, **gene length**, **RNA composition** (comparison between samples)
+
 * Methods:
     * RPKM/FPKM (size and length)
         * not recommended if you compare between different samples
@@ -65,6 +67,7 @@ Normalization for: **library size**, **gene length**, **RNA composition** (compa
         * suitable for differential expression between sample groups
 
 **Data visualization is done with MA-plot or vulcano plot**(check the tutorial afterwards)
+
 > ![](https://raw.githubusercontent.com/wiki/trinityrnaseq/trinityrnaseq/images/MA_and_volcano_plot.png)
 Figure: Black is not significant, red are significant changes
 * heatmaps is the most common representation for differential expression analysis (R/Bioconducter heatmap and ggplot package)
